@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ceyn2bhe050ml"]
+
+[ext_resource type="TileSet" uid="uid://k7pblnycgrob" path="res://Assets/Map/Tilesets/basic_overworld.tres" id="1_0g3bp"]
+
+[node name="Node2D" type="Node2D" unique_id=870724411]
+
+[node name="MapNode" type="Node2D" parent="." unique_id=171253641]
+
+[node name="Background" type="TileMapLayer" parent="MapNode" unique_id=1005343171]
+tile_set = ExtResource("1_0g3bp")
+
+[node name="Foreground" type="TileMapLayer" parent="MapNode" unique_id=28556302]
+tile_set = ExtResource("1_0g3bp")
+
+[node name="Buildings" type="TileMapLayer" parent="MapNode" unique_id=1263855661]
+tile_set = ExtResource("1_0g3bp")
