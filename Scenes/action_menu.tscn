@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cnydoucol5bv0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_28sfo"]
+load_path = "res://.godot/imported/ninepatch_default_pale_blue.png-8226630fdf4dbaab76f70c484a3a0d89.ctex"
+
+[node name="ActionMenu" type="NinePatchRect" unique_id=1684769239]
+modulate = Color(1, 1, 1, 0.3647059)
+texture_filter = 1
+custom_minimum_size = Vector2(110, 40)
+size_flags_horizontal = 3
+texture = SubResource("CompressedTexture2D_28sfo")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4

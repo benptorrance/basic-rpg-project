@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://bj0ioii1xi2lr"]
+
+[ext_resource type="Theme" uid="uid://ymgalg2pu3g" path="res://Assets/Themes/default_theme.tres" id="1_anwxn"]
+[ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
+[ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
+
+[sub_resource type="Theme" id="Theme_fw8re"]
+
+[node name="BattleScene" type="Control" unique_id=1479836790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_anwxn")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2026032816]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="." unique_id=1826511701]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 32.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TurnOrderDisplay" unique_id=604104719]
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AllyZone" type="GridContainer" parent="." unique_id=2091442460]
+custom_minimum_size = Vector2(160, 130)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 130.0
+
+[node name="Enemy Zone" type="GridContainer" parent="." unique_id=1253920837]
+custom_minimum_size = Vector2(160, 130)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_bottom = 130.0
+grow_horizontal = 0
+
+[node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_fw8re")
+theme_override_constants/separation = 0
+
+[node name="ActionMenu" parent="BattleMenus" unique_id=1684769239 instance=ExtResource("2_e5vbs")]
+layout_mode = 2
+
+[node name="ActionList" type="GridContainer" parent="BattleMenus/ActionMenu" unique_id=223629544]
+custom_minimum_size = Vector2(119, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="FightButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=654689470]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fight"
+
+[node name="DefendButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1052418618]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defend"
+
+[node name="SkillButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=237848772]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_anwxn")
+text = "Skill"
+
+[node name="ItemButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=692919445]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_anwxn")
+text = "Item"
+
+[node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1201159933]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_anwxn")
+text = "Party"
+
+[node name="FleeButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=285938981]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_anwxn")
+text = "Flee"
+
+[node name="TargetMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
+layout_mode = 2
+
+[node name="TargetStats" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=2034713808]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -49.0
+offset_right = 50.0
+offset_bottom = -1.0
+grow_vertical = 0
+
+[node name="TargetResistances" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=666330602]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -49.0
+offset_right = 98.0
+offset_bottom = -1.0
+grow_vertical = 0
+
+[node name="TargetResistances2" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=1116370384]
+custom_minimum_size = Vector2(97, 48)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 98.0
+offset_top = -49.0
+offset_right = 146.0
+offset_bottom = -1.0
+grow_vertical = 0
