@@ -11,11 +11,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tssyn"]
 
 [resource]
-Button/font_sizes/font_size = 14
+Button/font_sizes/font_size = 16
 Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_0dkbg")
 Button/styles/focus = SubResource("StyleBoxEmpty_02703")
 Button/styles/hover = SubResource("StyleBoxEmpty_a1tqv")
 Button/styles/normal = SubResource("StyleBoxEmpty_5p4xu")
 Button/styles/pressed = SubResource("StyleBoxEmpty_tssyn")
-GridContainer/constants/h_separation = 14
-GridContainer/constants/v_separation = 4
+GridContainer/constants/h_separation = 12
+GridContainer/constants/v_separation = 0
