@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bj0ioii1xi2lr"]
 
 [ext_resource type="Theme" uid="uid://ymgalg2pu3g" path="res://Assets/Themes/default_theme.tres" id="1_anwxn"]
+[ext_resource type="Texture2D" uid="uid://b7o0y52b6vhx0" path="res://Assets/Backgrounds/nature_1/orig.png" id="2_3gnqe"]
 [ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
+[ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -16,13 +18,28 @@ grow_vertical = 2
 theme = ExtResource("1_anwxn")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2026032816]
+custom_maximum_size = Vector2(320, 129)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 140.0
+grow_horizontal = 2
+texture = ExtResource("2_3gnqe")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=764723529]
+custom_maximum_size = Vector2(320, 51)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -51.0
 grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+grow_vertical = 0
+texture = ExtResource("3_gt16y")
 
 [node name="TurnOrderDisplay" type="HBoxContainer" parent="." unique_id=1826511701]
 layout_mode = 1
@@ -73,6 +90,7 @@ theme = SubResource("Theme_fw8re")
 theme_override_constants/separation = 0
 
 [node name="ActionMenu" parent="BattleMenus" unique_id=1684769239 instance=ExtResource("2_e5vbs")]
+modulate = Color(1, 1, 1, 0.60784316)
 custom_minimum_size = Vector2(110, 50)
 layout_mode = 2
 
@@ -134,6 +152,9 @@ theme = ExtResource("1_anwxn")
 text = "Flee"
 
 [node name="TargetMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
+modulate = Color(1, 1, 1, 0.60784316)
+custom_minimum_size = Vector2(160, 40)
+custom_maximum_size = Vector2(160, -1)
 layout_mode = 2
 
 [node name="TargetStats" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=2034713808]
@@ -162,13 +183,13 @@ offset_bottom = -1.0
 grow_vertical = 0
 
 [node name="TargetSkills" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=1116370384]
-custom_minimum_size = Vector2(88, 48)
+custom_minimum_size = Vector2(68, 48)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 90.0
 offset_top = -49.0
-offset_right = 178.0
+offset_right = 150.0
 offset_bottom = -1.0
 grow_vertical = 0
