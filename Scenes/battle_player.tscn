@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cfgpk41u37fqt"]
+
+[ext_resource type="Texture2D" uid="uid://1lxmpp22ghra" path="res://Assets/Unit Sprites/Players/test_ally.png" id="1_sd2tt"]
+
+[node name="Player1" type="TextureButton" unique_id=1433471859]
+offset_left = 121.0
+offset_top = 93.0
+offset_right = 137.0
+offset_bottom = 109.0
+texture_normal = ExtResource("1_sd2tt")

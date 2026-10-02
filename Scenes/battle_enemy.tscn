@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dvd3d1w5iijl0"]
+
+[ext_resource type="Texture2D" uid="uid://crm0fvmqobin4" path="res://Assets/Unit Sprites/Basic Enemies/test_enemy.png" id="1_e8a42"]
+
+[node name="Enemy1" type="TextureButton" unique_id=249750869]
+offset_left = 32.0
+offset_top = 93.0
+offset_right = 48.0
+offset_bottom = 109.0
+texture_normal = ExtResource("1_e8a42")

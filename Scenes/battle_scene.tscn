@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
+[ext_resource type="PackedScene" uid="uid://cfgpk41u37fqt" path="res://Scenes/battle_player.tscn" id="4_20f6w"]
+[ext_resource type="PackedScene" uid="uid://dvd3d1w5iijl0" path="res://Scenes/battle_enemy.tscn" id="5_20f6w"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -53,18 +55,41 @@ grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="TurnOrderDisplay" unique_id=604104719]
-custom_maximum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(0, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
 
-[node name="AllyZone" type="GridContainer" parent="." unique_id=2091442460]
+[node name="AllyZone" type="Control" parent="." unique_id=1719875408]
 custom_minimum_size = Vector2(160, 130)
-layout_mode = 0
+anchors_preset = 0
 offset_right = 160.0
 offset_bottom = 130.0
 
-[node name="Enemy Zone" type="GridContainer" parent="." unique_id=1253920837]
+[node name="Player1" parent="AllyZone" unique_id=1433471859 instance=ExtResource("4_20f6w")]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 134.0
+
+[node name="Player2" parent="AllyZone" unique_id=1059130237 instance=ExtResource("4_20f6w")]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 107.0
+offset_right = 104.0
+offset_bottom = 123.0
+
+[node name="Player3" parent="AllyZone" unique_id=1452069958 instance=ExtResource("4_20f6w")]
+layout_mode = 0
+offset_left = 58.0
+offset_right = 74.0
+
+[node name="Player4" parent="AllyZone" unique_id=1164326888 instance=ExtResource("4_20f6w")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 107.0
+offset_right = 44.0
+offset_bottom = 123.0
+
+[node name="Enemy Zone" type="Control" parent="." unique_id=334906726]
 custom_minimum_size = Vector2(160, 130)
 layout_mode = 1
 anchors_preset = 1
@@ -73,6 +98,28 @@ anchor_right = 1.0
 offset_left = -160.0
 offset_bottom = 130.0
 grow_horizontal = 0
+
+[node name="Enemy1" parent="Enemy Zone" unique_id=249750869 instance=ExtResource("5_20f6w")]
+layout_mode = 0
+
+[node name="Enemy2" parent="Enemy Zone" unique_id=1905567729 instance=ExtResource("5_20f6w")]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 107.0
+offset_right = 78.0
+offset_bottom = 123.0
+
+[node name="Enemy3" parent="Enemy Zone" unique_id=620595203 instance=ExtResource("5_20f6w")]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 108.0
+
+[node name="Enemy4" parent="Enemy Zone" unique_id=1365563637 instance=ExtResource("5_20f6w")]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 107.0
+offset_right = 138.0
+offset_bottom = 123.0
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
 layout_mode = 1
