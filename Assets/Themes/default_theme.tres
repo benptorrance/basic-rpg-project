@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://ymgalg2pu3g"]
 
+[ext_resource type="FontVariation" uid="uid://b05psk6hwul0f" path="res://Assets/Fonts/default_font.tres" id="1_fqf8d"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dkbg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02703"]
@@ -11,7 +13,9 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tssyn"]
 
 [resource]
+Button/colors/font_hover_color = Color(0.9490196, 0.9490196, 0.12156863, 1)
 Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_fqf8d")
 Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_0dkbg")
 Button/styles/focus = SubResource("StyleBoxEmpty_02703")
 Button/styles/hover = SubResource("StyleBoxEmpty_a1tqv")
