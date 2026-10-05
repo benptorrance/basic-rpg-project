@@ -3,14 +3,14 @@
 [ext_resource type="Theme" uid="uid://ymgalg2pu3g" path="res://Assets/Themes/default_theme.tres" id="1_anwxn"]
 [ext_resource type="Texture2D" uid="uid://b7o0y52b6vhx0" path="res://Assets/Backgrounds/nature_1/orig.png" id="2_3gnqe"]
 [ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
-[ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scenes/battle_scene.gd" id="2_ms847"]
+[ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scripts/battle_scene.gd" id="2_ms847"]
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
 [ext_resource type="PackedScene" uid="uid://cfgpk41u37fqt" path="res://Scenes/battle_player.tscn" id="4_20f6w"]
 [ext_resource type="PackedScene" uid="uid://dvd3d1w5iijl0" path="res://Scenes/battle_enemy.tscn" id="5_20f6w"]
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
-[ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scenes/action_menu.gd" id="9_f4ggb"]
-[ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scenes/action_list.gd" id="10_f4ggb"]
+[ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
+[ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -83,6 +83,7 @@ offset_right = 8.079987
 offset_bottom = 7.989998
 
 [node name="Player2" parent="AllyZone" unique_id=1059130237 instance=ExtResource("4_20f6w")]
+visible = false
 layout_mode = 0
 offset_left = 88.0
 offset_top = 107.0
@@ -90,6 +91,7 @@ offset_right = 104.0
 offset_bottom = 123.0
 
 [node name="Player3" parent="AllyZone" unique_id=1452069958 instance=ExtResource("4_20f6w")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.41200003
@@ -102,6 +104,7 @@ offset_right = 8.079994
 offset_bottom = 7.989998
 
 [node name="Player4" parent="AllyZone" unique_id=1164326888 instance=ExtResource("4_20f6w")]
+visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_top = 107.0
@@ -131,6 +134,7 @@ offset_right = 8.0
 offset_bottom = 7.989998
 
 [node name="Enemy2" parent="Enemy Zone" unique_id=1905567729 instance=ExtResource("5_20f6w")]
+visible = false
 layout_mode = 0
 offset_left = 62.0
 offset_top = 107.0
@@ -138,6 +142,7 @@ offset_right = 78.0
 offset_bottom = 123.0
 
 [node name="Enemy3" parent="Enemy Zone" unique_id=620595203 instance=ExtResource("5_20f6w")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.625
@@ -151,6 +156,7 @@ offset_bottom = 7.989998
 metadata/_edit_use_anchors_ = true
 
 [node name="Enemy4" parent="Enemy Zone" unique_id=1365563637 instance=ExtResource("5_20f6w")]
+visible = false
 layout_mode = 0
 offset_left = 122.0
 offset_top = 107.0

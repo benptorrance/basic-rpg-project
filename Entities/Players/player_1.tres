@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Actor" format=3 uid="uid://cytl6ntt0olil"]
+
+[ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/actor.gd" id="1_xvbvp"]
+
+[resource]
+script = ExtResource("1_xvbvp")
+char_name = "Akayu"
+stats = {
+"Armor": 10,
+"Dex": 42,
+"Luk": 38,
+"Magi Attack": 0,
+"Phys Attack": 0,
+"Str": 57,
+"Vit": 45,
+"Warding": 0,
+"Wis": 14,
+"cur_health": 450,
+"max_health": 450
+}
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
