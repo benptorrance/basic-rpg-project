@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
+[ext_resource type="Script" uid="uid://bqjma2u5kjwp" path="res://Scenes/fight_list.gd" id="11_wb0gu"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -290,24 +291,18 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+script = ExtResource("11_wb0gu")
 
-[node name="FightButton" type="Button" parent="BattleMenus/ActionMenu/FightList" unique_id=1761041193]
+[node name="BasicAttack" type="Button" parent="BattleMenus/ActionMenu/FightList" unique_id=1761041193]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.5
-offset_top = -7.0
-offset_right = 18.5
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 17.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-text = "Fight"
+text = "Basic Attack"
 
 [node name="SkillsList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=673713094]
 visible = false
@@ -452,3 +447,4 @@ grow_vertical = 0
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/ItemsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/BasicAttack" to="." method="_basic_attack"]

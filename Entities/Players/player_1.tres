@@ -7,15 +7,15 @@ script = ExtResource("1_xvbvp")
 char_name = "Akayu"
 stats = {
 "Armor": 10,
-"Dex": 42,
-"Luk": 38,
+"Dex": 14,
+"Health": 0,
+"Luk": 11,
 "Magi Attack": 0,
+"Max Health": 0,
 "Phys Attack": 0,
-"Str": 57,
-"Vit": 45,
+"Str": 19,
+"Vit": 25,
 "Warding": 0,
-"Wis": 14,
-"cur_health": 450,
-"max_health": 450
+"Wis": 7
 }
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"

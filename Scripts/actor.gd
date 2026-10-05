@@ -63,11 +63,19 @@ func _init() -> void:
 	cal_attack()
 
 func cal_health() -> void:
+	print("Calculating Health")
 	stats["Max Health"] = stats["Vit"] * 10
+	print(stats)
 	
 func cal_attack() -> void:
 	stats["Phys Attack"] = stats["Str"] * 2
 	stats["Magi Attack"] = stats["Wis"] * 2
+	
+func take_damage(damage: int) -> void:
+	stats["Health"] -= damage
+
+func regain_health(healing: int) -> void:
+	stats["Health"] += healing
 
 ##This class handles the player characters in the game.
 #The class should have the name of the character, the stats, the equipment it has, and the skills it knows

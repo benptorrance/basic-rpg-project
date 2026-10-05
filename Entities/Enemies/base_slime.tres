@@ -4,4 +4,17 @@
 
 [resource]
 script = ExtResource("1_2870v")
+stats = {
+"Armor": 10,
+"Dex": 10,
+"Health": 100,
+"Luk": 10,
+"Magi Attack": 0,
+"Max Health": 100,
+"Phys Attack": 10,
+"Str": 10,
+"Vit": 10,
+"Warding": 0,
+"Wis": 10
+}
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
