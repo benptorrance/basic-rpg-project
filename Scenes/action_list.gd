@@ -1,6 +1,8 @@
 class_name ActionList extends Container
 
 
+func _ready():
+	$FightButton.grab_focus()
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
