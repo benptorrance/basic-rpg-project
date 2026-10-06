@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
 [ext_resource type="Script" uid="uid://bqjma2u5kjwp" path="res://Scenes/fight_list.gd" id="11_wb0gu"]
+[ext_resource type="Script" uid="uid://bx84hpe3n0up7" path="res://Scenes/choice_container.gd" id="12_84vmf"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -330,14 +331,14 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleMenus/ActionMenu/FightList" unique_id=1678068788]
+[node name="FightCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/FightList" unique_id=1678068788]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
 
-[node name="BasicAttack" type="Button" parent="BattleMenus/ActionMenu/FightList/VBoxContainer" unique_id=1761041193]
+[node name="BasicAttack" type="Button" parent="BattleMenus/ActionMenu/FightList/FightCont" unique_id=1761041193]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -375,14 +376,14 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleMenus/ActionMenu/SkillsList" unique_id=2060114092]
+[node name="SkillsCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/SkillsList" unique_id=2060114092]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
 
-[node name="SkillsButton" type="Button" parent="BattleMenus/ActionMenu/SkillsList/VBoxContainer" unique_id=1787197233]
+[node name="SkillsButton" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1787197233]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -419,21 +420,28 @@ offset_bottom = 12.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../ItemCont")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../ItemCont")
+focus_neighbor_bottom = NodePath(".")
 theme_override_font_sizes/font_size = 10
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleMenus/ActionMenu/ItemsList" unique_id=678689359]
+[node name="ItemCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/ItemsList" unique_id=678689359]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
+script = ExtResource("12_84vmf")
 
-[node name="ItemsButton" type="Button" parent="BattleMenus/ActionMenu/ItemsList/VBoxContainer" unique_id=2095411490]
+[node name="ItemsButton" type="Button" parent="BattleMenus/ActionMenu/ItemsList/ItemCont" unique_id=2095411490]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_right = NodePath("../../BackButton")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
 text = "Items"
@@ -468,14 +476,14 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 10
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleMenus/ActionMenu/PartyList" unique_id=1501337239]
+[node name="PartyCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/PartyList" unique_id=1501337239]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
 
-[node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/PartyList/VBoxContainer" unique_id=153759299]
+[node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/PartyList/PartyCont" unique_id=153759299]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -529,7 +537,9 @@ grow_vertical = 2
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/FightList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Fight"]]
-[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/VBoxContainer/BasicAttack" to="." method="_basic_attack"]
-[connection signal="pressed" from="BattleMenus/ActionMenu/SkillsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed"]
-[connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed"]
+[connection signal="focus_entered" from="BattleMenus/ActionMenu/FightList/FightCont" to="BattleMenus/ActionMenu/FightList" method="_set_focus"]
+[connection signal="focus_entered" from="BattleMenus/ActionMenu/FightList/FightCont/BasicAttack" to="BattleMenus/ActionMenu/FightList" method="_remember_focus" binds= [1]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/FightCont/BasicAttack" to="." method="_basic_attack"]
+[connection signal="pressed" from="BattleMenus/ActionMenu/SkillsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Skills"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]
