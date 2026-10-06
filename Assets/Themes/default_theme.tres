@@ -1,12 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://ymgalg2pu3g"]
 
-[ext_resource type="FontVariation" uid="uid://b05psk6hwul0f" path="res://Assets/Fonts/default_font.tres" id="1_fqf8d"]
+[ext_resource type="FontVariation" uid="uid://8156ckby5sv5" path="res://Assets/Fonts/press_start_var.tres" id="1_fqf8d"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dkbg"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcnlw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02703"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1tqv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqf8d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p4xu"]
 
@@ -16,10 +14,9 @@
 Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0.20392157, 1)
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_fqf8d")
-Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_0dkbg")
-Button/styles/focus = SubResource("StyleBoxEmpty_02703")
-Button/styles/hover = SubResource("StyleBoxEmpty_a1tqv")
+Button/styles/focus = SubResource("StyleBoxEmpty_lcnlw")
+Button/styles/hover = SubResource("StyleBoxEmpty_fqf8d")
 Button/styles/normal = SubResource("StyleBoxEmpty_5p4xu")
 Button/styles/pressed = SubResource("StyleBoxEmpty_tssyn")
-GridContainer/constants/h_separation = 12
+GridContainer/constants/h_separation = 8
 GridContainer/constants/v_separation = 0

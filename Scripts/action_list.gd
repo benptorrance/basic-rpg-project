@@ -4,16 +4,6 @@ class_name ActionList extends Container
 func _ready():
 	$FightButton.grab_focus()
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		match event.keycode:
-			KEY_ESCAPE:
-				$"../FightList".visible = false
-				$"../SkillsList".visible = false
-				$"../ItemsList".visible = false
-				$"../PartyList".visible = false
-
-
 
 func _on_button_pressed(btn_name: String) -> void:
 	match btn_name:
@@ -29,3 +19,15 @@ func _on_button_pressed(btn_name: String) -> void:
 			$"../PartyList".visible = true
 		"Flee":
 			pass
+
+
+func _on_back_button_pressed(menu: String) -> void:
+	match menu:
+		"Fight":
+			$"../FightList".visible = false
+		"Skills":
+			$"../SkillsList".visible = false
+		"Items":
+			$"../ItemsList".visible = false
+		"Party":
+			$"../PartyList".visible = false
