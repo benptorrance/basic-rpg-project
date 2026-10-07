@@ -1,21 +1,22 @@
-[gd_resource type="Resource" script_class="Actor" format=3 uid="uid://cytl6ntt0olil"]
+[gd_resource type="Resource" script_class="Stats" format=3 uid="uid://cytl6ntt0olil"]
 
-[ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/actor.gd" id="1_xvbvp"]
+[ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_xvbvp"]
 
 [resource]
 script = ExtResource("1_xvbvp")
 char_name = "Akayu"
-stats = {
+is_player = true
+attributes = {
 "Armor": 10,
-"Dex": 14,
-"Health": 250,
-"Luk": 11,
+"Dex": 12,
+"Health": 150,
+"Luk": 9,
 "Magi Attack": 0,
-"Max Health": 250,
-"Phys Attack": 38,
-"Str": 19,
-"Vit": 25,
+"Max Health": 150,
+"Phys Attack": 28,
+"Str": 14,
+"Vit": 15,
 "Warding": 0,
-"Wis": 7
+"Wis": 5
 }
-metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+metadata/_custom_type_script = "uid://cesryo2iq2oxe"

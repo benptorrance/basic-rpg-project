@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Stats" format=3 uid="uid://cd8jmei1prt7v"]
+
+[ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_yiuc4"]
+
+[resource]
+script = ExtResource("1_yiuc4")
+char_name = "Slime"
+attributes = {
+"Armor": 5,
+"Dex": 7,
+"Health": 100,
+"Luk": 3,
+"Magi Attack": 0,
+"Max Health": 100,
+"Phys Attack": 10,
+"Str": 5,
+"Vit": 10,
+"Warding": 0,
+"Wis": 3
+}
+metadata/_custom_type_script = "uid://cesryo2iq2oxe"

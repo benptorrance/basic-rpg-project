@@ -1,76 +1,35 @@
-class_name Actor extends Resource
+class_name Actor extends Sprite2D
 
-@export var char_name: String
-
-##Holds
-@export var stats = {
-	"Str":0,
-	"Vit":0,
-	"Dex":0,
-	"Wis":0,
-	"Luk":0,
-	"Health":0,
-	"Max Health":0,
-	"Phys Attack": 0,
-	"Armor": 0,
-	"Magi Attack": 0,
-	"Warding": 0,
-	}
-
-@export var s_resists = {
-	"Poisoned Resist": 0,
-	"Bleed Resist": 0,
-	"Stun Resist": 0,
-	"Slow Resist": 0,
-	"Armor Sunder Resist": 0,
-	"Ward Sunder Resist": 0,
-	"Silence Resist": 0,
-	"Disarm": 0,
-	"Paralisis Resist": 0,
-	"Petrify Resist": 0,
-	"Curse Resist": 0,
-	"Burn Resist": 0,
-	"Disease Resist": 0,
-}
-
-@export var e_resists = {
-	"Fire Resist": 0,
-	"Ice/Water Resist": 0,
-	"Wind Resist": 0,
-	"Earth Resist": 0,
-	"Lightning Resist": 0,
-	"Nature Resist": 0,
-	"Arcane Resist": 0,
-	"Dark Resist": 0,
-	"Holy Resist": 0,
-}
-##A dictionary that holds the equipment slots that a character may have an item equipped in.
-@export var equipment = {
-	"Head": null,
-	"Body": null,
-	"Hands": null,
-	"Legs": null,
-	"Main Hand": null,
-	"Off Hand": null,
-	"Accessory": null,
-}
-
-##Holds the list of skills the character has access to.
-@export var skills = {}
+@export var stats: Stats
 
 
+var target_scale: float = 1.0
+
+func begin_turn():
+	target_scale = 1.1
+
+func end_turn():
+	target_scale = 0.9
 
 func take_damage(damage: int) -> void:
-	stats["Health"] -= damage
-	if stats["Health"] <= 0:
-		stats["Health"] = 0
-		print(char_name + " Has been slain!")
+	stats.attributes["Health"] -= damage
+	if stats.attributes["Health"] <= 0:
+		stats.attributes["Health"] = 0
+		print(stats.char_name + " Has been slain!")
 
 func regain_health(healing: int) -> void:
-	stats["Health"] += healing
-	if stats["Health"] >= stats["Max Health"]:
-		stats["Health"] = stats["Max Health"]
+	stats.attributes["Health"] += healing
+	if stats.attributes["Health"] >= stats.attributes["Max Health"]:
+		stats.attributes["Health"] = stats.attributes["Max Health"]
 
+
+func load_stats(path: String) -> void:
+	stats = load(path)
+	
+func save_stats(path: String) -> void:
+	##Save the data to the resource file.
+	ResourceSaver.save(stats, path)
+	pass
 
 ##This class handles the player characters in the game.
 #The class should have the name of the character, the stats, the equipment it has, and the skills it knows
