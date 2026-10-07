@@ -301,6 +301,7 @@ theme = ExtResource("1_anwxn")
 text = "Flee"
 
 [node name="FightList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=879004483]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -328,9 +329,7 @@ offset_bottom = 12.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../FightCont/Attack1")
 focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../FightCont/Attack1")
 focus_neighbor_bottom = NodePath(".")
 theme_override_font_sizes/font_size = 10
 text = "X"
@@ -373,9 +372,7 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-focus_neighbor_left = NodePath("../../BackButton")
 focus_neighbor_top = NodePath("../Attack2")
-focus_neighbor_right = NodePath("../../BackButton")
 focus_neighbor_bottom = NodePath("../Attack1")
 theme_override_font_sizes/font_size = 8
 text = "Helm Splitter"
@@ -405,10 +402,6 @@ offset_bottom = 12.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../SkillsCont/Skill1")
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../SkillsCont/Skill1")
-focus_neighbor_bottom = NodePath(".")
 theme_override_font_sizes/font_size = 10
 text = "X"
 
@@ -419,25 +412,14 @@ offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
 
-[node name="Skill1" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1787197233]
+[node name="SkillsButton" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1787197233]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
-text = "Fireball"
-
-[node name="Skill2" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1923685657]
-custom_minimum_size = Vector2(0, 8)
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-focus_neighbor_left = NodePath("../../BackButton")
-focus_neighbor_right = NodePath("../../BackButton")
-theme = ExtResource("1_anwxn")
-theme_override_font_sizes/font_size = 8
-text = "Heal"
+text = "Skills"
 
 [node name="ItemsList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=1285261609]
 visible = false
@@ -482,7 +464,7 @@ offset_right = 101.0
 offset_bottom = 45.0
 script = ExtResource("12_84vmf")
 
-[node name="Item1" type="Button" parent="BattleMenus/ActionMenu/ItemsList/ItemCont" unique_id=2095411490]
+[node name="ItemsButton" type="Button" parent="BattleMenus/ActionMenu/ItemsList/ItemCont" unique_id=2095411490]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -531,7 +513,7 @@ offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
 
-[node name="Party1" type="Button" parent="BattleMenus/ActionMenu/PartyList/PartyCont" unique_id=153759299]
+[node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/PartyList/PartyCont" unique_id=153759299]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2

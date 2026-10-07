@@ -1,5 +1,6 @@
 class_name ActionList extends Container
 
+var prev_focus: Control = null
 
 func _ready():
 	$FightButton.grab_focus()
@@ -9,18 +10,18 @@ func _on_button_pressed(btn_name: String) -> void:
 	match btn_name:
 		"Fight":
 			$"../FightList".visible = true
-			$"../FightList/FightCont/BasicAttack".grab_focus()
+			$"../FightList/FightCont/Attack1".grab_focus()
 		"Defend":
 			pass
 		"Skills":
 			$"../SkillsList".visible = true
-			$"../SkillsList/SkillsCont/SkillsButton".grab_focus()
+			$"../SkillsList/SkillsCont/Skill1".grab_focus()
 		"Items":
 			$"../ItemsList".visible = true
-			$"../ItemsList/ItemCont/ItemsButton".grab_focus()
+			$"../ItemsList/ItemCont/Item1".grab_focus()
 		"Party":
 			$"../PartyList".visible = true
-			$"../PartyList/PartyCont/PartyButton".grab_focus()
+			$"../PartyList/PartyCont/Party1".grab_focus()
 		"Flee":
 			pass
 
