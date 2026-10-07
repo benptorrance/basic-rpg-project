@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
-[ext_resource type="Script" uid="uid://bqjma2u5kjwp" path="res://Scenes/fight_list.gd" id="11_wb0gu"]
-[ext_resource type="Script" uid="uid://bx84hpe3n0up7" path="res://Scenes/choice_container.gd" id="12_84vmf"]
+[ext_resource type="Script" path="res://Scenes/fight_list.gd" id="11_wb0gu"]
+[ext_resource type="Script" path="res://Scenes/choice_container.gd" id="12_84vmf"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -341,8 +341,6 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 45.0
-focus_neighbor_left = NodePath("../BackButton")
-focus_neighbor_right = NodePath("../BackButton")
 
 [node name="Attack1" type="Button" parent="BattleMenus/ActionMenu/FightList/FightCont" unique_id=1761041193]
 custom_minimum_size = Vector2(0, 8)
@@ -381,7 +379,6 @@ theme_override_font_sizes/font_size = 8
 text = "Helm Splitter"
 
 [node name="SkillsList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=673713094]
-visible = false
 layout_mode = 1
 offset_right = 220.0
 offset_bottom = 100.0
@@ -417,13 +414,17 @@ layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 101.0
-offset_bottom = 45.0
+offset_bottom = 27.0
 
 [node name="Skill1" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1787197233]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Skill2")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Skill2")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
 text = "Fireball"
@@ -434,7 +435,9 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Skill1")
 focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Skill1")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
 text = "Heal"
@@ -467,9 +470,9 @@ offset_bottom = 12.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../ItemCont")
+focus_neighbor_left = NodePath("../ItemCont/Item1")
 focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../ItemCont")
+focus_neighbor_right = NodePath("../ItemCont/Item1")
 focus_neighbor_bottom = NodePath(".")
 theme_override_font_sizes/font_size = 10
 text = "X"
@@ -488,7 +491,9 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
 text = "Items"
@@ -521,6 +526,10 @@ offset_bottom = 12.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+focus_neighbor_left = NodePath("../PartyCont/Party1")
+focus_neighbor_top = NodePath("../../ItemsList/BackButton")
+focus_neighbor_right = NodePath("../PartyCont/Party1")
+focus_neighbor_bottom = NodePath("../../ItemsList/BackButton")
 theme_override_font_sizes/font_size = 10
 text = "X"
 
@@ -536,6 +545,10 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
 text = "Party"

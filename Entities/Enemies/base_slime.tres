@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_2870v")
+char_name = "Slime"
 stats = {
 "Armor": 10,
 "Dex": 10,

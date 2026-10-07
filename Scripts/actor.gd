@@ -58,24 +58,19 @@ class_name Actor extends Resource
 ##Holds the list of skills the character has access to.
 @export var skills = {}
 
-func _init() -> void:
-	cal_health()
-	cal_attack()
 
-func cal_health() -> void:
-	print("Calculating Health")
-	stats["Max Health"] = stats["Vit"] * 10
-	print(stats)
-	
-func cal_attack() -> void:
-	stats["Phys Attack"] = stats["Str"] * 2
-	stats["Magi Attack"] = stats["Wis"] * 2
-	
+
 func take_damage(damage: int) -> void:
 	stats["Health"] -= damage
+	if stats["Health"] <= 0:
+		stats["Health"] = 0
+		print(char_name + " Has been slain!")
 
 func regain_health(healing: int) -> void:
 	stats["Health"] += healing
+	if stats["Health"] >= stats["Max Health"]:
+		stats["Health"] = stats["Max Health"]
+
 
 ##This class handles the player characters in the game.
 #The class should have the name of the character, the stats, the equipment it has, and the skills it knows

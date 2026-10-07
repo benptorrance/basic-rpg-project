@@ -24,6 +24,17 @@ func _cal_turn_order() -> void:
 	else:
 		t_order = [enemy_1, player_1]
 
+func _turn_queue() -> void:
+	##Highlight the image of the player whose turn it is.
+	##
+	if game_over:
+		##End Battle. Show Lose Screen.
+		return
+	if victory:
+		##End Battle. Show Victory Screen. Calculate Rewards.
+		return
+	
+
 func _basic_attack() -> void:
 	print("Attack!")
 	enemy_1.stats["Health"] -= player_1.stats["Phys Attack"] - enemy_1.stats["Armor"]
