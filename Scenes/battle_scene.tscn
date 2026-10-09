@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
 [ext_resource type="Texture2D" uid="uid://1lxmpp22ghra" path="res://Assets/Unit Sprites/Players/test_ally.png" id="5_84vmf"]
 [ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/actor.gd" id="6_wb0gu"]
+[ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
-[ext_resource type="Texture2D" uid="uid://crm0fvmqobin4" path="res://Assets/Unit Sprites/Basic Enemies/test_enemy.png" id="7_wb0gu"]
+[ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
+[ext_resource type="SpriteFrames" uid="uid://cwgm2217voybr" path="res://Assets/UI Assets/Icons/Thinking Animation/new_sprite_frames.tres" id="9_xdap8"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
@@ -78,19 +80,19 @@ script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="Player2" type="Sprite2D" parent="AllyZone" unique_id=591587521]
-position = Vector2(203, 227)
+position = Vector2(193, 227)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="Player3" type="Sprite2D" parent="AllyZone" unique_id=2135973335]
-position = Vector2(153, 207)
+position = Vector2(133, 207)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="Player4" type="Sprite2D" parent="AllyZone" unique_id=2033556625]
-position = Vector2(103, 227)
+position = Vector2(73, 227)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
@@ -106,28 +108,64 @@ offset_bottom = 130.0
 grow_horizontal = 0
 
 [node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=170768836]
-position = Vector2(93, 207)
-texture = ExtResource("7_wb0gu")
+texture_filter = 1
+position = Vector2(73, 197)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy1" unique_id=1345608857]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
+position = Vector2(0, -10)
+sprite_frames = ExtResource("9_xdap8")
+animation = &"Thinking"
+frame = 5
+frame_progress = 0.5347502
 
 [node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=266789314]
-position = Vector2(143, 227)
-texture = ExtResource("7_wb0gu")
+position = Vector2(133, 217)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy2" unique_id=1292946215]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
 
 [node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1459737702]
-position = Vector2(193, 207)
-texture = ExtResource("7_wb0gu")
+position = Vector2(193, 197)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy3" unique_id=109167474]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
 [node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1952741506]
-position = Vector2(243, 227)
-texture = ExtResource("7_wb0gu")
+position = Vector2(253, 217)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy4" unique_id=196645134]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
 custom_minimum_size = Vector2(520, 100)

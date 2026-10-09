@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cwgm2217voybr"]
+
+[ext_resource type="Texture2D" uid="uid://nj3jsgcg2uji" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_1.png" id="1_1utwh"]
+[ext_resource type="Texture2D" uid="uid://b5c3fwq7coi6k" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_2.png" id="2_rfmtb"]
+[ext_resource type="Texture2D" uid="uid://cnyb5lhjaw5tm" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_3.png" id="3_heup6"]
+[ext_resource type="Texture2D" uid="uid://7bupaw48s61a" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_4.png" id="4_pfndh"]
+[ext_resource type="Texture2D" uid="uid://dafuamc5qkgnv" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_5.png" id="5_s4y68"]
+[ext_resource type="Texture2D" uid="uid://ogeto75cpjug" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_6.png" id="6_8d72i"]
+[ext_resource type="Texture2D" uid="uid://n30bphii77wy" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_7.png" id="7_8as0v"]
+[ext_resource type="Texture2D" uid="uid://dftbka7ilqudv" path="res://Assets/UI Assets/Icons/Thinking Animation/Thinking_8.png" id="8_ftpg4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1utwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rfmtb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_heup6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pfndh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s4y68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8d72i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8as0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ftpg4")
+}],
+"loop": 1,
+"name": &"Thinking",
+"speed": 5.0
+}]

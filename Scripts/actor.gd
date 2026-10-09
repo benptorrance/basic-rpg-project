@@ -20,7 +20,8 @@ func save_stats(path: String) -> void:
 ##Functions that handle the gameplay.
 
 func begin_turn():
-	self.scale = Vector2(1.5,1.5)
+	self.scale = Vector2(4,4)
+	$"../../EnemyZone/Enemy1/AnimatedSprite2D".play()
 	print(self)
 	print("Turn Start")
 
