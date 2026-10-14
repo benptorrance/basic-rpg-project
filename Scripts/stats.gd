@@ -58,4 +58,4 @@ class_name Stats
 }
 
 ##Holds the list of skills the character has access to.
-@export var skills = {}
+@export var skills: Array[CombatAction]

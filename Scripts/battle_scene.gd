@@ -4,16 +4,15 @@ extends Control
 @onready var enemy_1 = $EnemyZone/Enemy1
 @onready var allies = [player_1]
 @onready var enemies = [enemy_1]
+@onready var a_zone = $AllyZone
+@onready var e_zone = $EnemyZone
 
-var sel_actor: Actor = null
+@export var sel_actor: Actor = null
 var tar_actor: Actor = null
-var rec_stop: int = 10
 
 var t_order = {}
 var t_index = 0
 
-var defeat = false
-var victory = false
 var flee = false
 
 func _ready() -> void:
@@ -30,14 +29,9 @@ func _cal_turn_order() -> void:
 
 func _next_turn() -> void:
 	##Highlight the image of the player whose turn it is.
-	print("next TUrn")
-	if defeat:
-		##End Battle. Show Lose Screen. Give choice to reload save
-		_game_over()
-		return
-	if victory:
-		##End Battle. Show Victory Screen. Calculate Rewards. Exit back to map
-		return
+	print("Next Turn")
+	
+	_check_actors()
 	if flee:
 		#End Battle. Show Flee Screen. Exit back to map
 		return
@@ -48,45 +42,64 @@ func _next_turn() -> void:
 	sel_actor = t_order[t_index]
 	sel_actor.begin_turn()
 	t_index = wrapi(t_index+1, 0, t_order.size())
-	rec_stop -= 1
-	print(t_index)
-	print(sel_actor)
-	print(rec_stop)
 	
 	##Determine whether the current turn is for a player or enemy then do stuff for turns.
-	if sel_actor.is_player == true:
+	if sel_actor.is_player:
 		##Enable GUI to read inputs and be navigatable
-		pass
+		_menu_state(true)
+		##Wait for button to be pressed.
 	else:
 		##Disable GUI's ability to read input and be navigated
-		##Select an ability
-		pass
-		
-	
-	_check_actors()
-	if rec_stop != 0:
+		_menu_state(false)
+		var think = sel_actor.get_node("ThinkAnimation")
+		think.visible = true
+		think.play("Thinking")
+		await sel_actor.get_node("ThinkAnimation").animation_finished
+		think.visible = false
+		#Use action
+		await get_tree().create_timer(0.5).timeout
 		_next_turn()
-	
 
+##Checks the status of the actors if all actors on one side are dead and
+##sets victory or defeat to true if one side is vanquished.
 func _check_actors():
 	##Checks the status of the actors if all actors on one side are dead and
 	##sets victory or defeat to true if one side is vanquished.
 	if allies.all(func(x): return x.living == false):
-		defeat = true
+		_game_over()
 	if enemies.all(func(x): return x.living == false):
-		victory = true
-	if defeat == true and victory == true:
-		victory = false
-	return 
+		_battle_won()
+	if allies.all(func(x): return x.living == false) and enemies.all(func(x): return x.living == false):
+		_game_over()
 
+#Handles the interactivity state of the menu when switching between player and ai turns.
+func _menu_state(is_turn: bool) -> void:
+	if is_turn:
+		##loops through and enables buttons for the player's turn
+		for child in $BattleMenus/ActionMenu/ActionList.get_children():
+			child.disabled = false
+	else:
+		##Sets the other action lists except for the main one as not visible, then loops through and
+		##disables the buttons for the main action list to lock player selection during enemy turns.
+		for child in $BattleMenus/ActionMenu.get_children():
+			if child != $BattleMenus/ActionMenu/ActionList:
+				child.visible = false
+		for child in $BattleMenus/ActionMenu/ActionList.get_children():
+			child.disabled = true
+
+##Handles the gave over screen. Kicks the player out to the main screen
 func _game_over() -> void:
-	##Handles the gave over screen and the ability to load a save.
 	pass
 
-func _basic_attack() -> void:
-	var damage: int
-	print("Attack!")
-	damage = player_1.stats.attributes["Phys Attack"] - enemy_1.stats.attributes["Armor"]
-	enemy_1.take_damage(damage)
-	print("Slime new health: " + str(enemy_1.stats.attributes["Health"]))
-	_check_actors()
+##Handles a battle victory. Shows victory screen, calculates rewards. Sends player
+##back to the map
+func _battle_won() -> void:
+	pass
+
+
+func _player_combat_action ():
+	if sel_actor.is_player != true:
+		return
+	print("Player 1 Used a Skill")
+	await get_tree().create_timer(0.5).timeout
+	_next_turn()	

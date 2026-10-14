@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
 [ext_resource type="Texture2D" uid="uid://1lxmpp22ghra" path="res://Assets/Unit Sprites/Players/test_ally.png" id="5_84vmf"]
+[ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/unit_zone.gd" id="5_f856b"]
 [ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/actor.gd" id="6_wb0gu"]
 [ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
 [ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
-[ext_resource type="SpriteFrames" uid="uid://cwgm2217voybr" path="res://Assets/UI Assets/Icons/Thinking Animation/new_sprite_frames.tres" id="9_xdap8"]
+[ext_resource type="SpriteFrames" uid="uid://cvi4n7t6qn5lm" path="res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres" id="9_xdap8"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
@@ -72,6 +73,7 @@ custom_minimum_size = Vector2(320, 260)
 anchors_preset = 0
 offset_right = 160.0
 offset_bottom = 130.0
+script = ExtResource("5_f856b")
 
 [node name="Player1" type="Sprite2D" parent="AllyZone" unique_id=1481632531]
 position = Vector2(253, 207)
@@ -79,11 +81,43 @@ texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player1" unique_id=1277504580]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player1" unique_id=2032112642]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player2/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player4/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
 [node name="Player2" type="Sprite2D" parent="AllyZone" unique_id=591587521]
 position = Vector2(193, 227)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player2" unique_id=1655784923]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player2" unique_id=2123439261]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player3/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player1/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
 
 [node name="Player3" type="Sprite2D" parent="AllyZone" unique_id=2135973335]
 position = Vector2(133, 207)
@@ -91,11 +125,39 @@ texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player3" unique_id=403691569]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player3" unique_id=1182600860]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player4/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player2/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
 [node name="Player4" type="Sprite2D" parent="AllyZone" unique_id=2033556625]
 position = Vector2(73, 227)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player4" unique_id=190986118]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player4" unique_id=1707220896]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="EnemyZone" type="Control" parent="." unique_id=334906726]
 custom_minimum_size = Vector2(320, 260)
@@ -117,16 +179,16 @@ metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy1" unique_id=1345608857]
 visible = false
-position = Vector2(20, -16)
+position = Vector2(-20, -16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
+flip_h = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
+[node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
+visible = false
 position = Vector2(0, -10)
 sprite_frames = ExtResource("9_xdap8")
 animation = &"Thinking"
-frame = 5
-frame_progress = 0.5347502
 
 [node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=266789314]
 position = Vector2(133, 217)
@@ -137,9 +199,10 @@ metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy2" unique_id=1292946215]
 visible = false
-position = Vector2(20, -16)
+position = Vector2(-20, -16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
+flip_h = true
 
 [node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1459737702]
 position = Vector2(193, 197)
@@ -150,9 +213,10 @@ metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy3" unique_id=109167474]
 visible = false
-position = Vector2(20, -16)
+position = Vector2(-20, -16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
+flip_h = true
 
 [node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1952741506]
 position = Vector2(253, 217)
@@ -163,9 +227,10 @@ metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy4" unique_id=196645134]
 visible = false
-position = Vector2(20, -16)
+position = Vector2(-20, -16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
+flip_h = true
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
 custom_minimum_size = Vector2(520, 100)
@@ -223,6 +288,7 @@ focus_neighbor_bottom = NodePath("../SkillsButton")
 focus_next = NodePath("../DefendButton")
 focus_previous = NodePath("../FleeButton")
 theme = SubResource("Theme_fqf8d")
+theme_override_font_sizes/font_size = 16
 text = "Fight"
 
 [node name="DefendButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1052418618]
@@ -587,16 +653,17 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="change_focus" binds= [0]]
+[connection signal="focus_entered" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="change_focus" binds= [1]]
+[connection signal="focus_entered" from="AllyZone/Player3/UnitSelector" to="AllyZone" method="change_focus" binds= [2]]
+[connection signal="focus_entered" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="change_focus" binds= [3]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FightButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Fight"]]
-[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/DefendButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Defend"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/SkillsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/ItemsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/FightList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Fight"]]
-[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/FightCont/Attack1" to="." method="_basic_attack"]
-[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/FightCont/Attack2" to="." method="_basic_attack"]
-[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/FightCont/Attack3" to="." method="_basic_attack"]
+[connection signal="button_up" from="BattleMenus/ActionMenu/FightList/FightCont/Attack1" to="." method="_player_combat_action"]
 [connection signal="pressed" from="BattleMenus/ActionMenu/SkillsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]

@@ -2,6 +2,17 @@
 
 [ext_resource type="FontVariation" uid="uid://8156ckby5sv5" path="res://Assets/Fonts/press_start_var.tres" id="1_fqf8d"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_778cw"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcnlw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqf8d"]
@@ -14,6 +25,7 @@
 Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0.20392157, 1)
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_fqf8d")
+Button/styles/disabled = SubResource("StyleBoxFlat_778cw")
 Button/styles/focus = SubResource("StyleBoxEmpty_lcnlw")
 Button/styles/hover = SubResource("StyleBoxEmpty_fqf8d")
 Button/styles/normal = SubResource("StyleBoxEmpty_5p4xu")

@@ -11,8 +11,6 @@ func _on_button_pressed(btn_name: String) -> void:
 		"Fight":
 			$"../FightList".visible = true
 			$"../FightList/FightCont/Attack1".grab_focus()
-		"Defend":
-			pass
 		"Skills":
 			$"../SkillsList".visible = true
 			$"../SkillsList/SkillsCont/Skill1".grab_focus()
