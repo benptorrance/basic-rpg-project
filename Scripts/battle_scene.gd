@@ -15,6 +15,9 @@ var t_index = 0
 var flee = false
 
 func _ready() -> void:
+	$Overlay.visible = false
+	$GameOverContainer.visible = false
+	$VictoryScreen.visible = false
 	player_1.load_stats("res://Content/Entities/Players/player_1.tres")
 	enemy_1.load_stats("res://Content/Entities/Enemies/slime.tres")
 	_cal_turn_order()
@@ -89,14 +92,33 @@ func _menu_state(is_turn: bool) -> void:
 
 ##Handles the gave over screen. Kicks the player out to the main screen
 func _game_over() -> void:
-	print("You Lose!")
+	_menu_state(false)
+	$Overlay.visible = true
+	$GameOverContainer.visible = true
 	pass
 
 ##Handles a battle victory. Shows victory screen, calculates rewards. Sends player
 ##back to the map
 func _battle_won() -> void:
-	print("You Win!")
+	_menu_state(false)
+	$Overlay.visible = true
+	$VictoryScreen.visible = true
 	pass
+
+##Handles player combat actions.
+func _player_combat_action (action: CombatAction, targets: Array[Actor]):
+	if sel_actor.is_player != true:
+		return
+	print("Player 1 Used a Skill")
+	sel_actor.combat_action(action, targets)
+	await get_tree().create_timer(0.5).timeout
+	_next_turn()	
+
+##Handles how the enemy decides what action to use.
+func _enemy_action_decision():
+	if sel_actor.is_player == true:
+		return
+	print(sel_actor.stats.char_name + " Used a Skill")
 
 ##Upon Combat action selection, this function is called. It will take the number associated with the
 ##pressed button and then find what action that correlates to in the selected actor's action lists
@@ -127,13 +149,3 @@ func fetch_action(action:int, a_category: String):
 					selected = true
 				x += 1
 	_player_combat_action(c_action,targets)
-
-func _player_combat_action (action: CombatAction, targets: Array[Actor]):
-	if sel_actor.is_player != true:
-		return
-	print("Player 1 Used a Skill")
-	print(action)
-	print(targets)
-	sel_actor.combat_action(action, targets)
-	await get_tree().create_timer(0.5).timeout
-	_next_turn()	

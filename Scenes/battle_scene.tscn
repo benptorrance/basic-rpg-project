@@ -20,6 +20,15 @@
 
 [sub_resource type="Theme" id="Theme_fqf8d"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_p1q0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f856b"]
+bg_color = Color(0.4117647, 0.627451, 0.84313726, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="BattleScene" type="Control" unique_id=1479836790]
 custom_maximum_size = Vector2(640, 360)
 layout_mode = 3
@@ -39,7 +48,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_3gnqe")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=764723529]
+[node name="MenuBackground" type="TextureRect" parent="." unique_id=764723529]
 custom_maximum_size = Vector2(640, 100)
 layout_mode = 1
 anchors_preset = 12
@@ -196,10 +205,12 @@ focus_neighbor_right = NodePath("../../Enemy2/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
-visible = false
 position = Vector2(0, -10)
 sprite_frames = ExtResource("9_xdap8")
 animation = &"Thinking"
+frame = 7
+frame_progress = 1.0
+speed_scale = 2.0
 
 [node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=266789314]
 position = Vector2(133, 217)
@@ -693,6 +704,118 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="Overlay" type="TextureRect" parent="." unique_id=41561055]
+visible = false
+modulate = Color(0.4, 0.4, 0.4, 0.5882353)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_p1q0g")
+
+[node name="GameOverContainer" type="Control" parent="." unique_id=322100876]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverText" type="Label" parent="GameOverContainer" unique_id=2056453379]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -71.5
+offset_right = 43.5
+offset_bottom = -48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Game Over"
+
+[node name="LoadButton" type="Button" parent="GameOverContainer" unique_id=1585840067]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 36.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_f856b")
+text = "Load Save"
+
+[node name="QuitButton" type="Button" parent="GameOverContainer" unique_id=1296691673]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = 10.0
+offset_right = 36.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_f856b")
+text = "Quit Game"
+
+[node name="VictoryScreen" type="Control" parent="." unique_id=558473717]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryScreenText" type="Label" parent="VictoryScreen" unique_id=1742732002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -71.5
+offset_right = 43.5
+offset_bottom = -48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "You Are Victorious"
+
+[node name="Continue" type="Button" parent="VictoryScreen" unique_id=1656538070]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 36.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_f856b")
+text = "Continue"
 
 [connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_change_focus" binds= [0]]
 [connection signal="focus_entered" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="_change_focus" binds= [1]]
