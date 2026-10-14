@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://5gmrnce14yw6"]
+
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/combat_action.gd" id="1_dgkiu"]
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/targeted_effect.gd" id="1_tswx4"]
+[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/deal_damage.gd" id="2_srck1"]
+
+[sub_resource type="Resource" id="Resource_f856b"]
+script = ExtResource("2_srck1")
+base_damage = 10
+stat = "STR"
+metadata/_custom_type_script = "uid://c4awdylc41q0g"
+
+[resource]
+script = ExtResource("1_dgkiu")
+action_name = "Slash"
+description = "A basic strike with a sword"
+action_type = "Basic"
+tar_type = "Enemy"
+effects = Array[ExtResource("1_tswx4")]([SubResource("Resource_f856b")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"
