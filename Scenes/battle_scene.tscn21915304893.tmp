@@ -1,0 +1,715 @@
+[gd_scene format=3 uid="uid://bj0ioii1xi2lr"]
+
+[ext_resource type="Theme" uid="uid://ymgalg2pu3g" path="res://Assets/Themes/default_theme.tres" id="1_anwxn"]
+[ext_resource type="Texture2D" uid="uid://b7o0y52b6vhx0" path="res://Assets/Backgrounds/nature_1/orig.png" id="2_3gnqe"]
+[ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
+[ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scripts/battle_scene.gd" id="2_ms847"]
+[ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
+[ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
+[ext_resource type="Texture2D" uid="uid://1lxmpp22ghra" path="res://Assets/Unit Sprites/Players/test_ally.png" id="5_84vmf"]
+[ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/unit_zone.gd" id="5_f856b"]
+[ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/actor.gd" id="6_wb0gu"]
+[ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
+[ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
+[ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
+[ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
+[ext_resource type="SpriteFrames" uid="uid://cvi4n7t6qn5lm" path="res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres" id="9_xdap8"]
+[ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
+
+[sub_resource type="Theme" id="Theme_fw8re"]
+
+[sub_resource type="Theme" id="Theme_fqf8d"]
+
+[node name="BattleScene" type="Control" unique_id=1479836790]
+custom_maximum_size = Vector2(640, 360)
+layout_mode = 3
+anchor_right = 2.0
+anchor_bottom = 2.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_anwxn")
+script = ExtResource("2_ms847")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2026032816]
+custom_maximum_size = Vector2(640, 260)
+layout_mode = 1
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_3gnqe")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=764723529]
+custom_maximum_size = Vector2(640, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_gt16y")
+
+[node name="TurnOrderDisplay" type="HBoxContainer" parent="." unique_id=1826511701]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 32.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TurnOrderDisplay" unique_id=604104719]
+custom_maximum_size = Vector2(0, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AllyZone" type="Control" parent="." unique_id=1719875408]
+custom_minimum_size = Vector2(320, 260)
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 130.0
+script = ExtResource("5_f856b")
+
+[node name="Player1" type="Sprite2D" parent="AllyZone" unique_id=1481632531]
+position = Vector2(253, 207)
+texture = ExtResource("5_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player1" unique_id=1277504580]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player1" unique_id=2032112642]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player2/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player4/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="Player2" type="Sprite2D" parent="AllyZone" unique_id=591587521]
+position = Vector2(193, 227)
+texture = ExtResource("5_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player2" unique_id=1655784923]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player2" unique_id=2123439261]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player3/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player1/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="Player3" type="Sprite2D" parent="AllyZone" unique_id=2135973335]
+position = Vector2(133, 207)
+texture = ExtResource("5_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player3" unique_id=403691569]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player3" unique_id=1182600860]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player4/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player2/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="Player4" type="Sprite2D" parent="AllyZone" unique_id=2033556625]
+position = Vector2(73, 227)
+texture = ExtResource("5_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player4" unique_id=190986118]
+visible = false
+position = Vector2(20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+
+[node name="UnitSelector" type="Button" parent="AllyZone/Player4" unique_id=1707220896]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="EnemyZone" type="Control" parent="." unique_id=334906726]
+custom_minimum_size = Vector2(320, 260)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_bottom = 130.0
+grow_horizontal = 0
+script = ExtResource("5_f856b")
+
+[node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=170768836]
+texture_filter = 1
+position = Vector2(73, 197)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy1" unique_id=1345608857]
+visible = false
+position = Vector2(-20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+flip_h = true
+
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy1" unique_id=562757875]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy4/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy2/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
+visible = false
+position = Vector2(0, -10)
+sprite_frames = ExtResource("9_xdap8")
+animation = &"Thinking"
+
+[node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=266789314]
+position = Vector2(133, 217)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy2" unique_id=1292946215]
+visible = false
+position = Vector2(-20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+flip_h = true
+
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy2" unique_id=2013754921]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy1/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy3/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1459737702]
+position = Vector2(193, 197)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy3" unique_id=109167474]
+visible = false
+position = Vector2(-20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+flip_h = true
+
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy3" unique_id=527412814]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy2/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy4/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1952741506]
+position = Vector2(253, 217)
+scale = Vector2(2, 2)
+texture = ExtResource("7_84vmf")
+script = ExtResource("6_wb0gu")
+metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+
+[node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy4" unique_id=196645134]
+visible = false
+position = Vector2(-20, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_84vmf")
+flip_h = true
+
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy4" unique_id=1456786928]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy3/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy1/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
+custom_minimum_size = Vector2(520, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -51.0
+offset_right = 145.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_fw8re")
+theme_override_constants/separation = 0
+
+[node name="ActionMenu" parent="BattleMenus" unique_id=1684769239 instance=ExtResource("2_e5vbs")]
+modulate = Color(1, 1, 1, 1)
+custom_minimum_size = Vector2(220, 100)
+custom_maximum_size = Vector2(220, -1)
+layout_mode = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 11
+patch_margin_top = 5
+patch_margin_right = 11
+patch_margin_bottom = 5
+script = ExtResource("9_f4ggb")
+
+[node name="ActionList" type="GridContainer" parent="BattleMenus/ActionMenu" unique_id=546944759]
+custom_minimum_size = Vector2(200, 94)
+custom_maximum_size = Vector2(200, 94)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = -5.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = ExtResource("10_f4ggb")
+
+[node name="FightButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=654689470]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../DefendButton")
+focus_neighbor_top = NodePath("../PartyButton")
+focus_neighbor_right = NodePath("../DefendButton")
+focus_neighbor_bottom = NodePath("../SkillsButton")
+focus_next = NodePath("../DefendButton")
+focus_previous = NodePath("../FleeButton")
+theme = SubResource("Theme_fqf8d")
+theme_override_font_sizes/font_size = 16
+text = "Fight"
+
+[node name="DefendButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1052418618]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../FightButton")
+focus_neighbor_top = NodePath("../FleeButton")
+focus_neighbor_right = NodePath("../FightButton")
+focus_neighbor_bottom = NodePath("../ItemsButton")
+focus_next = NodePath("../SkillsButton")
+focus_previous = NodePath("../FightButton")
+text = "Defend"
+
+[node name="SkillsButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=237848772]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../ItemsButton")
+focus_neighbor_top = NodePath("../FightButton")
+focus_neighbor_right = NodePath("../ItemsButton")
+focus_neighbor_bottom = NodePath("../PartyButton")
+focus_next = NodePath("../ItemsButton")
+focus_previous = NodePath("../DefendButton")
+theme = ExtResource("1_anwxn")
+text = "Skills"
+
+[node name="ItemsButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=692919445]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(-2, 0)
+focus_neighbor_left = NodePath("../SkillsButton")
+focus_neighbor_top = NodePath("../DefendButton")
+focus_neighbor_right = NodePath("../SkillsButton")
+focus_neighbor_bottom = NodePath("../FleeButton")
+focus_next = NodePath("../PartyButton")
+focus_previous = NodePath("../SkillsButton")
+theme = ExtResource("1_anwxn")
+text = "Items"
+
+[node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1201159933]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../FleeButton")
+focus_neighbor_top = NodePath("../SkillsButton")
+focus_neighbor_right = NodePath("../FleeButton")
+focus_neighbor_bottom = NodePath("../FightButton")
+focus_next = NodePath("../FleeButton")
+focus_previous = NodePath("../ItemsButton")
+theme = ExtResource("1_anwxn")
+text = "Party"
+
+[node name="FleeButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=285938981]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../PartyButton")
+focus_neighbor_top = NodePath("../ItemsButton")
+focus_neighbor_right = NodePath("../PartyButton")
+focus_neighbor_bottom = NodePath("../DefendButton")
+focus_next = NodePath("../FightButton")
+focus_previous = NodePath("../PartyButton")
+theme = ExtResource("1_anwxn")
+text = "Flee"
+
+[node name="FightList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=879004483]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackButton" type="Button" parent="BattleMenus/ActionMenu/FightList" unique_id=180123136]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98600006
+anchor_top = 0.030000001
+anchor_right = 0.98600006
+anchor_bottom = 0.030000001
+offset_left = -11.920013
+offset_right = 0.07998657
+offset_bottom = 12.0
+grow_horizontal = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../FightCont/Attack1")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../FightCont/Attack1")
+focus_neighbor_bottom = NodePath(".")
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="FightCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/FightList" unique_id=1678068788]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 45.0
+
+[node name="Attack1" type="Button" parent="BattleMenus/ActionMenu/FightList/FightCont" unique_id=1761041193]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Attack3")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Attack2")
+theme_override_font_sizes/font_size = 8
+text = "Sword Strike"
+
+[node name="Attack2" type="Button" parent="BattleMenus/ActionMenu/FightList/FightCont" unique_id=841486465]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Attack1")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Attack3")
+theme_override_font_sizes/font_size = 8
+text = "Shield Bash"
+
+[node name="Attack3" type="Button" parent="BattleMenus/ActionMenu/FightList/FightCont" unique_id=1450611925]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Attack2")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Attack1")
+theme_override_font_sizes/font_size = 8
+text = "Helm Splitter"
+
+[node name="SkillsList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=673713094]
+visible = false
+layout_mode = 1
+offset_right = 220.0
+offset_bottom = 100.0
+texture = ExtResource("7_w4764")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="BackButton" type="Button" parent="BattleMenus/ActionMenu/SkillsList" unique_id=1403165497]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98600006
+anchor_top = 0.030000001
+anchor_right = 0.98600006
+anchor_bottom = 0.030000001
+offset_left = -11.920013
+offset_right = 0.07998657
+offset_bottom = 12.0
+grow_horizontal = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../SkillsCont/Skill1")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../SkillsCont/Skill1")
+focus_neighbor_bottom = NodePath(".")
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="SkillsCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/SkillsList" unique_id=2060114092]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 27.0
+
+[node name="Skill1" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1787197233]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Skill2")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Skill2")
+theme = ExtResource("1_anwxn")
+theme_override_font_sizes/font_size = 8
+text = "Fireball"
+
+[node name="Skill2" type="Button" parent="BattleMenus/ActionMenu/SkillsList/SkillsCont" unique_id=1923685657]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../Skill1")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath("../Skill1")
+theme = ExtResource("1_anwxn")
+theme_override_font_sizes/font_size = 8
+text = "Heal"
+
+[node name="ItemsList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=1285261609]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="BackButton" type="Button" parent="BattleMenus/ActionMenu/ItemsList" unique_id=1447377394]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98600006
+anchor_top = 0.030000001
+anchor_right = 0.98600006
+anchor_bottom = 0.030000001
+offset_left = -11.920013
+offset_right = 0.07998657
+offset_bottom = 12.0
+grow_horizontal = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../ItemCont/Item1")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../ItemCont/Item1")
+focus_neighbor_bottom = NodePath(".")
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="ItemCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/ItemsList" unique_id=678689359]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 45.0
+
+[node name="Item1" type="Button" parent="BattleMenus/ActionMenu/ItemsList/ItemCont" unique_id=2095411490]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath(".")
+theme = ExtResource("1_anwxn")
+theme_override_font_sizes/font_size = 8
+text = "Items"
+
+[node name="PartyList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=972199540]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="BackButton" type="Button" parent="BattleMenus/ActionMenu/PartyList" unique_id=1155549559]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98600006
+anchor_top = 0.030000001
+anchor_right = 0.98600006
+anchor_bottom = 0.030000001
+offset_left = -11.920013
+offset_right = 0.07998657
+offset_bottom = 12.0
+grow_horizontal = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../PartyCont/Party1")
+focus_neighbor_top = NodePath("../../ItemsList/BackButton")
+focus_neighbor_right = NodePath("../PartyCont/Party1")
+focus_neighbor_bottom = NodePath("../../ItemsList/BackButton")
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="PartyCont" type="VBoxContainer" parent="BattleMenus/ActionMenu/PartyList" unique_id=1501337239]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 45.0
+
+[node name="Party1" type="Button" parent="BattleMenus/ActionMenu/PartyList/PartyCont" unique_id=153759299]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../BackButton")
+focus_neighbor_bottom = NodePath(".")
+theme = ExtResource("1_anwxn")
+theme_override_font_sizes/font_size = 8
+text = "Party"
+
+[node name="TargetMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
+modulate = Color(1, 1, 1, 1)
+custom_minimum_size = Vector2(300, 100)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TargetStats" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=2034713808]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 44.0
+grow_vertical = 2
+
+[node name="TargetResistances" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=666330602]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_right = 160.0
+grow_vertical = 2
+
+[node name="TargetSkills" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=1116370384]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_change_focus" binds= [0]]
+[connection signal="focus_entered" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="_change_focus" binds= [1]]
+[connection signal="focus_entered" from="AllyZone/Player3/UnitSelector" to="AllyZone" method="_change_focus" binds= [2]]
+[connection signal="focus_entered" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="_change_focus" binds= [3]]
+[connection signal="button_down" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [0]]
+[connection signal="focus_entered" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_change_focus" binds= [0]]
+[connection signal="focus_entered" from="EnemyZone/Enemy2/UnitSelector" to="EnemyZone" method="_change_focus" binds= [1]]
+[connection signal="focus_entered" from="EnemyZone/Enemy3/UnitSelector" to="EnemyZone" method="_change_focus" binds= [2]]
+[connection signal="focus_entered" from="EnemyZone/Enemy4/UnitSelector" to="EnemyZone" method="_change_focus" binds= [3]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FightButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Fight"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/SkillsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Skills"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/ItemsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Items"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/FightList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Fight"]]
+[connection signal="button_down" from="BattleMenus/ActionMenu/FightList/FightCont/Attack1" to="." method="fetch_action" binds= [0, "Basic"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/SkillsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Skills"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
+[connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]

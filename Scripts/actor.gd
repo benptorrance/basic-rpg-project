@@ -4,14 +4,16 @@ class_name Actor extends Sprite2D
 @export var is_player: bool
 var living: bool = true
 
-@export var actions: Array[CombatAction] = [load("res://Assets/Combat Actions/Basic Actions/slash.tres")]
+@export var base_actions: Array[CombatAction] = [load("res://Content/Combat Actions/Basic Actions/slash.tres")]
+@export var skill_actions: Array[CombatAction]
+@export var item_actions: Array[CombatAction]
 
 ##This section contains the functions that are responsible for managing the actor's data.
 func load_stats(path: String) -> void:
 	stats = load(path)
 	is_player = stats.is_player
 	if stats.skills.is_empty() != true:
-		actions.append(stats.skills)
+		skill_actions.append(stats.skills)
 
 func save_stats(path: String) -> void:
 	##Save the data to the resource file.
@@ -21,12 +23,11 @@ func save_stats(path: String) -> void:
 ##Functions that handle the gameplay.
 
 func begin_turn():
-	print(self)
-	print("Turn Start")
+	print(stats.char_name + "'s turn has begun!")
+	print(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
 
 func end_turn():
-	print(self)
-	print("Turn End")
+	print(stats.char_name + "'s turn has ended!")
 
 func take_damage(damage: int) -> void:
 	stats.attributes["Health"] -= damage
@@ -44,9 +45,9 @@ func _death():
 	self.visible = false
 	living = false
 
-func combat_action (action, opponent: Actor):
-	
-	pass
+func combat_action (action: CombatAction, targets: Array[Actor]):
+	for x in action.effects:
+		x._do(self, action, targets)
 
 #Handles playing a sound when the Actor uses a move/takes damage/heals
 func _play_audio():

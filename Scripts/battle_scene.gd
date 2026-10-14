@@ -8,7 +8,6 @@ extends Control
 @onready var e_zone = $EnemyZone
 
 @export var sel_actor: Actor = null
-var tar_actor: Actor = null
 
 var t_order = {}
 var t_index = 0
@@ -16,8 +15,8 @@ var t_index = 0
 var flee = false
 
 func _ready() -> void:
-	player_1.load_stats("res://Entities/Players/player_1.tres")
-	enemy_1.load_stats("res://Entities/Enemies/slime.tres")
+	player_1.load_stats("res://Content/Entities/Players/player_1.tres")
+	enemy_1.load_stats("res://Content/Entities/Enemies/slime.tres")
 	_cal_turn_order()
 	_next_turn()
 
@@ -78,6 +77,7 @@ func _menu_state(is_turn: bool) -> void:
 		##loops through and enables buttons for the player's turn
 		for child in $BattleMenus/ActionMenu/ActionList.get_children():
 			child.disabled = false
+		$BattleMenus/ActionMenu/ActionList/FightButton.grab_focus()
 	else:
 		##Sets the other action lists except for the main one as not visible, then loops through and
 		##disables the buttons for the main action list to lock player selection during enemy turns.
@@ -89,17 +89,51 @@ func _menu_state(is_turn: bool) -> void:
 
 ##Handles the gave over screen. Kicks the player out to the main screen
 func _game_over() -> void:
+	print("You Lose!")
 	pass
 
 ##Handles a battle victory. Shows victory screen, calculates rewards. Sends player
 ##back to the map
 func _battle_won() -> void:
+	print("You Win!")
 	pass
 
+##Upon Combat action selection, this function is called. It will take the number associated with the
+##pressed button and then find what action that correlates to in the selected actor's action lists
+##then fetch_action calls the unit selection function of the appropriate zone.
+func fetch_action(action:int, a_category: String):
+	var c_action: CombatAction
+	match a_category:
+		"Basic":
+			c_action = sel_actor.base_actions[action]
+		"Skill":
+			c_action = sel_actor.skill_actions[action]
+		"Item":
+			c_action = sel_actor.item_actions[action]
+	var targets: Array[Actor]
+	match c_action.tar_type:
+		"Ally":
+			targets = a_zone.unit_selection(sel_actor)
+		"Enemy":
+			var selected = false
+			var x = 0
+			var index: Array[int]
+			while selected == false:
+				if enemies[x].living:
+					index = await e_zone.unit_selection(enemies[x])
+					print(index)
+					for i in index:
+						targets.append(enemies[i])
+					selected = true
+				x += 1
+	_player_combat_action(c_action,targets)
 
-func _player_combat_action ():
+func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	if sel_actor.is_player != true:
 		return
 	print("Player 1 Used a Skill")
+	print(action)
+	print(targets)
+	sel_actor.combat_action(action, targets)
 	await get_tree().create_timer(0.5).timeout
 	_next_turn()	

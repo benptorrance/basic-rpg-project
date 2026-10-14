@@ -168,6 +168,7 @@ anchor_right = 1.0
 offset_left = -160.0
 offset_bottom = 130.0
 grow_horizontal = 0
+script = ExtResource("5_f856b")
 
 [node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=170768836]
 texture_filter = 1
@@ -183,6 +184,16 @@ position = Vector2(-20, -16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
 flip_h = true
+
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy1" unique_id=562757875]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy4/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy2/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
 visible = false
@@ -204,6 +215,16 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
 flip_h = true
 
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy2" unique_id=2013754921]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy1/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy3/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
 [node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1459737702]
 position = Vector2(193, 197)
 scale = Vector2(2, 2)
@@ -218,6 +239,16 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
 flip_h = true
 
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy3" unique_id=527412814]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy2/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy4/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
+
 [node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1952741506]
 position = Vector2(253, 217)
 scale = Vector2(2, 2)
@@ -231,6 +262,16 @@ position = Vector2(-20, -16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_84vmf")
 flip_h = true
+
+[node name="UnitSelector" type="Button" parent="EnemyZone/Enemy4" unique_id=1456786928]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Enemy3/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Enemy1/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
 custom_minimum_size = Vector2(520, 100)
@@ -653,17 +694,22 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="change_focus" binds= [0]]
-[connection signal="focus_entered" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="change_focus" binds= [1]]
-[connection signal="focus_entered" from="AllyZone/Player3/UnitSelector" to="AllyZone" method="change_focus" binds= [2]]
-[connection signal="focus_entered" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="change_focus" binds= [3]]
+[connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_change_focus" binds= [0]]
+[connection signal="focus_entered" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="_change_focus" binds= [1]]
+[connection signal="focus_entered" from="AllyZone/Player3/UnitSelector" to="AllyZone" method="_change_focus" binds= [2]]
+[connection signal="focus_entered" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="_change_focus" binds= [3]]
+[connection signal="button_down" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [0]]
+[connection signal="focus_entered" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_change_focus" binds= [0]]
+[connection signal="focus_entered" from="EnemyZone/Enemy2/UnitSelector" to="EnemyZone" method="_change_focus" binds= [1]]
+[connection signal="focus_entered" from="EnemyZone/Enemy3/UnitSelector" to="EnemyZone" method="_change_focus" binds= [2]]
+[connection signal="focus_entered" from="EnemyZone/Enemy4/UnitSelector" to="EnemyZone" method="_change_focus" binds= [3]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FightButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Fight"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/SkillsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/ItemsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/FightList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Fight"]]
-[connection signal="button_up" from="BattleMenus/ActionMenu/FightList/FightCont/Attack1" to="." method="_player_combat_action"]
+[connection signal="button_down" from="BattleMenus/ActionMenu/FightList/FightCont/Attack1" to="." method="fetch_action" binds= [0, "Basic"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/SkillsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]
