@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Stats" format=3 uid="uid://dxg344mesdnt2"]
+
+[ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_yxlgj"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/combat_action.gd" id="2_re65q"]
+
+[resource]
+script = ExtResource("1_yxlgj")
+char_name = "Ranger"
+is_player = true
+attributes = {
+"Armor": 10,
+"Dex": 30,
+"Health": 100,
+"Luk": 14,
+"Magi Attack": 0,
+"Max Health": 100,
+"Phys Attack": 20,
+"Str": 13,
+"Vit": 10,
+"Warding": 0,
+"Wis": 6
+}
+metadata/_custom_type_script = "uid://cesryo2iq2oxe"

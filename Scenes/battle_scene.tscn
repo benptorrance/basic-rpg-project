@@ -205,6 +205,7 @@ focus_neighbor_right = NodePath("../../Enemy2/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
+visible = false
 position = Vector2(0, -10)
 sprite_frames = ExtResource("9_xdap8")
 animation = &"Thinking"
@@ -236,6 +237,15 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy3/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
+[node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy2" unique_id=1059610410]
+visible = false
+position = Vector2(0, -10)
+sprite_frames = ExtResource("9_xdap8")
+animation = &"Thinking"
+frame = 7
+frame_progress = 1.0
+speed_scale = 2.0
+
 [node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1459737702]
 position = Vector2(193, 197)
 scale = Vector2(2, 2)
@@ -260,6 +270,15 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy4/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
+[node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy3" unique_id=1801408047]
+visible = false
+position = Vector2(0, -10)
+sprite_frames = ExtResource("9_xdap8")
+animation = &"Thinking"
+frame = 7
+frame_progress = 1.0
+speed_scale = 2.0
+
 [node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1952741506]
 position = Vector2(253, 217)
 scale = Vector2(2, 2)
@@ -283,6 +302,15 @@ focus_neighbor_left = NodePath("../../Enemy3/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy1/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+
+[node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy4" unique_id=658519771]
+visible = false
+position = Vector2(0, -10)
+sprite_frames = ExtResource("9_xdap8")
+animation = &"Thinking"
+frame = 7
+frame_progress = 1.0
+speed_scale = 2.0
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
 custom_minimum_size = Vector2(520, 100)
@@ -823,8 +851,11 @@ text = "Continue"
 [connection signal="focus_entered" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="_change_focus" binds= [3]]
 [connection signal="button_down" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [0]]
 [connection signal="focus_entered" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_change_focus" binds= [0]]
+[connection signal="button_down" from="EnemyZone/Enemy2/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [1]]
 [connection signal="focus_entered" from="EnemyZone/Enemy2/UnitSelector" to="EnemyZone" method="_change_focus" binds= [1]]
+[connection signal="button_down" from="EnemyZone/Enemy3/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [2]]
 [connection signal="focus_entered" from="EnemyZone/Enemy3/UnitSelector" to="EnemyZone" method="_change_focus" binds= [2]]
+[connection signal="button_down" from="EnemyZone/Enemy4/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [3]]
 [connection signal="focus_entered" from="EnemyZone/Enemy4/UnitSelector" to="EnemyZone" method="_change_focus" binds= [3]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FightButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Fight"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/SkillsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Skills"]]

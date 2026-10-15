@@ -13,6 +13,8 @@ func unit_selection(sel_actor: Actor):
 	##Upon being called it sets the currently selected actor's Targeting Icon to visible
 	sel_actor.get_child(1).grab_focus()
 	var targets = await target_selected
+	for unit in units:
+		unit.get_child(0).visible = false
 	return targets
 
 func _selector_pressed(btn_index: int):
