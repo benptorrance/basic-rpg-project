@@ -9,8 +9,10 @@ var living: bool = true
 @export var item_actions: Array[CombatAction]
 
 ##This section contains the functions that are responsible for managing the actor's data.
+
 func load_stats(path: String) -> void:
-	stats = load(path)
+	var temp = load(path)
+	stats = temp.duplicate()
 	is_player = stats.is_player
 	if stats.skills.is_empty() != true:
 		skill_actions.append(stats.skills)
