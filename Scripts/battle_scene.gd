@@ -1,15 +1,13 @@
 extends Control
 
-@onready var player_1 = $AllyZone/Player1
-@onready var enemy_1 = $EnemyZone/Enemy1
-@onready var allies = [player_1]
-@onready var enemies = [enemy_1]
+@onready var allies: Array [Actor]
+@onready var enemies: Array [Actor]
 @onready var a_zone = $AllyZone
 @onready var e_zone = $EnemyZone
 
 @export var sel_actor: Actor = null
 
-var t_order = {}
+var t_order = []
 var t_index = 0
 
 var flee = false
@@ -18,16 +16,42 @@ func _ready() -> void:
 	$Overlay.visible = false
 	$GameOverContainer.visible = false
 	$VictoryScreen.visible = false
-	player_1.load_stats("res://Content/Entities/Players/player_1.tres")
-	enemy_1.load_stats("res://Content/Entities/Enemies/slime.tres")
+	load_actors()
 	_cal_turn_order()
 	_next_turn()
 
+func load_actors() -> void:
+	for child in a_zone.get_children():
+		match child.get_index():
+			0:
+				child.load_stats("res://Content/Entities/Players/player_1.tres")
+			1:
+				child.load_stats("res://Content/Entities/Players/player_2.tres")
+			2:
+				child.load_stats("res://Content/Entities/Players/player_3.tres")
+			3:
+				child.load_stats("res://Content/Entities/Players/player_4.tres")
+		allies.append(child)
+		t_order.append(child)
+	for child in e_zone.get_children():
+		child.load_stats("res://Content/Entities/Enemies/slime.tres")
+		enemies.append(child)
+		t_order.append(child)
+
 func _cal_turn_order() -> void:
-	if player_1.stats.attributes["Dex"] > enemy_1.stats.attributes["Dex"]:
-		t_order = [player_1, enemy_1]
-	else:
-		t_order = [enemy_1, player_1]
+	print(t_order)
+	for i in range(0, 8):
+		for x in range(i+1,8):
+			if t_order[i].stats.attributes.Dex < t_order[x].stats.attributes.Dex:
+				var temp = t_order[i]
+				t_order[i] = t_order[x]
+				t_order[x] = temp
+				print("i is "+str(i)+" and x is "+str(x))
+				print("Swapped: "+ str(t_order))
+			#If speeds are equal, swap 50% of the time.
+			if t_order[i].stats.attributes.Dex == t_order[x].stats.attributes.Dex:
+				pass
+	print(t_order)
 
 func _next_turn() -> void:
 	##Highlight the image of the player whose turn it is.
@@ -54,6 +78,7 @@ func _next_turn() -> void:
 		##Disable GUI's ability to read input and be navigated
 		_menu_state(false)
 		var think = sel_actor.get_node("ThinkAnimation")
+		print(sel_actor)
 		think.visible = true
 		think.play("Thinking")
 		await sel_actor.get_node("ThinkAnimation").animation_finished
@@ -143,9 +168,14 @@ func fetch_action(action:int, a_category: String):
 			while selected == false:
 				if enemies[x].living:
 					index = await e_zone.unit_selection(enemies[x])
-					print(index)
+					print("Index: "+ str(index))
 					for i in index:
 						targets.append(enemies[i])
 					selected = true
 				x += 1
+	#Hides the Other sub menus so that after the action and enemy are selected, the sub menu doesn't
+	#stay up.
+	for child in $BattleMenus/ActionMenu.get_children():
+		if child != $BattleMenus/ActionMenu/ActionList:
+			child.visible = false
 	_player_combat_action(c_action,targets)
