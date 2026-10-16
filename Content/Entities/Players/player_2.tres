@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("1_csye1")
+char_name = "Wizard"
 is_player = true
 metadata/_custom_type_script = "uid://cesryo2iq2oxe"

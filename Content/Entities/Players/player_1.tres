@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_xvbvp")
-char_name = "Akayu"
+char_name = "Warrior"
 is_player = true
 attributes = {
 "Armor": 10,

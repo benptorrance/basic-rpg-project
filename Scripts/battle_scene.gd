@@ -39,19 +39,15 @@ func load_actors() -> void:
 		t_order.append(child)
 
 func _cal_turn_order() -> void:
-	print(t_order)
 	for i in range(0, 8):
 		for x in range(i+1,8):
 			if t_order[i].stats.attributes.Dex < t_order[x].stats.attributes.Dex:
 				var temp = t_order[i]
 				t_order[i] = t_order[x]
 				t_order[x] = temp
-				print("i is "+str(i)+" and x is "+str(x))
-				print("Swapped: "+ str(t_order))
 			#If speeds are equal, swap 50% of the time.
 			if t_order[i].stats.attributes.Dex == t_order[x].stats.attributes.Dex:
 				pass
-	print(t_order)
 
 func _next_turn() -> void:
 	##Highlight the image of the player whose turn it is.
