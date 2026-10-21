@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://db248a0vsr5a2"]
+
+[ext_resource type="Script" uid="uid://dihfmho8mi2v5" path="res://Scripts/Item Scripts/item_data.gd" id="1_oel5m"]
+
+[resource]
+script = ExtResource("1_oel5m")
+id = &"health_potion"
+name = "Health Potion"
+description = "A bottle of red colored, healing liquid. It shimmers faintly when light touches it."
+item_type = 1
+max_stack_size = 99
+value = 120
+consumable = true
+craftable = true
+metadata/_custom_type_script = "uid://dihfmho8mi2v5"

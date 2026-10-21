@@ -1,24 +1,27 @@
 class_name ItemData extends Resource
 
-@export var name: String
-@export var id: int
+@export var id: StringName = &""
+@export var name: String = ""
 @export var icon: Texture2D
-@export var description: String
-@export var item_type: ItemType
-@export var item_rarity: ItemRarity
-@export var value: int
+@export var description: String = ""
+@export var item_type: ItemType = ItemType.MISC
+@export var item_rarity: Rarity = Rarity.COMMON
+@export var max_stack_size: int = 1
+@export var value: int = 0
 @export var consumable: bool = false
 @export var quest_item: bool = false
+@export var craftable: bool = false
 
 enum ItemType{
 	EQUIPMENT,
 	CONSUMABLE,
 	REAGENT,
 	KEY_ITEM,
-	TREASURE
+	TREASURE,
+	MISC
 }
 
-enum ItemRarity{
+enum Rarity{
 	COMMON,
 	UNCOMMON,
 	RARE,

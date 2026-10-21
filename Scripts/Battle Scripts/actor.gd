@@ -6,7 +6,7 @@ var living: bool = true
 
 @export var base_actions: Array[CombatAction] = [load("res://Content/Combat Actions/Basic Actions/slash.tres")]
 @export var skill_actions: Array[CombatAction]
-@export var item_actions: Array[CombatAction]
+@export var item_actions: Array[CombatAction] = [load("res://Content/Combat Actions/Items/health_potion.tres")]
 
 ##This section contains the functions that are responsible for managing the actor's data.
 

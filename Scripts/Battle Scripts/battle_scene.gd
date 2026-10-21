@@ -146,6 +146,11 @@ func _enemy_action_decision():
 ##then fetch_action calls the unit selection function of the appropriate zone.
 func fetch_action(action:int, a_category: String):
 	var c_action: CombatAction
+	var selected = false
+	var x = 0
+	var index: Array[int]
+	var targets: Array[Actor]
+	
 	match a_category:
 		"Basic":
 			c_action = sel_actor.base_actions[action]
@@ -153,14 +158,17 @@ func fetch_action(action:int, a_category: String):
 			c_action = sel_actor.skill_actions[action]
 		"Item":
 			c_action = sel_actor.item_actions[action]
-	var targets: Array[Actor]
 	match c_action.tar_type:
 		"Ally":
-			targets = a_zone.unit_selection(sel_actor)
+			while selected == false:
+				if allies[x].living:
+					index = await a_zone.unit_selection(allies[x])
+					print("Index: "+ str(index))
+					for i in index:
+						targets.append(allies[i])
+					selected = true
+				x += 1
 		"Enemy":
-			var selected = false
-			var x = 0
-			var index: Array[int]
 			while selected == false:
 				if enemies[x].living:
 					index = await e_zone.unit_selection(enemies[x])

@@ -20,7 +20,13 @@ func _do(agent: Actor, source: CombatAction, targets: Array[Actor]):
 			"Item":
 				match def_stat:
 					"Armor":
-						total_damage = base_damage
+						total_damage -= target.stats.attributes["Armor"]
+						if total_damage < 0:
+							total_damage = 0
+					"Warding":
+						total_damage -= target.stats.attributes["Warding"]
+						if total_damage < 0:
+							total_damage = 0
 		match def_stat:
 			"Armor":
 				total_damage -= target.stats.attributes["Armor"]

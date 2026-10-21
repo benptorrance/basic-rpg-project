@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://bxfs6dv01ey1e"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/targeted_effect.gd" id="1_3o046"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_l6lh7"]
+[ext_resource type="Script" uid="uid://bq451jq7nxgoa" path="res://Scripts/perform_healing.gd" id="2_rnuqp"]
+
+[sub_resource type="Resource" id="Resource_f856b"]
+script = ExtResource("2_rnuqp")
+base_healing = 30
+type = "Item"
+metadata/_custom_type_script = "uid://bq451jq7nxgoa"
+
+[resource]
+script = ExtResource("2_l6lh7")
+action_name = "Health Potion"
+description = "Target drinks a Health Potion"
+action_type = "Item"
+tar_type = "Ally"
+effects = Array[ExtResource("1_3o046")]([SubResource("Resource_f856b")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"

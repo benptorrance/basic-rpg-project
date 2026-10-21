@@ -36,8 +36,9 @@ class_name Stats
 }
 
 @export var e_resists = {
+	"Physical Resist": 0,
 	"Fire Resist": 0,
-	"Ice/Water Resist": 0,
+	"Water Resist": 0,
 	"Wind Resist": 0,
 	"Earth Resist": 0,
 	"Lightning Resist": 0,

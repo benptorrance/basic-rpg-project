@@ -13,6 +13,7 @@ class_name Equipment extends Resource
 enum EquipType {
 	WEAPON,
 	ARMOR,
+	ACCESSORY
 }
 
 enum EquipSlot {

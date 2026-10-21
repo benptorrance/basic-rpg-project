@@ -3,18 +3,18 @@
 [ext_resource type="Theme" uid="uid://ymgalg2pu3g" path="res://Assets/Themes/default_theme.tres" id="1_anwxn"]
 [ext_resource type="Texture2D" uid="uid://b7o0y52b6vhx0" path="res://Assets/Backgrounds/nature_1/orig.png" id="2_3gnqe"]
 [ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
-[ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scripts/battle_scene.gd" id="2_ms847"]
+[ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scripts/Battle Scripts/battle_scene.gd" id="2_ms847"]
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
 [ext_resource type="Texture2D" uid="uid://1lxmpp22ghra" path="res://Assets/Unit Sprites/Players/test_ally.png" id="5_84vmf"]
-[ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/unit_zone.gd" id="5_f856b"]
-[ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/actor.gd" id="6_wb0gu"]
+[ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/Battle Scripts/unit_zone.gd" id="5_f856b"]
+[ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/Battle Scripts/actor.gd" id="6_wb0gu"]
 [ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
 [ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
-[ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/action_menu.gd" id="9_f4ggb"]
+[ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/Battle Scripts/action_menu.gd" id="9_f4ggb"]
 [ext_resource type="SpriteFrames" uid="uid://cvi4n7t6qn5lm" path="res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres" id="9_xdap8"]
-[ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/action_list.gd" id="10_f4ggb"]
+[ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/Battle Scripts/action_list.gd" id="10_f4ggb"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -167,6 +167,10 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+focus_neighbor_left = NodePath("../../Player1/UnitSelector")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../Player3/UnitSelector")
+focus_neighbor_bottom = NodePath(".")
 
 [node name="EnemyZone" type="Control" parent="." unique_id=334906726]
 custom_minimum_size = Vector2(320, 260)
@@ -638,7 +642,7 @@ focus_neighbor_right = NodePath("../../BackButton")
 focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
-text = "Items"
+text = "Health Potion"
 
 [node name="PartyList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=972199540]
 visible = false
@@ -845,9 +849,13 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_f856b")
 text = "Continue"
 
+[connection signal="button_down" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_selector_pressed" binds= [0]]
 [connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_change_focus" binds= [0]]
+[connection signal="button_down" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="_selector_pressed" binds= [1]]
 [connection signal="focus_entered" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="_change_focus" binds= [1]]
+[connection signal="button_down" from="AllyZone/Player3/UnitSelector" to="AllyZone" method="_selector_pressed" binds= [2]]
 [connection signal="focus_entered" from="AllyZone/Player3/UnitSelector" to="AllyZone" method="_change_focus" binds= [2]]
+[connection signal="button_down" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="_selector_pressed" binds= [3]]
 [connection signal="focus_entered" from="AllyZone/Player4/UnitSelector" to="AllyZone" method="_change_focus" binds= [3]]
 [connection signal="button_down" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [0]]
 [connection signal="focus_entered" from="EnemyZone/Enemy1/UnitSelector" to="EnemyZone" method="_change_focus" binds= [0]]
@@ -866,4 +874,5 @@ text = "Continue"
 [connection signal="button_down" from="BattleMenus/ActionMenu/FightList/FightCont/Attack1" to="." method="fetch_action" binds= [0, "Basic"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/SkillsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
+[connection signal="button_down" from="BattleMenus/ActionMenu/ItemsList/ItemCont/Item1" to="." method="fetch_action" binds= [0, "Item"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]

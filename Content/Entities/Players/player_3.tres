@@ -1,10 +1,23 @@
 [gd_resource type="Resource" script_class="Stats" format=3 uid="uid://bfoa1md3mdj37"]
 
 [ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_hk877"]
-[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/combat_action.gd" id="2_x44rg"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_x44rg"]
 
 [resource]
 script = ExtResource("1_hk877")
 char_name = "Priest"
 is_player = true
+attributes = {
+"Armor": 5,
+"Dex": 5,
+"Health": 60,
+"Luk": 10,
+"Magi Attack": 0,
+"Max Health": 60,
+"Phys Attack": 3,
+"Str": 5,
+"Vit": 10,
+"Warding": 0,
+"Wis": 23
+}
 metadata/_custom_type_script = "uid://cesryo2iq2oxe"
