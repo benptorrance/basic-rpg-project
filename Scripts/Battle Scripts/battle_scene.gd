@@ -1,7 +1,7 @@
 extends Control
 
 @onready var allies: Array [Actor]
-@onready var enemies: Array [Actor]
+@onready var enemies: Array [EnemyActor]
 @onready var a_zone = $AllyZone
 @onready var e_zone = $EnemyZone
 
@@ -79,7 +79,21 @@ func _next_turn() -> void:
 		think.play("Thinking")
 		await sel_actor.get_node("ThinkAnimation").animation_finished
 		think.visible = false
-		#Use action
+		
+		##The EnemyActor has the function that decides what action and target will be selected
+		#The stats resource will be modified to have a variable that determines what kind of brain
+		#the enemy has. Decision will call a different sub function based on that brain variable.
+		#Examples: Berserker, Healer, Mage, Specific Boss name
+		var results: Array = sel_actor.decision()
+		var targets: Array[Actor]
+		var action = results[0]
+		targets.append(allies[results[1]])
+		sel_actor.combat_action(action, targets)
+		print(str(sel_actor.stats.char_name) + " has used " + str(action.action_name) + " on " + str(targets[0].stats.char_name))
+		
+		##Timer is here so that enemy turns will wait for the action to resolve before their turn ends
+		#When action animations are implemented a timer here will prevent the turn from going to the
+		#next enemy when the animation is still playing.
 		await get_tree().create_timer(0.5).timeout
 		_next_turn()
 
@@ -130,16 +144,9 @@ func _battle_won() -> void:
 func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	if sel_actor.is_player != true:
 		return
-	print("Player 1 Used a Skill")
 	sel_actor.combat_action(action, targets)
 	await get_tree().create_timer(0.5).timeout
 	_next_turn()	
-
-##Handles how the enemy decides what action to use.
-func _enemy_action_decision():
-	if sel_actor.is_player == true:
-		return
-	print(sel_actor.stats.char_name + " Used a Skill")
 
 ##Upon Combat action selection, this function is called. It will take the number associated with the
 ##pressed button and then find what action that correlates to in the selected actor's action lists
@@ -153,11 +160,11 @@ func fetch_action(action:int, a_category: String):
 	
 	match a_category:
 		"Basic":
-			c_action = sel_actor.base_actions[action]
+			c_action = sel_actor.stats.base_actions[action]
 		"Skill":
-			c_action = sel_actor.skill_actions[action]
+			c_action = sel_actor.stats.skill_actions[action]
 		"Item":
-			c_action = sel_actor.item_actions[action]
+			c_action = sel_actor.stats.item_actions[action]
 	match c_action.tar_type:
 		"Ally":
 			while selected == false:

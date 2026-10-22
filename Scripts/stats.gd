@@ -58,5 +58,7 @@ class_name Stats
 	"Accessory": null,
 }
 
-##Holds the list of skills the character has access to.
-@export var skills: Array[CombatAction]
+##Holds the lists of skills the character has access to.
+@export var base_actions: Array[CombatAction] 
+@export var skill_actions: Array[CombatAction]
+@export var item_actions: Array[CombatAction]

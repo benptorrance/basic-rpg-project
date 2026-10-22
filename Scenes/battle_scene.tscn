@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/Battle Scripts/action_menu.gd" id="9_f4ggb"]
 [ext_resource type="SpriteFrames" uid="uid://cvi4n7t6qn5lm" path="res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres" id="9_xdap8"]
+[ext_resource type="Script" uid="uid://5rpw4yw3gr37" path="res://Scripts/Battle Scripts/enemy_actor.gd" id="10_778cw"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/Battle Scripts/action_list.gd" id="10_f4ggb"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
@@ -183,13 +184,13 @@ offset_bottom = 130.0
 grow_horizontal = 0
 script = ExtResource("5_f856b")
 
-[node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=170768836]
+[node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=1554821097]
 texture_filter = 1
 position = Vector2(73, 197)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
-script = ExtResource("6_wb0gu")
-metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy1" unique_id=1345608857]
 visible = false
@@ -217,12 +218,12 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=266789314]
+[node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=1912445951]
 position = Vector2(133, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
-script = ExtResource("6_wb0gu")
-metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy2" unique_id=1292946215]
 visible = false
@@ -250,12 +251,12 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1459737702]
+[node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=715119823]
 position = Vector2(193, 197)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
-script = ExtResource("6_wb0gu")
-metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy3" unique_id=109167474]
 visible = false
@@ -283,12 +284,12 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1952741506]
+[node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=559264791]
 position = Vector2(253, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
-script = ExtResource("6_wb0gu")
-metadata/_custom_type_script = "uid://c4ao4qci8pupc"
+script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy4" unique_id=196645134]
 visible = false

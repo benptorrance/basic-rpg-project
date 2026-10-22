@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="Stats" format=3 uid="uid://cytl6ntt0olil"]
 
 [ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_xvbvp"]
+[ext_resource type="Resource" uid="uid://5gmrnce14yw6" path="res://Content/Combat Actions/Basic Actions/slash.tres" id="2_ryyar"]
 [ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_wqeju"]
+[ext_resource type="Resource" uid="uid://bxfs6dv01ey1e" path="res://Content/Combat Actions/Items/health_potion.tres" id="3_2f6en"]
 
 [resource]
 script = ExtResource("1_xvbvp")
@@ -20,4 +22,6 @@ attributes = {
 "Warding": 0,
 "Wis": 5
 }
+base_actions = Array[ExtResource("2_wqeju")]([ExtResource("2_ryyar")])
+item_actions = Array[ExtResource("2_wqeju")]([ExtResource("3_2f6en")])
 metadata/_custom_type_script = "uid://cesryo2iq2oxe"

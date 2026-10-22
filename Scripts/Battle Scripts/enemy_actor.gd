@@ -7,3 +7,8 @@ class_name EnemyActor extends Actor
 
 func generate_loot():
 	pass
+
+func decision():
+	var action: CombatAction = stats.base_actions[0]
+	var index: int = randi() % 4
+	return [action, index]

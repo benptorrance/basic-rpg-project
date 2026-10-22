@@ -4,18 +4,12 @@ class_name Actor extends Sprite2D
 @export var is_player: bool
 var living: bool = true
 
-@export var base_actions: Array[CombatAction] = [load("res://Content/Combat Actions/Basic Actions/slash.tres")]
-@export var skill_actions: Array[CombatAction]
-@export var item_actions: Array[CombatAction] = [load("res://Content/Combat Actions/Items/health_potion.tres")]
-
 ##This section contains the functions that are responsible for managing the actor's data.
 
 func load_stats(path: String) -> void:
 	var temp = load(path)
 	stats = temp.duplicate()
 	is_player = stats.is_player
-	if stats.skills.is_empty() != true:
-		skill_actions.append(stats.skills)
 
 func save_stats(path: String) -> void:
 	##Save the data to the resource file.
