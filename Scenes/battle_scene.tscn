@@ -190,7 +190,6 @@ position = Vector2(73, 197)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
-metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy1" unique_id=1345608857]
 visible = false
@@ -223,7 +222,6 @@ position = Vector2(133, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
-metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy2" unique_id=1292946215]
 visible = false
@@ -256,7 +254,6 @@ position = Vector2(193, 197)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
-metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy3" unique_id=109167474]
 visible = false
@@ -289,7 +286,6 @@ position = Vector2(253, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
-metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy4" unique_id=196645134]
 visible = false
