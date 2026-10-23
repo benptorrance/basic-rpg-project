@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1792763851
+::res://::1792779733
 icon.svg::CompressedTexture2D::4086424308677110040::1792763470::1792763499::1::::<><><>0<>0<>4a7d3d910455db27a6f6c0dca7af967f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1792763470::0::1::::<><><>0<>0<><>::
 ::res://Assets/::1792763486
@@ -100,8 +100,8 @@ pipo-map001_at-yama2.png::CompressedTexture2D::1113718184048631320::1792763470::
 pipo-map001_at-yama3.png::CompressedTexture2D::3127215788366483504::1792763470::1792763499::1::::<><><>0<>0<>9e78d7e872d7a7895258312b4da4d3f0<>res://.godot/imported/pipo-map001_at-yama3.png-18ce5ceb98e6f2a8bef2ca3353e8f11d.ctex::
 ::res://Assets/Map/Tilesets/::1792763486
 basic_overworld.tres::TileSet::768861664128326321::1792763470::0::1::::<><><>0<>0<><>::uid://dns0c5obmb4rp::::res://Assets/Map/32x32/pipo-map001.png<>uid://6m2ahp30ibw1::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-kusa.png<>uid://hu4amfe54bdy::::res://Assets/Map/32x32/[A]_type3/Beach.png<>uid://xy6td3dcudbw::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-miti.png<>uid://cc1af1lohqe13::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-mori.png<>uid://dv6myt3j2s60e::::res://Assets/Map/32x32/[A]_type3/Dirt_Path.png<>uid://cpxv7wuey63vt::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-sabaku.png<>uid://38fsq1mvby3r::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-tuti.png<>uid://biet0cqwup8r::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-umi.png<>uid://b51m2bflubbus::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-yama1.png<>uid://p4q1m2cc4o0g::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-yama2.png<>uid://bks310632a10g::::res://Assets/Map/32x32/[A]_type3/pipo-map001_at-yama3.png
-::res://Assets/Themes/::1792763749
-default_theme.tres::Theme::50284402076217398::1792763749::0::1::::<><><>0<>0<><>::uid://8156ckby5sv5::::res://Assets/Fonts/press_start_var.tres
+::res://Assets/Themes/::1792766080
+default_theme.tres::Theme::50284402076217398::1792766080::0::1::::<><><>0<>0<><>::uid://8156ckby5sv5::::res://Assets/Fonts/press_start_var.tres
 ::res://Assets/UI Assets/::1792763486
 ::res://Assets/UI Assets/Icons/::1792763499
 Unit Selector.png::CompressedTexture2D::4138393690062616138::1792763470::1792763499::1::::<><><>0<>0<>0d40f1b4acba9dc8d367fbff518e6229<>res://.godot/imported/Unit Selector.png-7aa69c4995122f2e960cbee3c0fd4418.ctex::
@@ -127,13 +127,17 @@ test_ally.png::CompressedTexture2D::1849036822529387358::1792763470::1792763499:
 ::res://Content/Combat Actions/::1792763487
 ::res://Content/Combat Actions/Basic Actions/::1792763487
 slash.tres::Resource/CombatAction::2118811224185726451::1792763470::0::1::::<><><>0<>0<><>::uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://bn2xmau74eukw::::res://Scripts/targeted_effect.gd<>uid://c4awdylc41q0g::::res://Scripts/deal_damage.gd
-::res://Content/Combat Actions/Items/::1792763487
-health_potion.tres::Resource/CombatAction::4012234432800752248::1792763470::0::1::::<><><>0<>0<><>::uid://bn2xmau74eukw::::res://Scripts/targeted_effect.gd<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://bq451jq7nxgoa::::res://Scripts/perform_healing.gd
-::res://Content/Combat Actions/Monster Actions/::1792763487
-slam.tres::Resource/CombatAction::4903219319185232206::1792763470::0::1::::<><><>0<>0<><>::uid://bn2xmau74eukw::::res://Scripts/targeted_effect.gd<>uid://c4awdylc41q0g::::res://Scripts/deal_damage.gd<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd
+::res://Content/Combat Actions/Items/::1792766256
+health_potion.tres::Resource/CombatAction::4012234432800752248::1792766256::0::1::::<><><>0<>0<><>::uid://bn2xmau74eukw::::res://Scripts/targeted_effect.gd<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://bq451jq7nxgoa::::res://Scripts/perform_healing.gd
+::res://Content/Combat Actions/Monster Actions/::1792766256
+slam.tres::Resource/CombatAction::4903219319185232206::1792766256::0::1::::<><><>0<>0<><>::uid://bn2xmau74eukw::::res://Scripts/targeted_effect.gd<>uid://c4awdylc41q0g::::res://Scripts/deal_damage.gd<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd
 ::res://Content/Entities/::1792763487
-::res://Content/Entities/Enemies/::1792763487
-slime.tres::Resource/Stats::5052100470299922009::1792763470::0::1::::<><><>0<>0<><>::uid://cesryo2iq2oxe::::res://Scripts/stats.gd<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://cb4fknr4fvsx7::::res://Content/Combat Actions/Monster Actions/slam.tres
+::res://Content/Entities/Enemies/::1792779676
+slime.tres::Resource/EnemyStats::6430716404338067414::1792766256::0::1::::<><><>0<>0<><>::uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://cb4fknr4fvsx7::::res://Content/Combat Actions/Monster Actions/slam.tres<>uid://dihfmho8mi2v5::::res://Scripts/Item Scripts/item_data.gd<>uid://ijxbur3vdu8r::::res://Scripts/enemy_stats.gd
+::res://Content/Entities/Enemies/Enemy AI/::1792779947
+slime_ai.tres::Resource/EnemyAI::5410549555512177572::1792779947::0::1::::<><><>0<>0<><>::uid://bs1fdb7y8s8sf::::res://Scripts/Battle Scripts/ai_rule.gd<>uid://vs3s1ts3ix1g::::res://Scripts/Battle Scripts/enemy_ai.gd
+::res://Content/Entities/Enemies/Enemy AI/AI Rules/::1792779733
+fling_gel.tres::Resource/AIRule::8695338717444940767::1792779483::0::1::::<><><>0<>0<><>::uid://bs1fdb7y8s8sf::::res://Scripts/Battle Scripts/ai_rule.gd
 ::res://Content/Entities/Players/::1792763487
 player_1.tres::Resource/Stats::6497320751609678439::1792763470::0::1::::<><><>0<>0<><>::uid://cesryo2iq2oxe::::res://Scripts/stats.gd<>uid://5gmrnce14yw6::::res://Content/Combat Actions/Basic Actions/slash.tres<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://bxfs6dv01ey1e::::res://Content/Combat Actions/Items/health_potion.tres
 player_2.tres::Resource/Stats::5892838854341655645::1792763470::0::1::::<><><>0<>0<><>::uid://cesryo2iq2oxe::::res://Scripts/stats.gd<>uid://4ypogf2aj28t::::res://Scripts/Battle Scripts/combat_action.gd<>uid://5gmrnce14yw6::::res://Content/Combat Actions/Basic Actions/slash.tres<>uid://bxfs6dv01ey1e::::res://Content/Combat Actions/Items/health_potion.tres
@@ -142,25 +146,28 @@ player_4.tres::Resource/Stats::8787745127019846157::1792763470::0::1::::<><><>0<
 ::res://Content/Items/::1792763487
 ::res://Content/Items/Consumables/::1792763487
 health_potion.tres::Resource/ItemData::7287008857665049755::1792763470::0::1::::<><><>0<>0<><>::uid://dihfmho8mi2v5::::res://Scripts/Item Scripts/item_data.gd
-::res://Scenes/::1792763749
+::res://Scenes/::1792779923
 action_menu.tscn::PackedScene::5735049607079614023::1792763470::0::1::::<><><>0<>0<><>::
 battle_enemy.tscn::PackedScene::8641127734886217779::1792763470::0::1::::<><><>0<>0<><>::uid://crm0fvmqobin4::::res://Assets/Unit Sprites/Basic Enemies/test_enemy.png
 battle_player.tscn::PackedScene::5137102029220727559::1792763470::0::1::::<><><>0<>0<><>::uid://1lxmpp22ghra::::res://Assets/Unit Sprites/Players/test_ally.png
-battle_scene.tscn::PackedScene::3070240891101326435::1792763749::0::1::::<><><>0<>0<><>::uid://ymgalg2pu3g::::res://Assets/Themes/default_theme.tres<>uid://b7o0y52b6vhx0::::res://Assets/Backgrounds/nature_1/orig.png<>uid://cnydoucol5bv0::::res://Scenes/action_menu.tscn<>uid://bxbk5modb0bss::::res://Scripts/Battle Scripts/battle_scene.gd<>uid://dfmhlfm6doep::::res://Scenes/target_menus.tscn<>uid://cmh0ydu5mc8rq::::res://Assets/Backgrounds/nature_1/battlemenu_solid.png<>uid://1lxmpp22ghra::::res://Assets/Unit Sprites/Players/test_ally.png<>uid://dcf6px7wkx6v3::::res://Scripts/Battle Scripts/unit_zone.gd<>uid://c4ao4qci8pupc::::res://Scripts/Battle Scripts/actor.gd<>uid://dtjv0vnc3bw16::::res://Assets/Unit Sprites/Basic Enemies/blue_slime.png<>uid://b0he6spck1suk::::res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png<>uid://by7w0e2jtxgoo::::res://Assets/UI Assets/Icons/Unit Selector.png<>uid://cq1wp81doqbv::::res://Scripts/Battle Scripts/action_menu.gd<>uid://cvi4n7t6qn5lm::::res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres<>uid://5rpw4yw3gr37::::res://Scripts/Battle Scripts/enemy_actor.gd<>uid://p4vq881wxxcq::::res://Scripts/Battle Scripts/action_list.gd
+battle_scene.tscn::PackedScene::3070240891101326435::1792779923::0::1::::<><><>0<>0<><>::uid://ymgalg2pu3g::::res://Assets/Themes/default_theme.tres<>uid://b7o0y52b6vhx0::::res://Assets/Backgrounds/nature_1/orig.png<>uid://cnydoucol5bv0::::res://Scenes/action_menu.tscn<>uid://bxbk5modb0bss::::res://Scripts/Battle Scripts/battle_scene.gd<>uid://dfmhlfm6doep::::res://Scenes/target_menus.tscn<>uid://cmh0ydu5mc8rq::::res://Assets/Backgrounds/nature_1/battlemenu_solid.png<>uid://1lxmpp22ghra::::res://Assets/Unit Sprites/Players/test_ally.png<>uid://dcf6px7wkx6v3::::res://Scripts/Battle Scripts/unit_zone.gd<>uid://c4ao4qci8pupc::::res://Scripts/Battle Scripts/actor.gd<>uid://dtjv0vnc3bw16::::res://Assets/Unit Sprites/Basic Enemies/blue_slime.png<>uid://b0he6spck1suk::::res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png<>uid://by7w0e2jtxgoo::::res://Assets/UI Assets/Icons/Unit Selector.png<>uid://cq1wp81doqbv::::res://Scripts/Battle Scripts/action_menu.gd<>uid://cvi4n7t6qn5lm::::res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres<>uid://5rpw4yw3gr37::::res://Scripts/Battle Scripts/enemy_actor.gd<>uid://p4vq881wxxcq::::res://Scripts/Battle Scripts/action_list.gd
 target_menus.tscn::PackedScene::221630110222587287::1792763470::0::1::::<><><>0<>0<><>::
-::res://Scripts/::1792763486
+::res://Scripts/::1792767070
 deal_damage.gd::GDScript::6809660241795636024::1792763470::0::1::::DealDamage<>TargetedEffect<><>0<>0<><>::
 debug.gd::GDScript::5556954101571300527::1792763470::0::1::::<>Node<><>0<>0<><>::
+enemy_stats.gd::GDScript::581489503547405675::1792767070::0::1::::EnemyStats<>Stats<><>0<>0<><>::
 perform_healing.gd::GDScript::3571177576093113212::1792763470::0::1::::PerformHealing<>TargetedEffect<><>0<>0<><>::
 stats.gd::GDScript::5091831366864719202::1792763470::0::1::::Stats<>Resource<><>0<>0<><>::
 targeted_effect.gd::GDScript::3356031803096579754::1792763470::0::1::::TargetedEffect<>Resource<><>0<>0<><>::
-::res://Scripts/Battle Scripts/::1792763486
+::res://Scripts/Battle Scripts/::1792779923
 action_list.gd::GDScript::1114005024449544904::1792763470::0::1::::ActionList<>Container<><>0<>0<><>::
 action_menu.gd::GDScript::175026500633553687::1792763470::0::1::::ActionMenu<>NinePatchRect<><>0<>0<><>::
 actor.gd::GDScript::6809220502682520536::1792763470::0::1::::Actor<>Sprite2D<><>0<>0<><>::
-battle_scene.gd::GDScript::4003489860912807730::1792763470::0::1::::<>Control<><>0<>0<><>::
+ai_rule.gd::GDScript::3703802736221172109::1792779483::0::1::::AIRule<>Resource<><>0<>0<><>::
+battle_scene.gd::GDScript::4003489860912807730::1792766269::0::1::::<>Control<><>0<>0<><>::
 combat_action.gd::GDScript::2085957611697804745::1792763470::0::1::::CombatAction<>Resource<><>0<>0<><>::
-enemy_actor.gd::GDScript::2141711334607105740::1792763470::0::1::::EnemyActor<>Actor<><>0<>0<><>::
+enemy_actor.gd::GDScript::2141711334607105740::1792778980::0::1::::EnemyActor<>Actor<><>0<>0<><>::
+enemy_ai.gd::GDScript::1512858131873489750::1792779923::0::1::::EnemyAI<>Resource<><>0<>0<><>::
 unit_zone.gd::GDScript::7311871899294678522::1792763470::0::1::::UnitZone<>Control<><>0<>0<><>::
 ::res://Scripts/Item Scripts/::1792763486
 armor.gd::GDScript::2897812866425037551::1792763470::0::1::::<>Node<><>0<>0<><>::

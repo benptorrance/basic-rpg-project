@@ -1,24 +1,28 @@
-[gd_resource type="Resource" script_class="Stats" format=3 uid="uid://cd8jmei1prt7v"]
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://cxvc7vlxrlh6u"]
 
-[ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_yiuc4"]
-[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_0y4rr"]
-[ext_resource type="Resource" uid="uid://cb4fknr4fvsx7" path="res://Content/Combat Actions/Monster Actions/slam.tres" id="2_n4xfj"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="1_xmcyj"]
+[ext_resource type="Resource" uid="uid://cb4fknr4fvsx7" path="res://Content/Combat Actions/Monster Actions/slam.tres" id="2_nhq00"]
+[ext_resource type="Script" uid="uid://dihfmho8mi2v5" path="res://Scripts/Item Scripts/item_data.gd" id="3_xsep5"]
+[ext_resource type="Script" uid="uid://ijxbur3vdu8r" path="res://Scripts/enemy_stats.gd" id="4_oo5sg"]
 
 [resource]
-script = ExtResource("1_yiuc4")
+script = ExtResource("4_oo5sg")
+base_experience = 25
+base_money = 5
 char_name = "Slime"
+id = &"basic_slime"
 attributes = {
 "Armor": 5,
-"Dex": 7,
+"Dex": 10,
 "Health": 100,
-"Luk": 3,
+"Luk": 10,
 "Magi Attack": 0,
 "Max Health": 100,
 "Phys Attack": 10,
-"Str": 5,
+"Str": 10,
 "Vit": 10,
 "Warding": 0,
-"Wis": 3
+"Wis": 10
 }
-base_actions = Array[ExtResource("2_0y4rr")]([ExtResource("2_n4xfj")])
-metadata/_custom_type_script = "uid://cesryo2iq2oxe"
+base_actions = Array[ExtResource("1_xmcyj")]([ExtResource("2_nhq00")])
+metadata/_custom_type_script = "uid://ijxbur3vdu8r"

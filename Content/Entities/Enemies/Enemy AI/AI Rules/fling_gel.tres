@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AIRule" format=3 uid="uid://dv5c7t05u3swl"]
+
+[ext_resource type="Resource" uid="uid://bpjwrt1hk4cix" path="res://Content/Combat Actions/Monster Actions/fling_gel.tres" id="1_gai7r"]
+[ext_resource type="Script" uid="uid://bs1fdb7y8s8sf" path="res://Scripts/Battle Scripts/ai_rule.gd" id="2_rmlcp"]
+
+[resource]
+script = ExtResource("2_rmlcp")
+chance = 0.5
+threshold = 0.5
+action = ExtResource("1_gai7r")
+metadata/_custom_type_script = "uid://bs1fdb7y8s8sf"

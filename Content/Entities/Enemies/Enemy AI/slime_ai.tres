@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyAI" format=3 uid="uid://cjc57ws5dje73"]
+
+[ext_resource type="Script" uid="uid://bs1fdb7y8s8sf" path="res://Scripts/Battle Scripts/ai_rule.gd" id="1_imcfu"]
+[ext_resource type="Script" uid="uid://vs3s1ts3ix1g" path="res://Scripts/Battle Scripts/enemy_ai.gd" id="2_da4de"]
+[ext_resource type="Resource" uid="uid://dv5c7t05u3swl" path="res://Content/Entities/Enemies/Enemy AI/AI Rules/fling_gel.tres" id="2_uermd"]
+
+[resource]
+script = ExtResource("2_da4de")
+rules = Array[ExtResource("1_imcfu")]([ExtResource("2_uermd")])
+metadata/_custom_type_script = "uid://vs3s1ts3ix1g"

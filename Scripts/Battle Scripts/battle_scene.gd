@@ -34,7 +34,7 @@ func load_actors() -> void:
 		allies.append(child)
 		t_order.append(child)
 	for child in e_zone.get_children():
-		child.load_stats("res://Content/Entities/Enemies/slome.tres")
+		child.load_stats("res://Content/Entities/Enemies/slime.tres")
 		enemies.append(child)
 		t_order.append(child)
 
@@ -84,13 +84,7 @@ func _next_turn() -> void:
 		#The stats resource will be modified to have a variable that determines what kind of brain
 		#the enemy has. Decision will call a different sub function based on that brain variable.
 		#Examples: Berserker, Healer, Mage, Specific Boss name
-		var results: Array = sel_actor.decision()
-		var targets: Array[Actor]
-		var action = results[0]
-		targets.append(allies[results[1]])
-		sel_actor.combat_action(action, targets)
-		print(str(sel_actor.stats.char_name) + " has used " + str(action.action_name) + " on " + str(targets[0].stats.char_name))
-		
+		sel_actor.decision(sel_actor, enemies, allies)
 		##Timer is here so that enemy turns will wait for the action to resolve before their turn ends
 		#When action animations are implemented a timer here will prevent the turn from going to the
 		#next enemy when the animation is still playing.

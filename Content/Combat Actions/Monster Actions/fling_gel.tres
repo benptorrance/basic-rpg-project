@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://bpjwrt1hk4cix"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/targeted_effect.gd" id="1_6kwev"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_1xoml"]
+[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/deal_damage.gd" id="2_fqjdj"]
+
+[sub_resource type="Resource" id="Resource_fqjdj"]
+script = ExtResource("2_fqjdj")
+base_damage = 15
+atk_stat = "Str"
+def_stat = "Armor"
+act_type = "Skill"
+metadata/_custom_type_script = "uid://c4awdylc41q0g"
+
+[resource]
+script = ExtResource("2_1xoml")
+action_name = "Fling Gel"
+description = "A portion of gelatinous mass is flung at the target."
+action_type = "Skill"
+tar_type = "Enemy"
+element = "Physical"
+effects = Array[ExtResource("1_6kwev")]([SubResource("Resource_fqjdj")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"

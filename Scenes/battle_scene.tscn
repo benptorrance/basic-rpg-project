@@ -89,6 +89,7 @@ script = ExtResource("5_f856b")
 position = Vector2(253, 207)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
+is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player1" unique_id=1277504580]
@@ -111,6 +112,7 @@ focus_neighbor_bottom = NodePath(".")
 position = Vector2(193, 227)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
+is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player2" unique_id=1655784923]
@@ -133,6 +135,7 @@ focus_neighbor_bottom = NodePath(".")
 position = Vector2(133, 207)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
+is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player3" unique_id=403691569]
@@ -155,6 +158,7 @@ focus_neighbor_bottom = NodePath(".")
 position = Vector2(73, 227)
 texture = ExtResource("5_84vmf")
 script = ExtResource("6_wb0gu")
+is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
 
 [node name="TargetingIcon" type="Sprite2D" parent="AllyZone/Player4" unique_id=190986118]
