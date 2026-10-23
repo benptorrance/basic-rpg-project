@@ -34,7 +34,7 @@ func load_actors() -> void:
 		allies.append(child)
 		t_order.append(child)
 	for child in e_zone.get_children():
-		child.load_stats("res://Content/Entities/Enemies/slime.tres")
+		child.load_stats("res://Content/Entities/Enemies/slome.tres")
 		enemies.append(child)
 		t_order.append(child)
 

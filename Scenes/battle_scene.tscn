@@ -184,12 +184,13 @@ offset_bottom = 130.0
 grow_horizontal = 0
 script = ExtResource("5_f856b")
 
-[node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=1554821097]
+[node name="Enemy1" type="Sprite2D" parent="EnemyZone" unique_id=249157071]
 texture_filter = 1
 position = Vector2(73, 197)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy1" unique_id=1345608857]
 visible = false
@@ -217,11 +218,12 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=1912445951]
+[node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=1300186646]
 position = Vector2(133, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy2" unique_id=1292946215]
 visible = false
@@ -249,11 +251,12 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=715119823]
+[node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1032223825]
 position = Vector2(193, 197)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy3" unique_id=109167474]
 visible = false
@@ -281,11 +284,12 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
-[node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=559264791]
+[node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1742166604]
 position = Vector2(253, 217)
 scale = Vector2(2, 2)
 texture = ExtResource("7_84vmf")
 script = ExtResource("10_778cw")
+metadata/_custom_type_script = "uid://5rpw4yw3gr37"
 
 [node name="TargetingIcon" type="Sprite2D" parent="EnemyZone/Enemy4" unique_id=196645134]
 visible = false
