@@ -51,7 +51,6 @@ func _cal_turn_order() -> void:
 
 func _next_turn() -> void:
 	##Highlight the image of the player whose turn it is.
-	print("Next Turn")
 	
 	_check_actors()
 	if flee:
@@ -74,7 +73,6 @@ func _next_turn() -> void:
 		##Disable GUI's ability to read input and be navigated
 		_menu_state(false)
 		var think = sel_actor.get_node("ThinkAnimation")
-		print(sel_actor)
 		think.visible = true
 		think.play("Thinking")
 		await sel_actor.get_node("ThinkAnimation").animation_finished
@@ -164,7 +162,6 @@ func fetch_action(action:int, a_category: String):
 			while selected == false:
 				if allies[x].living:
 					index = await a_zone.unit_selection(allies[x])
-					print("Index: "+ str(index))
 					for i in index:
 						targets.append(allies[i])
 					selected = true
@@ -173,7 +170,6 @@ func fetch_action(action:int, a_category: String):
 			while selected == false:
 				if enemies[x].living:
 					index = await e_zone.unit_selection(enemies[x])
-					print("Index: "+ str(index))
 					for i in index:
 						targets.append(enemies[i])
 					selected = true

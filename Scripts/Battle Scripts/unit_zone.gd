@@ -24,7 +24,6 @@ func _selector_pressed(btn_index: int):
 
 ##First sets the targeting icons to not visible, then selects the correct
 func _change_focus(btn_index: int) -> void:
-	print(get_viewport().gui_get_focus_owner())
 	for unit in units:
 		unit.get_child(0).visible = false
 	match btn_index:
