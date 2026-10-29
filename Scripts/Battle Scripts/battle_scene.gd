@@ -4,6 +4,7 @@ extends Control
 @onready var enemies: Array [EnemyActor]
 @onready var a_zone = $AllyZone
 @onready var e_zone = $EnemyZone
+@onready var battle_log = $BattleText
 
 @export var sel_actor: Actor = null
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 	$Overlay.visible = false
 	$GameOverContainer.visible = false
 	$VictoryScreen.visible = false
+	battle_log.add_entry("Battle Begins!")
 	load_actors()
 	_cal_turn_order()
 	_next_turn()

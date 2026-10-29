@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
 [ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/Battle Scripts/unit_zone.gd" id="5_f856b"]
+[ext_resource type="Script" uid="uid://w31wkoaa2r8g" path="res://Scripts/Battle Scripts/battle_text.gd" id="5_kre2b"]
 [ext_resource type="Texture2D" uid="uid://c6j2clpdyq7an" path="res://Assets/Unit Sprites/Players/test_warrior.png" id="6_vuvll"]
 [ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/Battle Scripts/actor.gd" id="6_wb0gu"]
 [ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
@@ -93,8 +94,12 @@ offset_top = 50.0
 offset_right = 0.5
 offset_bottom = 50.0
 grow_horizontal = 2
+text = "Test"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_kre2b")
 
 [node name="AllyZone" type="Control" parent="." unique_id=1719875408]
 custom_minimum_size = Vector2(320, 260)

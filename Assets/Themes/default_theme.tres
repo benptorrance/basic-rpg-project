@@ -32,3 +32,7 @@ Button/styles/normal = SubResource("StyleBoxEmpty_5p4xu")
 Button/styles/pressed = SubResource("StyleBoxEmpty_tssyn")
 GridContainer/constants/h_separation = 8
 GridContainer/constants/v_separation = 0
+RichTextLabel/constants/line_separation = 4
+RichTextLabel/constants/outline_size = 2
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/normal_font = ExtResource("1_fqf8d")
