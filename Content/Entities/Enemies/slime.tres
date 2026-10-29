@@ -10,7 +10,6 @@ script = ExtResource("4_oo5sg")
 base_experience = 25
 base_money = 5
 char_name = "Slime"
-id = &"basic_slime"
 attributes = {
 "Armor": 5,
 "Dex": 10,

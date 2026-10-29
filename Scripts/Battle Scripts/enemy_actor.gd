@@ -8,12 +8,18 @@ var ai = EnemyAI
 ##Overwrites the inherited function to include the EnemyAI resource in the loading process
 func load_stats(path: String) -> void:
 	var temp = load(path)
-	print(path)
-	print(temp)
 	#var temp2 = load(path)
 	stats = temp.duplicate()
 	ai = load("res://Content/Entities/Enemies/Enemy AI/slime_ai.tres")
 	is_player = false
+
+func begin_turn():
+	get_child(3).visible = true
+	print(stats.char_name + "'s turn has begun!")
+	print(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
+
+func end_turn():
+	get_child(3).visible = false
 
 func generate_loot():
 	pass

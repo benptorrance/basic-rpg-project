@@ -6,16 +6,20 @@
 [ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scripts/Battle Scripts/battle_scene.gd" id="2_ms847"]
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://cmh0ydu5mc8rq" path="res://Assets/Backgrounds/nature_1/battlemenu_solid.png" id="3_gt16y"]
-[ext_resource type="Texture2D" uid="uid://1lxmpp22ghra" path="res://Assets/Unit Sprites/Players/test_ally.png" id="5_84vmf"]
 [ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/Battle Scripts/unit_zone.gd" id="5_f856b"]
+[ext_resource type="Texture2D" uid="uid://c6j2clpdyq7an" path="res://Assets/Unit Sprites/Players/test_warrior.png" id="6_vuvll"]
 [ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/Battle Scripts/actor.gd" id="6_wb0gu"]
 [ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
 [ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
 [ext_resource type="Script" uid="uid://cq1wp81doqbv" path="res://Scripts/Battle Scripts/action_menu.gd" id="9_f4ggb"]
+[ext_resource type="Texture2D" uid="uid://brise780q0nd7" path="res://Assets/UI Assets/Icons/turn_indicator.png" id="9_kbww3"]
 [ext_resource type="SpriteFrames" uid="uid://cvi4n7t6qn5lm" path="res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres" id="9_xdap8"]
 [ext_resource type="Script" uid="uid://5rpw4yw3gr37" path="res://Scripts/Battle Scripts/enemy_actor.gd" id="10_778cw"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/Battle Scripts/action_list.gd" id="10_f4ggb"]
+[ext_resource type="Texture2D" uid="uid://d3tj0vt6pgkmp" path="res://Assets/Unit Sprites/Players/test_ranger.png" id="10_tfvgr"]
+[ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/test_wizard.png" id="10_vol83"]
+[ext_resource type="Texture2D" uid="uid://7wc2pbom5o45" path="res://Assets/Unit Sprites/Players/test_priest.png" id="11_kre2b"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
 
@@ -78,6 +82,20 @@ custom_maximum_size = Vector2(0, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="BattleText" type="RichTextLabel" parent="." unique_id=1529565724]
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 50.0
+offset_right = 0.5
+offset_bottom = 50.0
+grow_horizontal = 2
+fit_content = true
+scroll_active = false
+
 [node name="AllyZone" type="Control" parent="." unique_id=1719875408]
 custom_minimum_size = Vector2(320, 260)
 anchors_preset = 0
@@ -87,7 +105,8 @@ script = ExtResource("5_f856b")
 
 [node name="Player1" type="Sprite2D" parent="AllyZone" unique_id=1481632531]
 position = Vector2(253, 207)
-texture = ExtResource("5_84vmf")
+scale = Vector2(2, 2)
+texture = ExtResource("6_vuvll")
 script = ExtResource("6_wb0gu")
 is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
@@ -108,9 +127,22 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player4/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
+[node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player1" unique_id=89674468]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
+
 [node name="Player2" type="Sprite2D" parent="AllyZone" unique_id=591587521]
 position = Vector2(193, 227)
-texture = ExtResource("5_84vmf")
+scale = Vector2(2, 2)
+texture = ExtResource("10_vol83")
 script = ExtResource("6_wb0gu")
 is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
@@ -131,9 +163,22 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player1/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
+[node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player2" unique_id=1368654214]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = -48.0
+offset_right = 12.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
+
 [node name="Player3" type="Sprite2D" parent="AllyZone" unique_id=2135973335]
 position = Vector2(133, 207)
-texture = ExtResource("5_84vmf")
+scale = Vector2(2, 2)
+texture = ExtResource("11_kre2b")
 script = ExtResource("6_wb0gu")
 is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
@@ -154,9 +199,22 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player2/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
 
+[node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player3" unique_id=130431658]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = -48.0
+offset_right = 12.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
+
 [node name="Player4" type="Sprite2D" parent="AllyZone" unique_id=2033556625]
 position = Vector2(73, 227)
-texture = ExtResource("5_84vmf")
+scale = Vector2(2, 2)
+texture = ExtResource("10_tfvgr")
 script = ExtResource("6_wb0gu")
 is_player = true
 metadata/_custom_type_script = "uid://c4ao4qci8pupc"
@@ -176,6 +234,18 @@ focus_neighbor_left = NodePath("../../Player1/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player3/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+
+[node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player4" unique_id=400934092]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
 
 [node name="EnemyZone" type="Control" parent="." unique_id=334906726]
 custom_minimum_size = Vector2(320, 260)
@@ -222,6 +292,18 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
+[node name="TurnIndicator" type="TextureRect" parent="EnemyZone/Enemy1" unique_id=1165478163]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
+
 [node name="Enemy2" type="Sprite2D" parent="EnemyZone" unique_id=1300186646]
 position = Vector2(133, 217)
 scale = Vector2(2, 2)
@@ -254,6 +336,18 @@ animation = &"Thinking"
 frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
+
+[node name="TurnIndicator" type="TextureRect" parent="EnemyZone/Enemy2" unique_id=1081186376]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
 
 [node name="Enemy3" type="Sprite2D" parent="EnemyZone" unique_id=1032223825]
 position = Vector2(193, 197)
@@ -288,6 +382,18 @@ frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
 
+[node name="TurnIndicator" type="TextureRect" parent="EnemyZone/Enemy3" unique_id=1332788026]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
+
 [node name="Enemy4" type="Sprite2D" parent="EnemyZone" unique_id=1742166604]
 position = Vector2(253, 217)
 scale = Vector2(2, 2)
@@ -320,6 +426,18 @@ animation = &"Thinking"
 frame = 7
 frame_progress = 1.0
 speed_scale = 2.0
+
+[node name="TurnIndicator" type="TextureRect" parent="EnemyZone/Enemy4" unique_id=471442842]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -48.0
+offset_right = 4.0
+offset_bottom = -8.0
+grow_horizontal = 2
+texture = ExtResource("9_kbww3")
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
 custom_minimum_size = Vector2(520, 100)

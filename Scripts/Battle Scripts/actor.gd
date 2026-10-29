@@ -19,11 +19,12 @@ func save_stats(path: String) -> void:
 ##Functions that handle the gameplay.
 
 func begin_turn():
+	get_child(2).visible = true
 	print(stats.char_name + "'s turn has begun!")
 	print(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
 
 func end_turn():
-	print(stats.char_name + "'s turn has ended!")
+	get_child(2).visible = false
 
 func take_damage(damage: int) -> void:
 	stats.attributes["Health"] -= damage
