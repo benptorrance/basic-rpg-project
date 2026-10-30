@@ -51,7 +51,3 @@ func combat_action (action: CombatAction, targets: Array[Actor]):
 #Handles playing a sound when the Actor uses a move/takes damage/heals
 func _play_audio():
 	pass
-
-##This class handles the player characters in the game.
-#The class should have the name of the character, the stats, the equipment it has, and the skills it knows
-#Stats

@@ -22,6 +22,22 @@
 [ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/test_wizard.png" id="10_vol83"]
 [ext_resource type="Texture2D" uid="uid://7wc2pbom5o45" path="res://Assets/Unit Sprites/Players/test_priest.png" id="11_kre2b"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ai3kb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1q0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gsspe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqci1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmgk1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7snvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6xy2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g80sq"]
+
 [sub_resource type="Theme" id="Theme_fw8re"]
 
 [sub_resource type="Theme" id="Theme_fqf8d"]
@@ -127,6 +143,7 @@ focus_neighbor_left = NodePath("../../Player2/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player4/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ai3kb")
 
 [node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player1" unique_id=89674468]
 visible = false
@@ -163,6 +180,7 @@ focus_neighbor_left = NodePath("../../Player3/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player1/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p1q0g")
 
 [node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player2" unique_id=1368654214]
 visible = false
@@ -199,6 +217,7 @@ focus_neighbor_left = NodePath("../../Player4/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player2/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gsspe")
 
 [node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player3" unique_id=130431658]
 visible = false
@@ -235,6 +254,7 @@ focus_neighbor_left = NodePath("../../Player1/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Player3/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qqci1")
 
 [node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player4" unique_id=400934092]
 visible = false
@@ -283,6 +303,7 @@ focus_neighbor_left = NodePath("../../Enemy4/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy2/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rmgk1")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy1" unique_id=1083672651]
 visible = false
@@ -328,6 +349,7 @@ focus_neighbor_left = NodePath("../../Enemy1/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy3/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7snvq")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy2" unique_id=1059610410]
 visible = false
@@ -373,6 +395,7 @@ focus_neighbor_left = NodePath("../../Enemy2/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy4/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p6xy2")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy3" unique_id=1801408047]
 visible = false
@@ -418,6 +441,7 @@ focus_neighbor_left = NodePath("../../Enemy3/UnitSelector")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../Enemy1/UnitSelector")
 focus_neighbor_bottom = NodePath(".")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g80sq")
 
 [node name="ThinkAnimation" type="AnimatedSprite2D" parent="EnemyZone/Enemy4" unique_id=658519771]
 visible = false
@@ -441,7 +465,7 @@ grow_horizontal = 2
 texture = ExtResource("9_kbww3")
 
 [node name="BattleMenus" type="HBoxContainer" parent="." unique_id=1160167607]
-custom_minimum_size = Vector2(520, 100)
+custom_minimum_size = Vector2(519, 100)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -454,7 +478,7 @@ offset_right = 145.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_fw8re")
-theme_override_constants/separation = 0
+theme_override_constants/separation = -1
 
 [node name="ActionMenu" parent="BattleMenus" unique_id=1684769239 instance=ExtResource("2_e5vbs")]
 modulate = Color(1, 1, 1, 1)
@@ -470,14 +494,14 @@ script = ExtResource("9_f4ggb")
 
 [node name="ActionList" type="GridContainer" parent="BattleMenus/ActionMenu" unique_id=546944759]
 custom_minimum_size = Vector2(200, 94)
-custom_maximum_size = Vector2(200, 94)
+custom_maximum_size = Vector2(216, 94)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
+offset_left = 10.0
 offset_top = 3.0
-offset_right = -5.0
+offset_right = -10.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -504,6 +528,7 @@ custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 6
+offset_transform_enabled = true
 focus_neighbor_left = NodePath("../FightButton")
 focus_neighbor_top = NodePath("../FleeButton")
 focus_neighbor_right = NodePath("../FightButton")
@@ -532,7 +557,6 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
-offset_transform_position = Vector2(-2, 0)
 focus_neighbor_left = NodePath("../SkillsButton")
 focus_neighbor_top = NodePath("../DefendButton")
 focus_neighbor_right = NodePath("../SkillsButton")
