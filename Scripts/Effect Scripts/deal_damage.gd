@@ -5,7 +5,7 @@ class_name DealDamage extends TargetedEffect
 @export var def_stat: String
 @export var act_type: String
 
-func _do(agent: Actor, source: CombatAction, targets: Array[Actor]):
+func _do(agent: Actor, _source: CombatAction, targets: Array[Actor]):
 	if targets == null:
 		return
 	for target in targets:
@@ -38,4 +38,5 @@ func _do(agent: Actor, source: CombatAction, targets: Array[Actor]):
 					total_damage = 0
 		target.take_damage(total_damage)
 		BattleLogManager.add_entry(agent.stats.char_name + " Has dealt " + str(total_damage) + " to " + target.stats.char_name)
+		BattleLogManager.update_display()
 	return

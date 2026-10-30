@@ -43,4 +43,3 @@ func decision(actor: EnemyActor, allies: Array[EnemyActor], enemies: Array[Actor
 		action = stats.base_actions[0]
 		targets.append(enemies[randi() % 4])
 	actor.combat_action(action, targets)
-	print(str(actor.stats.char_name) + " has used " + str(action.action_name) + " on " + str(targets[0].stats.char_name))

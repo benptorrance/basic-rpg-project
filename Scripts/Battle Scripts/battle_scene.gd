@@ -17,7 +17,9 @@ func _ready() -> void:
 	$Overlay.visible = false
 	$GameOverContainer.visible = false
 	$VictoryScreen.visible = false
+	
 	BattleLogManager.add_entry("Battle Begins!")
+	_menu_state(false)
 	load_actors()
 	_cal_turn_order()
 	_next_turn()
@@ -66,11 +68,13 @@ func _next_turn() -> void:
 	sel_actor.begin_turn()
 	t_index = wrapi(t_index+1, 0, t_order.size())
 	
+	await BattleLogManager.log_cleared
+	
 	##Determine whether the current turn is for a player or enemy then do stuff for turns.
 	if sel_actor.is_player:
 		##Enable GUI to read inputs and be navigatable
 		_menu_state(true)
-		##Wait for button to be pressed.
+		##Program waits for an action to be selected, which calls fetch_action and the turn process continues
 	else:
 		##Disable GUI's ability to read input and be navigated
 		_menu_state(false)
@@ -88,7 +92,9 @@ func _next_turn() -> void:
 		##Timer is here so that enemy turns will wait for the action to resolve before their turn ends
 		#When action animations are implemented a timer here will prevent the turn from going to the
 		#next enemy when the animation is still playing.
-		await get_tree().create_timer(0.5).timeout
+		await BattleLogManager.log_cleared
+		await get_tree().create_timer(1.0).timeout
+		think.stop()
 		_next_turn()
 
 ##Checks the status of the actors if all actors on one side are dead and
@@ -139,7 +145,9 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	if sel_actor.is_player != true:
 		return
 	sel_actor.combat_action(action, targets)
-	await get_tree().create_timer(0.5).timeout
+	_menu_state(false)
+	##Waits to begin next turn until the battle log displays all text
+	await BattleLogManager.log_cleared
 	_next_turn()	
 
 ##Upon Combat action selection, this function is called. It will take the number associated with the
