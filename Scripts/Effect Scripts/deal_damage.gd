@@ -37,5 +37,5 @@ func _do(agent: Actor, source: CombatAction, targets: Array[Actor]):
 				if total_damage < 0:
 					total_damage = 0
 		target.take_damage(total_damage)
-		print(agent.stats.char_name + " Has dealt " + str(total_damage) + " to " + target.stats.char_name)
+		BattleLogManager.add_entry(agent.stats.char_name + " Has dealt " + str(total_damage) + " to " + target.stats.char_name)
 	return

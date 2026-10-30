@@ -12,4 +12,5 @@ func _do(agent: Actor, source: CombatAction, targets: Array[Actor]):
 				target.regain_health(agent.stats.attributes["WIS"] + base_healing)
 			"Item":
 				target.regain_health(base_healing)
+		BattleLogManager.add_entry(agent.stats.char_name + " Has healed " + target.stats.char_name + " by " + str(base_healing))
 	return

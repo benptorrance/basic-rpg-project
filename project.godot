@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Debug="*uid://clf3hs3icq65x"
+BattleLogManager="*uid://w31wkoaa2r8g"
 
 [display]
 

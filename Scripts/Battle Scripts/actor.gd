@@ -20,9 +20,9 @@ func save_stats(path: String) -> void:
 
 func begin_turn():
 	get_child(2).visible = true
-	$"../../BattleText".add_entry(stats.char_name + "'s turn has begun!")
-	$"../../BattleText".add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
-	$"../../BattleText".update_display()
+	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
+	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
+	BattleLogManager.update_display()
 
 func end_turn():
 	get_child(2).visible = false
@@ -31,7 +31,8 @@ func take_damage(damage: int) -> void:
 	stats.attributes["Health"] -= damage
 	if stats.attributes["Health"] <= 0:
 		stats.attributes["Health"] = 0
-		print(stats.char_name + " Has been slain!")
+		BattleLogManager.add_entry(stats.char_name + " Has been slain!")
+		BattleLogManager.update_display()
 		_death()
 
 func regain_health(healing: int) -> void:

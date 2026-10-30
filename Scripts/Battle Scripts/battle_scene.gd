@@ -17,7 +17,7 @@ func _ready() -> void:
 	$Overlay.visible = false
 	$GameOverContainer.visible = false
 	$VictoryScreen.visible = false
-	battle_log.add_entry("Battle Begins!")
+	BattleLogManager.add_entry("Battle Begins!")
 	load_actors()
 	_cal_turn_order()
 	_next_turn()

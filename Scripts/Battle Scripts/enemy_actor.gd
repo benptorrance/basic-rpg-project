@@ -15,9 +15,9 @@ func load_stats(path: String) -> void:
 
 func begin_turn():
 	get_child(3).visible = true
-	$"../../BattleText".add_entry(stats.char_name + "'s turn has begun!")
-	$"../../BattleText".add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
-	$"../../BattleText".update_display()
+	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
+	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
+	BattleLogManager.update_display()
 
 func end_turn():
 	get_child(3).visible = false

@@ -1,0 +1,9 @@
+res://Scenes/battle_scene.tscn
+res://Assets/Themes/default_theme.tres
+res://Scripts/Battle Scripts/battle_text.gd
+res://Scripts/Battle Scripts/battle_scene.gd
+res://Scripts/Battle Scripts/battle_log_manager.gd
+res://Scripts/Battle Scripts/actor.gd
+res://Scripts/Effect Scripts/deal_damage.gd
+res://Scripts/Battle Scripts/enemy_actor.gd
+res://Scripts/Effect Scripts/perform_healing.gd
