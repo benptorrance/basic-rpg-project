@@ -5,7 +5,7 @@ extends Control
 @onready var a_zone = $AllyZone
 @onready var e_zone = $EnemyZone
 @onready var battle_log = $BattleText
-
+@onready var act_menu = $BattleMenus/ActionMenu
 @export var sel_actor: Actor = null
 
 var t_order = []
@@ -21,6 +21,7 @@ func _ready() -> void:
 	BattleLogManager.add_entry("Battle Begins!")
 	_menu_state(false)
 	load_actors()
+	act_menu.load(allies)
 	_cal_turn_order()
 	_next_turn()
 
@@ -153,6 +154,7 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 ##Upon Combat action selection, this function is called. It will take the number associated with the
 ##pressed button and then find what action that correlates to in the selected actor's action lists
 ##then fetch_action calls the unit selection function of the appropriate zone.
+#This will need to be updated to take the action itself. 
 func fetch_action(action:int, a_category: String):
 	var c_action: CombatAction
 	var selected = false

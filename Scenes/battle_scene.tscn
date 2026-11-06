@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d3tj0vt6pgkmp" path="res://Assets/Unit Sprites/Players/test_ranger.png" id="10_tfvgr"]
 [ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/test_wizard.png" id="10_vol83"]
 [ext_resource type="Texture2D" uid="uid://7wc2pbom5o45" path="res://Assets/Unit Sprites/Players/test_priest.png" id="11_kre2b"]
+[ext_resource type="Script" uid="uid://bpyq6va13nba1" path="res://Scripts/Battle Scripts/page.gd" id="21_5gdnp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ai3kb"]
 
@@ -223,6 +224,7 @@ focus_neighbor_bottom = NodePath(".")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gsspe")
 
 [node name="TurnIndicator" type="TextureRect" parent="AllyZone/Player3" unique_id=130431658]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -848,6 +850,102 @@ focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("1_anwxn")
 theme_override_font_sizes/font_size = 8
 text = "Party"
+
+[node name="FightActionList" type="PanelContainer" parent="BattleMenus/ActionMenu" unique_id=330810207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ListBackground" type="NinePatchRect" parent="BattleMenus/ActionMenu/FightActionList" unique_id=342640543]
+modulate = Color(0.69135684, 0.6913568, 0.69135684, 1)
+layout_mode = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 11
+patch_margin_top = 5
+patch_margin_right = 11
+patch_margin_bottom = 5
+
+[node name="ListLayout" type="VBoxContainer" parent="BattleMenus/ActionMenu/FightActionList" unique_id=1239723430]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1408131417]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 0
+
+[node name="ListTitle" type="Label" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/MarginContainer" unique_id=974140125]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageContainer" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1098183337]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=1956282828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_5gdnp")
+
+[node name="PageContainer2" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=189145006]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer2" unique_id=195019098]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_5gdnp")
+
+[node name="PageContainer3" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=894192543]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer3" unique_id=511237697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_5gdnp")
+
+[node name="PageContainer4" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=798003494]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer4" unique_id=2120082544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_5gdnp")
+
+[node name="PageNav" type="HBoxContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1833302187]
+layout_mode = 2
+alignment = 2
+
+[node name="PageLeft" type="Button" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav" unique_id=1275208862]
+layout_mode = 2
+text = "<"
+
+[node name="PageRight" type="Button" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav" unique_id=671566594]
+layout_mode = 2
+text = ">"
 
 [node name="TargetMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
 modulate = Color(1, 1, 1, 1)
