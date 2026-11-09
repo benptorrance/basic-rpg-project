@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bj0ioii1xi2lr"]
 
+[ext_resource type="Theme" uid="uid://dwtnibj7prr3t" path="res://Assets/Themes/action_list_theme.tres" id="1_5gdnp"]
 [ext_resource type="Theme" uid="uid://ymgalg2pu3g" path="res://Assets/Themes/default_theme.tres" id="1_anwxn"]
 [ext_resource type="Texture2D" uid="uid://b7o0y52b6vhx0" path="res://Assets/Backgrounds/nature_1/orig.png" id="2_3gnqe"]
 [ext_resource type="PackedScene" uid="uid://cnydoucol5bv0" path="res://Scenes/action_menu.tscn" id="2_e5vbs"]
@@ -40,8 +41,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g80sq"]
 
 [sub_resource type="Theme" id="Theme_fw8re"]
-
-[sub_resource type="Theme" id="Theme_fqf8d"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_p1q0g"]
 
@@ -523,7 +522,6 @@ focus_neighbor_right = NodePath("../DefendButton")
 focus_neighbor_bottom = NodePath("../SkillsButton")
 focus_next = NodePath("../DefendButton")
 focus_previous = NodePath("../FleeButton")
-theme = SubResource("Theme_fqf8d")
 theme_override_font_sizes/font_size = 16
 text = "Fight"
 
@@ -552,7 +550,6 @@ focus_neighbor_right = NodePath("../ItemsButton")
 focus_neighbor_bottom = NodePath("../PartyButton")
 focus_next = NodePath("../ItemsButton")
 focus_previous = NodePath("../DefendButton")
-theme = ExtResource("1_anwxn")
 text = "Skills"
 
 [node name="ItemsButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=692919445]
@@ -567,7 +564,6 @@ focus_neighbor_right = NodePath("../SkillsButton")
 focus_neighbor_bottom = NodePath("../FleeButton")
 focus_next = NodePath("../PartyButton")
 focus_previous = NodePath("../SkillsButton")
-theme = ExtResource("1_anwxn")
 text = "Items"
 
 [node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1201159933]
@@ -581,7 +577,6 @@ focus_neighbor_right = NodePath("../FleeButton")
 focus_neighbor_bottom = NodePath("../FightButton")
 focus_next = NodePath("../FleeButton")
 focus_previous = NodePath("../ItemsButton")
-theme = ExtResource("1_anwxn")
 text = "Party"
 
 [node name="FleeButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=285938981]
@@ -595,7 +590,6 @@ focus_neighbor_right = NodePath("../PartyButton")
 focus_neighbor_bottom = NodePath("../DefendButton")
 focus_next = NodePath("../FightButton")
 focus_previous = NodePath("../PartyButton")
-theme = ExtResource("1_anwxn")
 text = "Flee"
 
 [node name="FightList" type="NinePatchRect" parent="BattleMenus/ActionMenu" unique_id=879004483]
@@ -724,7 +718,7 @@ focus_neighbor_left = NodePath("../../BackButton")
 focus_neighbor_top = NodePath("../Skill2")
 focus_neighbor_right = NodePath("../../BackButton")
 focus_neighbor_bottom = NodePath("../Skill2")
-theme = ExtResource("1_anwxn")
+theme = ExtResource("1_5gdnp")
 theme_override_font_sizes/font_size = 8
 text = "Fireball"
 
@@ -737,7 +731,7 @@ focus_neighbor_left = NodePath("../../BackButton")
 focus_neighbor_top = NodePath("../Skill1")
 focus_neighbor_right = NodePath("../../BackButton")
 focus_neighbor_bottom = NodePath("../Skill1")
-theme = ExtResource("1_anwxn")
+theme = ExtResource("1_5gdnp")
 theme_override_font_sizes/font_size = 8
 text = "Heal"
 
@@ -792,7 +786,7 @@ focus_neighbor_left = NodePath("../../BackButton")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../BackButton")
 focus_neighbor_bottom = NodePath(".")
-theme = ExtResource("1_anwxn")
+theme = ExtResource("1_5gdnp")
 theme_override_font_sizes/font_size = 8
 text = "Health Potion"
 
@@ -847,7 +841,7 @@ focus_neighbor_left = NodePath("../../BackButton")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../BackButton")
 focus_neighbor_bottom = NodePath(".")
-theme = ExtResource("1_anwxn")
+theme = ExtResource("1_5gdnp")
 theme_override_font_sizes/font_size = 8
 text = "Party"
 
@@ -883,56 +877,89 @@ text = "Fight"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PageContainer" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1098183337]
+[node name="PageContainer" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=298711689]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_5gdnp")
 
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=1956282828]
+[node name="Player1Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=1098183337]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player1Pages" unique_id=1956282828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
 script = ExtResource("21_5gdnp")
 
-[node name="PageContainer2" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=189145006]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer2" unique_id=195019098]
+[node name="Player2Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=189145006]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player2Pages" unique_id=195019098]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
 script = ExtResource("21_5gdnp")
 
-[node name="PageContainer3" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=894192543]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer3" unique_id=511237697]
+[node name="Player3Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=894192543]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player3Pages" unique_id=511237697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
 script = ExtResource("21_5gdnp")
 
-[node name="PageContainer4" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=798003494]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer4" unique_id=2120082544]
+[node name="Player4Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=798003494]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player4Pages" unique_id=2120082544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
 script = ExtResource("21_5gdnp")
 
 [node name="PageNav" type="HBoxContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1833302187]
@@ -1124,3 +1151,4 @@ text = "Continue"
 [connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/ItemsList/ItemCont/Item1" to="." method="fetch_action" binds= [0, "Item"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]
+[connection signal="focus_entered" from="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player4Pages/Page" to="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player4Pages/Page" method="sel_button"]

@@ -21,7 +21,7 @@ func _ready() -> void:
 	BattleLogManager.add_entry("Battle Begins!")
 	_menu_state(false)
 	load_actors()
-	act_menu.load(allies)
+	act_menu._load(allies)
 	_cal_turn_order()
 	_next_turn()
 
@@ -155,21 +155,13 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 ##pressed button and then find what action that correlates to in the selected actor's action lists
 ##then fetch_action calls the unit selection function of the appropriate zone.
 #This will need to be updated to take the action itself. 
-func fetch_action(action:int, a_category: String):
-	var c_action: CombatAction
+func fetch_action(action: CombatAction):
 	var selected = false
 	var x = 0
 	var index: Array[int]
 	var targets: Array[Actor]
 	
-	match a_category:
-		"Basic":
-			c_action = sel_actor.stats.base_actions[action]
-		"Skill":
-			c_action = sel_actor.stats.skill_actions[action]
-		"Item":
-			c_action = sel_actor.stats.item_actions[action]
-	match c_action.tar_type:
+	match action.tar_type:
 		"Ally":
 			while selected == false:
 				if allies[x].living:
@@ -191,4 +183,4 @@ func fetch_action(action:int, a_category: String):
 	for child in $BattleMenus/ActionMenu.get_children():
 		if child != $BattleMenus/ActionMenu/ActionList:
 			child.visible = false
-	_player_combat_action(c_action,targets)
+	_player_combat_action(action,targets)

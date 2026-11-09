@@ -14,81 +14,74 @@ func _load(array: Array[Actor]) -> void:
 
 func populate_menu(menu: String) -> void:
 	sel_page = 0
-	var page_index = 0
-	var i = 0
 	match menu:
 		"Fight":
-			page_cont_1 = $FightActionList/ListLayout/PageContainer
-			page_cont_2 = $FightActionList/ListLayout/PageContainer2
-			page_cont_3 = $FightActionList/ListLayout/PageContainer3 
-			page_cont_4 = $FightActionList/ListLayout/PageContainer4
+			page_cont_1 = $FightActionList/ListLayout/PageContainer/Player1Pages
+			page_cont_2 = $FightActionList/ListLayout/PageContainer/Player2Pages
+			page_cont_3 = $FightActionList/ListLayout/PageContainer/Player3Pages
+			page_cont_4 = $FightActionList/ListLayout/PageContainer/Player4Pages
 		"Skills":
 			page_cont_1 = null
 		"Items":
 			page_cont_1 = null
 	for x in range(4):
+		var page_index = 0
 		match x:
 			0:
-				
+				print(allies[0].stats.base_actions)
 				for action in allies[0].stats.base_actions:
 					var cur_page = page_cont_1.get_child(page_index)
 					if cur_page.get_children().size() < 8:
 						cur_page.add_button(action)
-						
-						i += 1
-					elif button_num !=0:
-						add_page()
+					else:
+						add_page(1)
 						page_index += 1
 			1:
-				while button_num > 0:
+				for action in allies[1].stats.base_actions:
 					var cur_page = page_cont_2.get_child(page_index)
-					print(i)
-					if cur_page.get_children().size() < 8 && button_num > 0:
-						cur_page.add_button(buttons[i])
-						button_num -= 1
-						i += 1
-					elif button_num !=0:
-						add_page()
+					if cur_page.get_children().size() < 8:
+						cur_page.add_button(action)
+					else:
+						add_page(2)
 						page_index += 1
 			2:
-				while button_num > 0:
+				for action in allies[2].stats.base_actions:
 					var cur_page = page_cont_3.get_child(page_index)
-					print(i)
-					if cur_page.get_children().size() < 8 && button_num > 0:
-						cur_page.add_button(buttons[i])
-						button_num -= 1
-						i += 1
-					elif button_num !=0:
-						add_page()
+					if cur_page.get_children().size() < 8:
+						cur_page.add_button(action)
+					else:
+						add_page(3)
 						page_index += 1
 			3:
-				while button_num > 0:
+				for action in allies[3].stats.base_actions:
 					var cur_page = page_cont_4.get_child(page_index)
-					print(i)
-					if cur_page.get_children().size() < 8 && button_num > 0:
-						cur_page.add_button(buttons[i])
-						button_num -= 1
-						i += 1
-					elif button_num !=0:
-						add_page()
+					if cur_page.get_children().size() < 8:
+						cur_page.add_button(action)
+					else:
+						add_page(4)
 						page_index += 1
-	pass
 
-func add_page()-> void:
+func add_page(page_num: int)-> void:
 	var new_page = Page.new()
 	new_page.visible = false
 	new_page.columns = 2
 	new_page.set_anchors_preset(PRESET_FULL_RECT)
-	page_cont.add_child(new_page)
-	print(page_cont.get_children())
-	pass
+	match page_num:
+		1:
+			page_cont_1.add_child(new_page)
+		2:
+			page_cont_2.add_child(new_page)
+		3:
+			page_cont_3.add_child(new_page)
+		4:
+			page_cont_4.add_child(new_page)
 
 ##This function handles moving between the existing pages after they have been
 ##populated.
 func button_handler(next: bool) -> void:
-	page_cont.get_child(sel_page).visible = false
+	page_cont_1.get_child(sel_page).visible = false
 	if next == true:
-		if sel_page +1 < page_cont.get_child_count():
+		if sel_page +1 < page_cont_1.get_child_count():
 			sel_page += 1
 		else:
 			sel_page = 0
@@ -96,6 +89,6 @@ func button_handler(next: bool) -> void:
 		if sel_page != 0:
 			sel_page -= 1
 		else:
-			sel_page = page_cont.get_child_count() - 1
+			sel_page = page_cont_1.get_child_count() - 1
 
-	page_cont.get_child(sel_page).visible = true
+	page_cont_1.get_child(sel_page).visible = true
