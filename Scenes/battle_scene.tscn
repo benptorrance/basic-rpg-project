@@ -614,9 +614,9 @@ anchor_left = 0.98600006
 anchor_top = 0.030000001
 anchor_right = 0.98600006
 anchor_bottom = 0.030000001
-offset_left = -11.920013
+offset_left = -14.920013
 offset_right = 0.07998657
-offset_bottom = 12.0
+offset_bottom = 15.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -1151,4 +1151,3 @@ text = "Continue"
 [connection signal="pressed" from="BattleMenus/ActionMenu/ItemsList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Items"]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/ItemsList/ItemCont/Item1" to="." method="fetch_action" binds= [0, "Item"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/PartyList/BackButton" to="BattleMenus/ActionMenu/ActionList" method="_on_back_button_pressed" binds= ["Party"]]
-[connection signal="focus_entered" from="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player4Pages/Page" to="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player4Pages/Page" method="sel_button"]
