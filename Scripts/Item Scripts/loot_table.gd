@@ -3,5 +3,4 @@ class_name LootTable extends Resource
 ##including the money and experience they drop
 
 @export var money: int
-
-@export var loot: {}
+@export var loot:= {}

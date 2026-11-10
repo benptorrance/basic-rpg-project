@@ -16,14 +16,11 @@ func _on_button_pressed(btn_name: String) -> void:
 			$"../FightActionList".visible = true
 			page_cont = $"../FightActionList/ListLayout/PageContainer"
 		"Skills":
-			$"../SkillsList".visible = true
-			$"../SkillsList/SkillsCont/Skill1".grab_focus()
+			pass
 		"Items":
-			$"../ItemsList".visible = true
-			$"../ItemsList/ItemCont/Item1".grab_focus()
+			pass
 		"Party":
-			$"../PartyList".visible = true
-			$"../PartyList/PartyCont/Party1".grab_focus()
+			pass
 		"Flee":
 			pass
 	for child in page_cont.get_children():
@@ -39,11 +36,8 @@ func _on_back_button_pressed(menu: String) -> void:
 			$"../FightActionList".visible = true
 			$FightButton.grab_focus()
 		"Skills":
-			$"../SkillsList".visible = false
-			$SkillsButton.grab_focus()
+			pass
 		"Items":
-			$"../ItemsList".visible = false
-			$ItemsButton.grab_focus()
+			pass
 		"Party":
-			$"../PartyList".visible = false
-			$PartyButton.grab_focus()
+			pass
