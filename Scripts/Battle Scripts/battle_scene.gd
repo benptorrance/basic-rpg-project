@@ -1,4 +1,5 @@
 extends Control
+class_name BattleScene
 
 @onready var allies: Array [Actor]
 @onready var enemies: Array [EnemyActor]
@@ -7,16 +8,27 @@ extends Control
 @onready var battle_log = $BattleText
 @onready var act_menu = $BattleMenus/ActionMenu
 @export var sel_actor: Actor = null
+@export var menu_state: = STATES.BASE
 
 var t_order = []
 var t_index = 0
 
 var flee = false
 
+enum STATES {
+	BASE,
+	ACT_LIST,
+	TARGETING,
+}
+
 func _ready() -> void:
 	$Overlay.visible = false
 	$GameOverContainer.visible = false
 	$VictoryScreen.visible = false
+	
+	$BattleMenus/ActionMenu/ActionList.state_change.connect(state_changer)
+	$EnemyZone.state_change.connect(state_changer)
+	$AllyZone.state_change.connect(state_changer)
 	
 	BattleLogManager.add_entry("Battle Begins!")
 	_menu_state(false)
@@ -180,7 +192,17 @@ func fetch_action(action: CombatAction):
 				x += 1
 	#Hides the Other sub menus so that after the action and enemy are selected, the sub menu doesn't
 	#stay up.
+	state_changer(0)
 	for child in $BattleMenus/ActionMenu.get_children():
 		if child != $BattleMenus/ActionMenu/ActionList:
 			child.visible = false
 	_player_combat_action(action,targets)
+
+func state_changer(new_state: int):
+	match new_state:
+		0:
+			menu_state = STATES.BASE
+		1:
+			menu_state = STATES.ACT_LIST
+		2:
+			menu_state = STATES.TARGETING
