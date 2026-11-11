@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://c2yek31rtlvxc"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Effect Scripts/targeted_effect.gd" id="1_v4nql"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_bkc22"]
+[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/Effect Scripts/deal_damage.gd" id="2_geau3"]
+
+[sub_resource type="Resource" id="Resource_ys5i7"]
+script = ExtResource("2_geau3")
+atk_stat = "Str"
+def_stat = "Armor"
+act_type = "Skill"
+metadata/_custom_type_script = "uid://c4awdylc41q0g"
+
+[resource]
+script = ExtResource("2_bkc22")
+action_name = "Big Shot"
+description = "A powerful shot from a bow"
+action_type = "Skill"
+tar_type = "Enemy"
+effects = Array[ExtResource("1_v4nql")]([SubResource("Resource_ys5i7")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"

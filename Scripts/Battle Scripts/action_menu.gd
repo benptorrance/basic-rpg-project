@@ -8,20 +8,35 @@ class_name ActionMenu
 @onready var sel_page: int
 var allies: Array[Actor]
 
+enum LIST {
+	FIGHT,
+	SKILLS,
+	ITEMS
+}
+
 func _load(array: Array[Actor]) -> void:
 	allies = array
 	populate_menu("Fight")
+	populate_menu("Skills")
 
 func populate_menu(menu: String) -> void:
 	sel_page = 0
+	var list: Array
 	match menu:
 		"Fight":
 			page_cont_1 = $FightActionList/ListLayout/PageContainer/Player1Pages
 			page_cont_2 = $FightActionList/ListLayout/PageContainer/Player2Pages
 			page_cont_3 = $FightActionList/ListLayout/PageContainer/Player3Pages
 			page_cont_4 = $FightActionList/ListLayout/PageContainer/Player4Pages
+			for i in range(4):
+				list.append(allies[i].stats.base_actions)
 		"Skills":
-			page_cont_1 = null
+			page_cont_1 = $SkillsActionList/ListLayout/PageContainer/Player1Pages
+			page_cont_2 = $SkillsActionList/ListLayout/PageContainer/Player2Pages
+			page_cont_3 = $SkillsActionList/ListLayout/PageContainer/Player3Pages
+			page_cont_4 = $SkillsActionList/ListLayout/PageContainer/Player4Pages
+			for i in range(4):
+				list.append(allies[i].stats.skill_actions)
 		"Items":
 			page_cont_1 = null
 	for x in range(4):
@@ -30,7 +45,8 @@ func populate_menu(menu: String) -> void:
 		match x:
 			0:
 				cur_page = page_cont_1.get_child(page_index)
-				for action in allies[0].stats.base_actions:
+				
+				for action in list[0]:
 					if cur_page.get_children().size() < 8:
 						cur_page.add_button(action)
 					else:
@@ -40,7 +56,7 @@ func populate_menu(menu: String) -> void:
 						cur_page.add_button(action)
 			1:
 				cur_page = page_cont_2.get_child(page_index)
-				for action in allies[1].stats.base_actions:
+				for action in list[1]:
 					if cur_page.get_children().size() < 8:
 						cur_page.add_button(action)
 					else:
@@ -50,7 +66,7 @@ func populate_menu(menu: String) -> void:
 						cur_page.add_button(action)
 			2:
 				cur_page = page_cont_3.get_child(page_index)
-				for action in allies[2].stats.base_actions:
+				for action in list[2]:
 					if cur_page.get_children().size() < 8:
 						cur_page.add_button(action)
 					else:
@@ -60,7 +76,7 @@ func populate_menu(menu: String) -> void:
 						cur_page.add_button(action)
 			3:
 				cur_page = page_cont_4.get_child(page_index)
-				for action in allies[3].stats.base_actions:
+				for action in list[3]:
 					if cur_page.get_children().size() < 8:
 						cur_page.add_button(action)
 					else:

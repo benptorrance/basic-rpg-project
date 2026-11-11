@@ -16,7 +16,8 @@ func _on_button_pressed(btn_name: String) -> void:
 			$"../FightActionList".visible = true
 			page_cont = $"../FightActionList/ListLayout/PageContainer"
 		"Skills":
-			pass
+			$"../SkillsActionList".visible = true
+			page_cont = $"../SkillsActionList/ListLayout/PageContainer"
 		"Items":
 			pass
 		"Party":
@@ -26,6 +27,7 @@ func _on_button_pressed(btn_name: String) -> void:
 	for child in page_cont.get_children():
 		if child == page_cont.get_child(player_num):
 			child.visible = true
+			print(child.get_child(0).get_children())
 			child.get_child(0).get_child(0).grab_focus()
 		else:
 			child.visible = false
@@ -36,7 +38,8 @@ func _on_back_button_pressed(menu: String) -> void:
 			$"../FightActionList".visible = true
 			$FightButton.grab_focus()
 		"Skills":
-			pass
+			$"../SkillsActionList".visible = true
+			$SkillsButton.grab_focus()
 		"Items":
 			pass
 		"Party":
