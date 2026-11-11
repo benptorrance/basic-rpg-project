@@ -32,15 +32,15 @@ func _on_button_pressed(btn_name: String) -> void:
 		else:
 			child.visible = false
 
-func _on_back_button_pressed(menu: String) -> void:
-	match menu:
-		"Fight":
-			$"../FightActionList".visible = true
-			$FightButton.grab_focus()
-		"Skills":
-			$"../SkillsActionList".visible = true
-			$SkillsButton.grab_focus()
-		"Items":
-			pass
-		"Party":
-			pass
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.keycode == KEY_ESCAPE:
+		var children = get_parent().get_children()
+		for child in children:
+			if child.visible && child != self:
+				child.visible = false
+				match child.name:
+					"FightActionList":
+						$FightButton.grab_focus()
+					"SkillsActionList":
+						$SkillsButton.grab_focus()
