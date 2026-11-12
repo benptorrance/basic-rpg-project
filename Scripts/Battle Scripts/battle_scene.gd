@@ -76,38 +76,42 @@ func _next_turn() -> void:
 	if sel_actor != null:
 		sel_actor.end_turn()
 	
-	##Increment the index of the currently selected character then save that character to selected actor
+	##Save the current actor in the turn order and then increment the index to the next actor.
 	sel_actor = t_order[t_index]
-	sel_actor.begin_turn()
 	t_index = wrapi(t_index+1, 0, t_order.size())
 	
-	await BattleLogManager.log_cleared
 	
-	##Determine whether the current turn is for a player or enemy then do stuff for turns.
-	if sel_actor.is_player:
-		##Enable GUI to read inputs and be navigatable
-		_menu_state(true)
-		##Program waits for an action to be selected, which calls fetch_action and the turn process continues
-	else:
-		##Disable GUI's ability to read input and be navigated
-		_menu_state(false)
-		var think = sel_actor.get_node("ThinkAnimation")
-		think.visible = true
-		think.play("Thinking")
-		await sel_actor.get_node("ThinkAnimation").animation_finished
-		think.visible = false
-		
-		##The EnemyActor has the function that decides what action and target will be selected
-		#The stats resource will be modified to have a variable that determines what kind of brain
-		#the enemy has. Decision will call a different sub function based on that brain variable.
-		#Examples: Berserker, Healer, Mage, Specific Boss name
-		sel_actor.decision(sel_actor, enemies, allies)
-		##Timer is here so that enemy turns will wait for the action to resolve before their turn ends
-		#When action animations are implemented a timer here will prevent the turn from going to the
-		#next enemy when the animation is still playing.
+	##Check if ther actor is alive, if not then it will go to the next turn.
+	if sel_actor.living:
+		sel_actor.begin_turn()
 		await BattleLogManager.log_cleared
-		await get_tree().create_timer(1.0).timeout
-		think.stop()
+		##Determine whether the current turn is for a player or enemy then do stuff for turns.
+		if sel_actor.is_player:
+			##Enable GUI to read inputs and be navigatable
+			_menu_state(true)
+			##Program waits for an action to be selected, which calls fetch_action and the turn process continues
+		else:
+			##Disable GUI's ability to read input and be navigated
+			_menu_state(false)
+			var think = sel_actor.get_node("ThinkAnimation")
+			think.visible = true
+			think.play("Thinking")
+			await sel_actor.get_node("ThinkAnimation").animation_finished
+			think.visible = false
+			
+			##The EnemyActor has the function that decides what action and target will be selected
+			#The stats resource will be modified to have a variable that determines what kind of brain
+			#the enemy has. Decision will call a different sub function based on that brain variable.
+			#Examples: Berserker, Healer, Mage, Specific Boss name
+			sel_actor.decision(sel_actor, enemies, allies)
+			##Timer is here so that enemy turns will wait for the action to resolve before their turn ends
+			#When action animations are implemented a timer here will prevent the turn from going to the
+			#next enemy when the animation is still playing.
+			await BattleLogManager.log_cleared
+			await get_tree().create_timer(1.0).timeout
+			think.stop()
+			_next_turn()
+	else:
 		_next_turn()
 
 ##Checks the status of the actors if all actors on one side are dead and
@@ -117,10 +121,13 @@ func _check_actors():
 	##sets victory or defeat to true if one side is vanquished.
 	if allies.all(func(x): return x.living == false):
 		_game_over()
+		_menu_state(false)
 	if enemies.all(func(x): return x.living == false):
 		_battle_won()
+		_menu_state(false)
 	if allies.all(func(x): return x.living == false) and enemies.all(func(x): return x.living == false):
 		_game_over()
+		_menu_state(false)
 
 #Handles the interactivity state of the menu when switching between player and ai turns.
 func _menu_state(is_turn: bool) -> void:
@@ -161,7 +168,7 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	_menu_state(false)
 	##Waits to begin next turn until the battle log displays all text
 	await BattleLogManager.log_cleared
-	_next_turn()	
+	_next_turn()
 
 ##Upon Combat action selection, this function is called. It will take the number associated with the
 ##pressed button and then find what action that correlates to in the selected actor's action lists
