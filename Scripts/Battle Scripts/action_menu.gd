@@ -16,74 +16,79 @@ enum LIST {
 
 func _load(array: Array[Actor]) -> void:
 	allies = array
-	populate_menu("Fight")
-	populate_menu("Skills")
+	populate_menu()
 
-func populate_menu(menu: String) -> void:
-	sel_page = 0
+func populate_menu() -> void:
 	var list: Array
-	match menu:
-		"Fight":
-			page_cont_1 = $FightActionList/ListLayout/PageContainer/Player1Pages
-			page_cont_2 = $FightActionList/ListLayout/PageContainer/Player2Pages
-			page_cont_3 = $FightActionList/ListLayout/PageContainer/Player3Pages
-			page_cont_4 = $FightActionList/ListLayout/PageContainer/Player4Pages
-			for i in range(4):
-				list.append(allies[i].stats.base_actions)
-		"Skills":
-			page_cont_1 = $SkillsActionList/ListLayout/PageContainer/Player1Pages
-			page_cont_2 = $SkillsActionList/ListLayout/PageContainer/Player2Pages
-			page_cont_3 = $SkillsActionList/ListLayout/PageContainer/Player3Pages
-			page_cont_4 = $SkillsActionList/ListLayout/PageContainer/Player4Pages
-			for i in range(4):
-				list.append(allies[i].stats.skill_actions)
-		"Items":
-			page_cont_1 = null
-	for x in range(4):
-		var page_index = 0
-		var cur_page: Control
+	for x in range(3):
+		sel_page = 0
+		list.clear()
 		match x:
 			0:
-				cur_page = page_cont_1.get_child(page_index)
-				
-				for action in list[0]:
-					if cur_page.get_children().size() < 8:
-						cur_page.add_button(action)
-					else:
-						add_page(1)
-						page_index += 1
-						cur_page = page_cont_1.get_child(page_index)
-						cur_page.add_button(action)
+				page_cont_1 = $FightActionList/ListLayout/PageContainer/Player1Pages
+				page_cont_2 = $FightActionList/ListLayout/PageContainer/Player2Pages
+				page_cont_3 = $FightActionList/ListLayout/PageContainer/Player3Pages
+				page_cont_4 = $FightActionList/ListLayout/PageContainer/Player4Pages
+				for i in range(4):
+					list.append(allies[i].stats.base_actions)
 			1:
-				cur_page = page_cont_2.get_child(page_index)
-				for action in list[1]:
-					if cur_page.get_children().size() < 8:
-						cur_page.add_button(action)
-					else:
-						add_page(2)
-						page_index += 1
-						cur_page = page_cont_2.get_child(page_index)
-						cur_page.add_button(action)
+				page_cont_1 = $SkillsActionList/ListLayout/PageContainer/Player1Pages
+				page_cont_2 = $SkillsActionList/ListLayout/PageContainer/Player2Pages
+				page_cont_3 = $SkillsActionList/ListLayout/PageContainer/Player3Pages
+				page_cont_4 = $SkillsActionList/ListLayout/PageContainer/Player4Pages
+				for i in range(4):
+					list.append(allies[i].stats.skill_actions)
 			2:
-				cur_page = page_cont_3.get_child(page_index)
-				for action in list[2]:
-					if cur_page.get_children().size() < 8:
-						cur_page.add_button(action)
-					else:
-						add_page(3)
-						page_index += 1
-						cur_page = page_cont_3.get_child(page_index)
-						cur_page.add_button(action)
-			3:
-				cur_page = page_cont_4.get_child(page_index)
-				for action in list[3]:
-					if cur_page.get_children().size() < 8:
-						cur_page.add_button(action)
-					else:
-						add_page(4)
-						page_index += 1
-						cur_page = page_cont_4.get_child(page_index)
-						cur_page.add_button(action)
+				page_cont_1 = $ItemActionList/ListLayout/PageContainer/Player1Pages
+				page_cont_2 = $ItemActionList/ListLayout/PageContainer/Player2Pages
+				page_cont_3 = $ItemActionList/ListLayout/PageContainer/Player3Pages
+				page_cont_4 = $ItemActionList/ListLayout/PageContainer/Player4Pages
+				for i in range(4):
+					list.append(allies[i].stats.item_actions)
+		for i in range(4):
+			var page_index = 0
+			var cur_page: Control
+			match i:
+				0:
+					cur_page = page_cont_1.get_child(page_index)
+					for action in list[0]:
+						if cur_page.get_children().size() < 8:
+							cur_page.add_button(action)
+						else:
+							add_page(1)
+							page_index += 1
+							cur_page = page_cont_1.get_child(page_index)
+							cur_page.add_button(action)
+				1:
+					cur_page = page_cont_2.get_child(page_index)
+					for action in list[1]:
+						if cur_page.get_children().size() < 8:
+							cur_page.add_button(action)
+						else:
+							add_page(2)
+							page_index += 1
+							cur_page = page_cont_2.get_child(page_index)
+							cur_page.add_button(action)
+				2:
+					cur_page = page_cont_3.get_child(page_index)
+					for action in list[2]:
+						if cur_page.get_children().size() < 8:
+							cur_page.add_button(action)
+						else:
+							add_page(3)
+							page_index += 1
+							cur_page = page_cont_3.get_child(page_index)
+							cur_page.add_button(action)
+				3:
+					cur_page = page_cont_4.get_child(page_index)
+					for action in list[3]:
+						if cur_page.get_children().size() < 8:
+							cur_page.add_button(action)
+						else:
+							add_page(4)
+							page_index += 1
+							cur_page = page_cont_4.get_child(page_index)
+							cur_page.add_button(action)
 
 func add_page(page_num: int)-> void:
 	var new_page = Page.new()

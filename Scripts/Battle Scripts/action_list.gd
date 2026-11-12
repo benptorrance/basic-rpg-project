@@ -20,7 +20,8 @@ func _on_button_pressed(btn_name: String) -> void:
 			$"../SkillsActionList".visible = true
 			page_cont = $"../SkillsActionList/ListLayout/PageContainer"
 		"Items":
-			pass
+			$"../ItemActionList".visible = true
+			page_cont = $"../ItemActionList/ListLayout/PageContainer"
 		"Party":
 			pass
 		"Flee":
@@ -29,6 +30,7 @@ func _on_button_pressed(btn_name: String) -> void:
 	for child in page_cont.get_children():
 		if child == page_cont.get_child(player_num):
 			child.visible = true
+			print(child.get_child(0).get_child(0))
 			child.get_child(0).get_child(0).grab_focus()
 		else:
 			child.visible = false
@@ -44,5 +46,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 						$FightButton.grab_focus()
 					"SkillsActionList":
 						$SkillsButton.grab_focus()
+					"ItemActionList":
+						$ItemsButton.grab_focus()
 		await get_tree().create_timer(0.1).timeout
 		state_change.emit(0)

@@ -850,6 +850,135 @@ text = "<"
 layout_mode = 2
 text = ">"
 
+[node name="ItemActionList" type="PanelContainer" parent="BattleMenus/ActionMenu" unique_id=2101467983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ListBackground" type="NinePatchRect" parent="BattleMenus/ActionMenu/ItemActionList" unique_id=55205724]
+modulate = Color(0.69135684, 0.6913568, 0.69135684, 1)
+layout_mode = 2
+texture = ExtResource("7_w4764")
+patch_margin_left = 11
+patch_margin_top = 5
+patch_margin_right = 11
+patch_margin_bottom = 5
+
+[node name="ListLayout" type="VBoxContainer" parent="BattleMenus/ActionMenu/ItemActionList" unique_id=1910536964]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout" unique_id=118636406]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 0
+
+[node name="ListTitle" type="Label" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/MarginContainer" unique_id=1092667122]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageContainer" type="Control" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout" unique_id=171484605]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_5gdnp")
+
+[node name="Player1Pages" type="Control" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer" unique_id=1438241897]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer/Player1Pages" unique_id=1207606039]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = ExtResource("21_5gdnp")
+
+[node name="Player2Pages" type="Control" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer" unique_id=536899517]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer/Player2Pages" unique_id=1945395783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = ExtResource("21_5gdnp")
+
+[node name="Player3Pages" type="Control" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer" unique_id=1689505144]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer/Player3Pages" unique_id=1758533510]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = ExtResource("21_5gdnp")
+
+[node name="Player4Pages" type="Control" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer" unique_id=2056542706]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageContainer/Player4Pages" unique_id=2015871105]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = ExtResource("21_5gdnp")
+
+[node name="PageNav" type="HBoxContainer" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout" unique_id=1144295611]
+layout_mode = 2
+alignment = 2
+
+[node name="PageLeft" type="Button" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageNav" unique_id=198806177]
+layout_mode = 2
+text = "<"
+
+[node name="PageRight" type="Button" parent="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageNav" unique_id=1041996770]
+layout_mode = 2
+text = ">"
+
 [node name="TargetMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
 modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(300, 100)
@@ -1025,3 +1154,5 @@ text = "Continue"
 [connection signal="button_down" from="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav/PageRight" to="BattleMenus/ActionMenu" method="button_handler" binds= [true]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/SkillsActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/SkillsActionList/ListLayout/PageNav/PageRight" to="BattleMenus/ActionMenu" method="button_handler" binds= [true]]
+[connection signal="button_down" from="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]
+[connection signal="button_down" from="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageNav/PageRight" to="BattleMenus/ActionMenu" method="button_handler" binds= [true]]
