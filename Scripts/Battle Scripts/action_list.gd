@@ -25,7 +25,7 @@ func _on_button_pressed(btn_name: String) -> void:
 			pass
 		"Flee":
 			pass
-	state_change.emit(1)
+	state_change.emit(true, 1)
 	for child in page_cont.get_children():
 		if child == page_cont.get_child(player_num):
 			child.visible = true
@@ -35,7 +35,7 @@ func _on_button_pressed(btn_name: String) -> void:
 			child.visible = false
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event.keycode == KEY_ESCAPE && b_scene.menu_state == BattleScene.STATES.ACT_LIST:
+	if event.keycode == KEY_ESCAPE && b_scene.menu_layer.back() == BattleScene.ACTIVE_LAYERS.ACT_LIST && event.pressed:
 		var children = get_parent().get_children()
 		for child in children:
 			if child.visible && child != self:
@@ -45,5 +45,5 @@ func _unhandled_key_input(event: InputEvent) -> void:
 						$SkillsButton.grab_focus()
 					"ItemActionList":
 						$ItemsButton.grab_focus()
-		await get_tree().create_timer(0.1).timeout
-		state_change.emit(0)
+		state_change.emit(false)
+		get_viewport().set_input_as_handled()

@@ -8,15 +8,15 @@ class_name BattleScene
 @onready var battle_log = $BattleText
 @onready var act_menu = $BattleMenus/ActionMenu
 @export var sel_actor: Actor = null
-@export var menu_state: = STATES.BASE
+@export var menu_layer: Array[ACTIVE_LAYERS]
 
 var t_order = []
 var t_index = 0
 
 var flee = false
 
-enum STATES {
-	BASE,
+##Enums for each of the active menu layers over the base layer.
+enum ACTIVE_LAYERS {
 	ACT_LIST,
 	TARGETING,
 }
@@ -198,17 +198,22 @@ func fetch_targets(action: CombatAction = sel_actor.stats.basic_attack):
 				x += 1
 	#Hides the Other sub menus so that after the action and enemy are selected, the sub menu doesn't
 	#stay up.
-	state_changer(0)
+	if menu_layer.is_empty() != true:
+		menu_layer.clear()
 	for child in $BattleMenus/ActionMenu.get_children():
 		if child != $BattleMenus/ActionMenu/ActionList:
 			child.visible = false
 	_player_combat_action(action,targets)
 
-func state_changer(new_state: int):
-	match new_state:
-		0:
-			menu_state = STATES.BASE
-		1:
-			menu_state = STATES.ACT_LIST
-		2:
-			menu_state = STATES.TARGETING
+func state_changer(add: bool, layer: int = 0):
+	if add:
+		match layer:
+			0: 
+				pass
+			1:
+				menu_layer.push_back(ACTIVE_LAYERS.ACT_LIST)
+			2:
+				menu_layer.push_back(ACTIVE_LAYERS.TARGETING)
+	else:
+		menu_layer.pop_back()
+	print(menu_layer)

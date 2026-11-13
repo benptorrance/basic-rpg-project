@@ -15,7 +15,7 @@ func _ready() -> void:
 func unit_selection(sel_actor: Actor):
 	##Upon being called it sets the currently selected actor's Targeting Icon to visible
 	prev_button = get_viewport().gui_get_focus_owner().get_path()
-	state_change.emit(2)
+	state_change.emit(true, 2)
 	sel_actor.get_child(1).grab_focus()
 	var targets = await target_selected
 	for unit in units:
@@ -42,10 +42,10 @@ func _change_focus(btn_index: int) -> void:
 			units[3].get_child(0).visible = true
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event.keycode == KEY_ESCAPE && b_scene.menu_state == BattleScene.STATES.TARGETING:
+	if event.keycode == KEY_ESCAPE && b_scene.menu_layer.back() == BattleScene.ACTIVE_LAYERS.TARGETING && event.pressed:
 		for unit in units:
 			if unit.get_child(0).visible:
 				unit.get_child(0).visible = false
 				get_node(prev_button).grab_focus()
-		await get_tree().create_timer(0.1).timeout
-		state_change.emit(1)
+		state_change.emit(false)
+		get_viewport().set_input_as_handled()
