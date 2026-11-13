@@ -170,11 +170,10 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	await BattleLogManager.log_cleared
 	_next_turn()
 
-##Upon Combat action selection, this function is called. It will take the number associated with the
-##pressed button and then find what action that correlates to in the selected actor's action lists
-##then fetch_action calls the unit selection function of the appropriate zone.
-#This will need to be updated to take the action itself. 
-func fetch_action(action: CombatAction):
+##Upon Combat action selection, this function is called. It will determine what
+##zone targets need to be selected from and then call the unit selection function
+##of that zone.
+func fetch_targets(action: CombatAction = sel_actor.stats.basic_attack):
 	var selected = false
 	var x = 0
 	var index: Array[int]

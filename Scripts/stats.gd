@@ -4,6 +4,11 @@ class_name Stats
 @export var char_name: String
 @export var is_player: bool
 
+##Holds the lists of skills the character has access to.
+@export var basic_attack: CombatAction 
+@export var skill_actions: Array[CombatAction]
+@export var item_actions: Array[CombatAction]
+
 ##Holds
 @export var attributes = {
 	"Str":0,
@@ -57,8 +62,3 @@ class_name Stats
 	"Off Hand": null,
 	"Accessory": null,
 }
-
-##Holds the lists of skills the character has access to.
-@export var base_actions: Array[CombatAction] 
-@export var skill_actions: Array[CombatAction]
-@export var item_actions: Array[CombatAction]

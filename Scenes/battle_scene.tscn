@@ -592,135 +592,6 @@ focus_next = NodePath("../FightButton")
 focus_previous = NodePath("../PartyButton")
 text = "Flee"
 
-[node name="FightActionList" type="PanelContainer" parent="BattleMenus/ActionMenu" unique_id=330810207]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ListBackground" type="NinePatchRect" parent="BattleMenus/ActionMenu/FightActionList" unique_id=342640543]
-modulate = Color(0.69135684, 0.6913568, 0.69135684, 1)
-layout_mode = 2
-texture = ExtResource("7_w4764")
-patch_margin_left = 11
-patch_margin_top = 5
-patch_margin_right = 11
-patch_margin_bottom = 5
-
-[node name="ListLayout" type="VBoxContainer" parent="BattleMenus/ActionMenu/FightActionList" unique_id=1239723430]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1408131417]
-layout_mode = 2
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_bottom = 0
-
-[node name="ListTitle" type="Label" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/MarginContainer" unique_id=974140125]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Fight"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PageContainer" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=298711689]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_5gdnp")
-
-[node name="Player1Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=1098183337]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player1Pages" unique_id=1956282828]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-script = ExtResource("21_5gdnp")
-
-[node name="Player2Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=189145006]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player2Pages" unique_id=195019098]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-script = ExtResource("21_5gdnp")
-
-[node name="Player3Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=894192543]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player3Pages" unique_id=511237697]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-script = ExtResource("21_5gdnp")
-
-[node name="Player4Pages" type="Control" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer" unique_id=798003494]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="Page" type="GridContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageContainer/Player4Pages" unique_id=2120082544]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-script = ExtResource("21_5gdnp")
-
-[node name="PageNav" type="HBoxContainer" parent="BattleMenus/ActionMenu/FightActionList/ListLayout" unique_id=1833302187]
-layout_mode = 2
-alignment = 2
-
-[node name="PageLeft" type="Button" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav" unique_id=1275208862]
-layout_mode = 2
-text = "<"
-
-[node name="PageRight" type="Button" parent="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav" unique_id=671566594]
-layout_mode = 2
-text = ">"
-
 [node name="SkillsActionList" type="PanelContainer" parent="BattleMenus/ActionMenu" unique_id=1545328145]
 layout_mode = 1
 anchors_preset = 15
@@ -1145,13 +1016,11 @@ text = "Continue"
 [connection signal="focus_entered" from="EnemyZone/Enemy3/UnitSelector" to="EnemyZone" method="_change_focus" binds= [2]]
 [connection signal="button_down" from="EnemyZone/Enemy4/UnitSelector" to="EnemyZone" method="_selector_pressed" binds= [3]]
 [connection signal="focus_entered" from="EnemyZone/Enemy4/UnitSelector" to="EnemyZone" method="_change_focus" binds= [3]]
-[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FightButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Fight"]]
+[connection signal="button_down" from="BattleMenus/ActionMenu/ActionList/FightButton" to="." method="fetch_targets"]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/SkillsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/ItemsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Items"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
-[connection signal="button_down" from="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]
-[connection signal="button_down" from="BattleMenus/ActionMenu/FightActionList/ListLayout/PageNav/PageRight" to="BattleMenus/ActionMenu" method="button_handler" binds= [true]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/SkillsActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/SkillsActionList/ListLayout/PageNav/PageRight" to="BattleMenus/ActionMenu" method="button_handler" binds= [true]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]

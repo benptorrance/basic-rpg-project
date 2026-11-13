@@ -20,25 +20,18 @@ func _load(array: Array[Actor]) -> void:
 
 func populate_menu() -> void:
 	var list: Array
-	for x in range(3):
+	for x in range(2):
 		sel_page = 0
 		list.clear()
 		match x:
 			0:
-				page_cont_1 = $FightActionList/ListLayout/PageContainer/Player1Pages
-				page_cont_2 = $FightActionList/ListLayout/PageContainer/Player2Pages
-				page_cont_3 = $FightActionList/ListLayout/PageContainer/Player3Pages
-				page_cont_4 = $FightActionList/ListLayout/PageContainer/Player4Pages
-				for i in range(4):
-					list.append(allies[i].stats.base_actions)
-			1:
 				page_cont_1 = $SkillsActionList/ListLayout/PageContainer/Player1Pages
 				page_cont_2 = $SkillsActionList/ListLayout/PageContainer/Player2Pages
 				page_cont_3 = $SkillsActionList/ListLayout/PageContainer/Player3Pages
 				page_cont_4 = $SkillsActionList/ListLayout/PageContainer/Player4Pages
 				for i in range(4):
 					list.append(allies[i].stats.skill_actions)
-			2:
+			1:
 				page_cont_1 = $ItemActionList/ListLayout/PageContainer/Player1Pages
 				page_cont_2 = $ItemActionList/ListLayout/PageContainer/Player2Pages
 				page_cont_3 = $ItemActionList/ListLayout/PageContainer/Player3Pages

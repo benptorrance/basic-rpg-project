@@ -13,9 +13,8 @@ func _on_button_pressed(btn_name: String) -> void:
 	var players = get_tree().current_scene.allies
 	var player_num = players.find(player)
 	match btn_name:
-		"Fight":
-			$"../FightActionList".visible = true
-			page_cont = $"../FightActionList/ListLayout/PageContainer"
+		"Defend":
+			pass
 		"Skills":
 			$"../SkillsActionList".visible = true
 			page_cont = $"../SkillsActionList/ListLayout/PageContainer"
@@ -42,8 +41,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			if child.visible && child != self:
 				child.visible = false
 				match child.name:
-					"FightActionList":
-						$FightButton.grab_focus()
 					"SkillsActionList":
 						$SkillsButton.grab_focus()
 					"ItemActionList":
