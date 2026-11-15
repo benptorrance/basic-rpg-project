@@ -40,6 +40,6 @@ func decision(actor: EnemyActor, allies: Array[EnemyActor], enemies: Array[Actor
 		targets = temp
 	else:
 		#do basic attack
-		action = stats.base_actions[0]
+		action = stats.basic_attack
 		targets.append(enemies[randi() % 4])
 	actor.combat_action(action, targets)

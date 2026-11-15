@@ -10,6 +10,7 @@ script = ExtResource("4_oo5sg")
 base_experience = 25
 base_money = 5
 char_name = "Slime"
+basic_attack = ExtResource("2_nhq00")
 attributes = {
 "Armor": 5,
 "Dex": 10,
@@ -23,5 +24,4 @@ attributes = {
 "Warding": 0,
 "Wis": 10
 }
-base_actions = Array[ExtResource("1_xmcyj")]([ExtResource("2_nhq00")])
 metadata/_custom_type_script = "uid://ijxbur3vdu8r"

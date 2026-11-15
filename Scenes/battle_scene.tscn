@@ -517,7 +517,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
 focus_neighbor_left = NodePath("../DefendButton")
-focus_neighbor_top = NodePath("../PartyButton")
+focus_neighbor_top = NodePath("../FleeButton")
 focus_neighbor_right = NodePath("../DefendButton")
 focus_neighbor_bottom = NodePath("../SkillsButton")
 focus_next = NodePath("../DefendButton")
@@ -532,7 +532,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 focus_neighbor_left = NodePath("../FightButton")
-focus_neighbor_top = NodePath("../FleeButton")
+focus_neighbor_top = NodePath("../ItemsButton")
 focus_neighbor_right = NodePath("../FightButton")
 focus_neighbor_bottom = NodePath("../ItemsButton")
 focus_next = NodePath("../SkillsButton")
@@ -547,7 +547,7 @@ size_flags_vertical = 6
 focus_neighbor_left = NodePath("../ItemsButton")
 focus_neighbor_top = NodePath("../FightButton")
 focus_neighbor_right = NodePath("../ItemsButton")
-focus_neighbor_bottom = NodePath("../PartyButton")
+focus_neighbor_bottom = NodePath("../FleeButton")
 focus_next = NodePath("../ItemsButton")
 focus_previous = NodePath("../DefendButton")
 text = "Skills"
@@ -561,38 +561,24 @@ offset_transform_enabled = true
 focus_neighbor_left = NodePath("../SkillsButton")
 focus_neighbor_top = NodePath("../DefendButton")
 focus_neighbor_right = NodePath("../SkillsButton")
-focus_neighbor_bottom = NodePath("../FleeButton")
-focus_next = NodePath("../PartyButton")
+focus_neighbor_bottom = NodePath("../DefendButton")
 focus_previous = NodePath("../SkillsButton")
 text = "Items"
-
-[node name="PartyButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=1201159933]
-custom_minimum_size = Vector2(0, 14)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-focus_neighbor_left = NodePath("../FleeButton")
-focus_neighbor_top = NodePath("../SkillsButton")
-focus_neighbor_right = NodePath("../FleeButton")
-focus_neighbor_bottom = NodePath("../FightButton")
-focus_next = NodePath("../FleeButton")
-focus_previous = NodePath("../ItemsButton")
-text = "Party"
 
 [node name="FleeButton" type="Button" parent="BattleMenus/ActionMenu/ActionList" unique_id=285938981]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../PartyButton")
-focus_neighbor_top = NodePath("../ItemsButton")
-focus_neighbor_right = NodePath("../PartyButton")
-focus_neighbor_bottom = NodePath("../DefendButton")
+focus_neighbor_left = NodePath("../ItemsButton")
+focus_neighbor_top = NodePath("../SkillsButton")
+focus_neighbor_right = NodePath("../ItemsButton")
+focus_neighbor_bottom = NodePath("../FightButton")
 focus_next = NodePath("../FightButton")
-focus_previous = NodePath("../PartyButton")
 text = "Flee"
 
 [node name="SkillsActionList" type="PanelContainer" parent="BattleMenus/ActionMenu" unique_id=1545328145]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -722,6 +708,7 @@ layout_mode = 2
 text = ">"
 
 [node name="ItemActionList" type="PanelContainer" parent="BattleMenus/ActionMenu" unique_id=2101467983]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -889,7 +876,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Overlay" type="TextureRect" parent="." unique_id=41561055]
-visible = false
 modulate = Color(0.4, 0.4, 0.4, 0.5882353)
 layout_mode = 1
 anchors_preset = 15
@@ -1000,6 +986,52 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_f856b")
 text = "Continue"
 
+[node name="FledScreen" type="Control" parent="." unique_id=150969381]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FledScreenText" type="Label" parent="FledScreen" unique_id=503787572]
+custom_minimum_size = Vector2(504, 0)
+custom_maximum_size = Vector2(504, -1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -91.5
+offset_right = 252.0
+offset_bottom = -63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "You Have Fled The Battle!"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Continue" type="Button" parent="FledScreen" unique_id=1093109215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 36.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_f856b")
+text = "Continue"
+
 [connection signal="button_down" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_selector_pressed" binds= [0]]
 [connection signal="focus_entered" from="AllyZone/Player1/UnitSelector" to="AllyZone" method="_change_focus" binds= [0]]
 [connection signal="button_down" from="AllyZone/Player2/UnitSelector" to="AllyZone" method="_selector_pressed" binds= [1]]
@@ -1019,8 +1051,7 @@ text = "Continue"
 [connection signal="button_down" from="BattleMenus/ActionMenu/ActionList/FightButton" to="." method="fetch_targets"]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/SkillsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Skills"]]
 [connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/ItemsButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Items"]]
-[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/PartyButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Party"]]
-[connection signal="pressed" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="BattleMenus/ActionMenu/ActionList" method="_on_button_pressed" binds= ["Flee"]]
+[connection signal="button_down" from="BattleMenus/ActionMenu/ActionList/FleeButton" to="." method="_flee_battle"]
 [connection signal="button_down" from="BattleMenus/ActionMenu/SkillsActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/SkillsActionList/ListLayout/PageNav/PageRight" to="BattleMenus/ActionMenu" method="button_handler" binds= [true]]
 [connection signal="button_down" from="BattleMenus/ActionMenu/ItemActionList/ListLayout/PageNav/PageLeft" to="BattleMenus/ActionMenu" method="button_handler" binds= [false]]

@@ -21,10 +21,6 @@ func _on_button_pressed(btn_name: String) -> void:
 		"Items":
 			$"../ItemActionList".visible = true
 			page_cont = $"../ItemActionList/ListLayout/PageContainer"
-		"Party":
-			pass
-		"Flee":
-			pass
 	state_change.emit(true, 1)
 	for child in page_cont.get_children():
 		if child == page_cont.get_child(player_num):

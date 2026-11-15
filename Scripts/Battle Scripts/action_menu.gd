@@ -8,12 +8,6 @@ class_name ActionMenu
 @onready var sel_page: int
 var allies: Array[Actor]
 
-enum LIST {
-	FIGHT,
-	SKILLS,
-	ITEMS
-}
-
 func _load(array: Array[Actor]) -> void:
 	allies = array
 	populate_menu()

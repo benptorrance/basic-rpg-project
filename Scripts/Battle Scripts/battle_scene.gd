@@ -70,8 +70,11 @@ func _next_turn() -> void:
 	##Highlight the image of the player whose turn it is.
 	
 	_check_actors()
-	if flee:
-		#End Battle. Show Flee Screen. Exit back to map
+	if flee == true:
+		_menu_state(false)
+		$Overlay.visible = true
+		$FledScreen.visible = true
+		sel_actor.get_child(2).visible = false
 		return
 	if sel_actor != null:
 		sel_actor.end_turn()
@@ -150,7 +153,6 @@ func _game_over() -> void:
 	_menu_state(false)
 	$Overlay.visible = true
 	$GameOverContainer.visible = true
-	pass
 
 ##Handles a battle victory. Shows victory screen, calculates rewards. Sends player
 ##back to the map
@@ -158,7 +160,23 @@ func _battle_won() -> void:
 	_menu_state(false)
 	$Overlay.visible = true
 	$VictoryScreen.visible = true
-	pass
+
+func _flee_battle() -> void:
+	var average: float = 0
+	var flee_chance: float
+	var rand_num: float = randf()
+	for enemy in enemies:
+		average += enemy.stats.attributes.Dex
+	average = average / enemies.size()
+	flee_chance = (sel_actor.stats.attributes.Dex / average) / 2
+	if flee_chance >= rand_num:
+		flee = true
+	else:
+		##Prevents the user from putting commands in while the BattleLogManager is
+		##showing text
+		_menu_state(false)
+		BattleLogManager.add_entry(str("The party was unable to run away!"))
+	_next_turn()
 
 ##Handles player combat actions.
 func _player_combat_action (action: CombatAction, targets: Array[Actor]):
