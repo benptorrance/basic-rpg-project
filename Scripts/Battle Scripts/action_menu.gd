@@ -39,7 +39,7 @@ func populate_menu() -> void:
 				0:
 					cur_page = page_cont_1.get_child(page_index)
 					for action in list[0]:
-						if cur_page.get_children().size() < 8:
+						if cur_page.get_children().size() < 5:
 							cur_page.add_button(action)
 						else:
 							add_page(1)
@@ -49,7 +49,7 @@ func populate_menu() -> void:
 				1:
 					cur_page = page_cont_2.get_child(page_index)
 					for action in list[1]:
-						if cur_page.get_children().size() < 8:
+						if cur_page.get_children().size() < 5:
 							cur_page.add_button(action)
 						else:
 							add_page(2)
@@ -59,7 +59,7 @@ func populate_menu() -> void:
 				2:
 					cur_page = page_cont_3.get_child(page_index)
 					for action in list[2]:
-						if cur_page.get_children().size() < 8:
+						if cur_page.get_children().size() < 5:
 							cur_page.add_button(action)
 						else:
 							add_page(3)
@@ -69,7 +69,7 @@ func populate_menu() -> void:
 				3:
 					cur_page = page_cont_4.get_child(page_index)
 					for action in list[3]:
-						if cur_page.get_children().size() < 8:
+						if cur_page.get_children().size() < 5:
 							cur_page.add_button(action)
 						else:
 							add_page(4)

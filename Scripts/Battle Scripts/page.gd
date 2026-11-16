@@ -6,5 +6,5 @@ func add_button(action: CombatAction) -> void:
 	var new_button = Button.new()
 	new_button.text = action.action_name
 	new_button.button_down.connect($"../../../../../../..".fetch_targets.bind(action))
-	new_button.size_flags_horizontal = SIZE_EXPAND + SIZE_SHRINK_CENTER
+	new_button.size_flags_horizontal = SIZE_EXPAND + SIZE_SHRINK_BEGIN
 	add_child(new_button)
