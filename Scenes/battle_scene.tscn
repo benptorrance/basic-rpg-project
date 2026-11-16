@@ -876,7 +876,7 @@ text = "<"
 layout_mode = 2
 text = ">"
 
-[node name="TargetMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
+[node name="InfoMenus" parent="BattleMenus" unique_id=929717198 instance=ExtResource("3_3gnqe")]
 modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(300, 100)
 custom_maximum_size = Vector2(300, -1)
@@ -887,7 +887,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="TargetStats" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=2034713808]
+[node name="TargetStats" type="VBoxContainer" parent="BattleMenus/InfoMenus" unique_id=2034713808]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 1
 anchors_preset = 9
@@ -895,7 +895,7 @@ anchor_bottom = 1.0
 offset_right = 44.0
 grow_vertical = 2
 
-[node name="TargetResistances" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=666330602]
+[node name="TargetResistances" type="VBoxContainer" parent="BattleMenus/InfoMenus" unique_id=666330602]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 1
 anchors_preset = 9
@@ -904,7 +904,18 @@ offset_left = 80.0
 offset_right = 160.0
 grow_vertical = 2
 
-[node name="TargetSkills" type="VBoxContainer" parent="BattleMenus/TargetMenus" unique_id=1116370384]
+[node name="TargetSkills" type="VBoxContainer" parent="BattleMenus/InfoMenus" unique_id=1116370384]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SelectedSkillInfo" type="VBoxContainer" parent="BattleMenus/InfoMenus" unique_id=1370986515]
+visible = false
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 1
 anchors_preset = 11

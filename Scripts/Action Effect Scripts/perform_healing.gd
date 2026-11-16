@@ -3,7 +3,7 @@ class_name PerformHealing extends TargetedEffect
 @export var base_healing: int
 @export var type: String
 
-func _do(agent: Actor, _source: CombatAction, targets: Array[Actor]):
+func _do(agent: Actor, targets: Array[Actor]):
 	if targets == null:
 		return
 	for target in targets:

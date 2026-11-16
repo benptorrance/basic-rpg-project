@@ -5,7 +5,7 @@ class_name DealDamage extends TargetedEffect
 @export var def_stat: String
 @export var act_type: String
 
-func _do(agent: Actor, _source: CombatAction, targets: Array[Actor]):
+func _do(agent: Actor, targets: Array[Actor]):
 	if targets == null:
 		return
 	for target in targets:

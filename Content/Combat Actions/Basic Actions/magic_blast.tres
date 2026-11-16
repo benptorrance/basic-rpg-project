@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://3f1rhr272g7k"]
 
-[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Effect Scripts/targeted_effect.gd" id="1_3w03s"]
-[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/Effect Scripts/deal_damage.gd" id="2_upv70"]
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Action Effect Scripts/targeted_effect.gd" id="1_3w03s"]
+[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/Action Effect Scripts/deal_damage.gd" id="2_upv70"]
 [ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="3_3ye7a"]
+
 
 [sub_resource type="Resource" id="Resource_f856b"]
 script = ExtResource("2_upv70")
