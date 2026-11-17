@@ -6,6 +6,7 @@ class_name Stats
 
 ##Holds the lists of skills the character has access to.
 @export var basic_attack: CombatAction 
+@export var guard: CombatAction
 @export var skill_actions: Array[CombatAction]
 @export var item_actions: Array[CombatAction]
 

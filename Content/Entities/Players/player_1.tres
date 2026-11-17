@@ -1,14 +1,17 @@
 [gd_resource type="Resource" script_class="Stats" format=3 uid="uid://cytl6ntt0olil"]
 
-[ext_resource type="Resource" uid="uid://5gmrnce14yw6" path="res://Content/Combat Actions/basic_attack.tres" id="1_gy2m5"]
+[ext_resource type="Resource" uid="uid://5gmrnce14yw6" path="res://Content/Combat Actions/Basic Actions/basic_attack.tres" id="1_gy2m5"]
 [ext_resource type="Script" uid="uid://cesryo2iq2oxe" path="res://Scripts/stats.gd" id="1_xvbvp"]
+[ext_resource type="Resource" uid="uid://b1bqvi5xbsobf" path="res://Content/Combat Actions/Basic Actions/guard.tres" id="2_2f6en"]
 [ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_wqeju"]
+[ext_resource type="Script" uid="uid://cv8qx30rv3ieu" path="res://Scripts/Battle Scripts/status_effect.gd" id="5_hdher"]
 
 [resource]
 script = ExtResource("1_xvbvp")
 char_name = "Warrior"
 is_player = true
 basic_attack = ExtResource("1_gy2m5")
+guard = ExtResource("2_2f6en")
 attributes = {
 "Armor": 10,
 "Dex": 12,

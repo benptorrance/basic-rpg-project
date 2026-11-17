@@ -5,7 +5,21 @@ class_name DealDamage extends TargetedEffect
 @export var def_stat: String
 @export var dmg_type: String
 
+enum STAT {
+	STR,
+	VIT,
+	DEX,
+	WIS,
+	LUK,
+	MAX_HEALTH,
+	PHYS_ATTACK,
+	ARMOR,
+	MAGI_ATTACK,
+	WARDING
+}
+
 func _do(agent: Actor, targets: Array[Actor]):
+	var defenses
 	if targets == null:
 		return
 	for target in targets:
@@ -24,11 +38,29 @@ func _do(agent: Actor, targets: Array[Actor]):
 				BattleLogManager.add_entry(target.stats.char_name + " is Poisoned!")
 		match def_stat:
 			"Armor":
-				total_damage -= target.stats.attributes["Armor"]
+				defenses = target.stats.attributes["Armor"]
+				for mod in target.stat_modifiers:
+					if mod.stat == STAT.ARMOR:
+						if mod.is_flat:
+							defenses += mod.flat
+						else:
+							defenses += target.stats.attributes["Armor"] * mod.percent
+					else:
+						pass
+				total_damage -= defenses
 				if total_damage < 0:
 					total_damage = 0
 			"Warding":
-				total_damage -= target.stats.attributes["Warding"]
+				defenses = target.stats.attributes["Warding"]
+				for mod in target.stat_modifiers:
+					if mod.stat == STAT.WARDING:
+						if mod.is_flat:
+							defenses += mod.flat
+						else:
+							defenses += target.stats.attributes["Warding"] * mod.percent
+					else:
+						pass
+				total_damage -= defenses
 				if total_damage < 0:
 					total_damage = 0
 			"None":

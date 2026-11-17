@@ -13,8 +13,6 @@ func _on_button_pressed(btn_name: String) -> void:
 	var players = get_tree().current_scene.allies
 	var player_num = players.find(player)
 	match btn_name:
-		"Defend":
-			pass
 		"Skills":
 			$"../SkillsActionList".visible = true
 			page_cont = $"../SkillsActionList/ListLayout/PageContainer"

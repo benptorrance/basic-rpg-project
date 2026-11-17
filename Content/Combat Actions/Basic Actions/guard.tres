@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://b1bqvi5xbsobf"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Action Effect Scripts/targeted_effect.gd" id="1_4uxi3"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_ih72d"]
+[ext_resource type="Script" uid="uid://d2up3lnj5ep5t" path="res://Scripts/Action Effect Scripts/add_stat_modifier.gd" id="2_ux2j3"]
+
+[sub_resource type="Resource" id="Resource_ys5i7"]
+script = ExtResource("2_ux2j3")
+name = &"GuardArmor"
+duration = 1
+stat = 7
+percent = 0.5
+metadata/_custom_type_script = "uid://d2up3lnj5ep5t"
+
+[sub_resource type="Resource" id="Resource_qncpg"]
+script = ExtResource("2_ux2j3")
+name = &"GuardWarding"
+duration = 1
+stat = 9
+percent = 0.5
+metadata/_custom_type_script = "uid://d2up3lnj5ep5t"
+
+[resource]
+script = ExtResource("2_ih72d")
+action_name = "Guard"
+description = "User brings their guard up, increasing their Armor and Warding"
+action_type = "Basic"
+tar_type = "Self"
+effects = Array[ExtResource("1_4uxi3")]([SubResource("Resource_ys5i7"), SubResource("Resource_qncpg")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"

@@ -188,10 +188,16 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	await BattleLogManager.log_cleared
 	_next_turn()
 
+func _fight():
+	fetch_targets(sel_actor.stats.basic_attack)
+
+func _defend():
+	fetch_targets(sel_actor.stats.guard)
+
 ##Upon Combat action selection, this function is called. It will determine what
 ##zone targets need to be selected from and then call the unit selection function
 ##of that zone.
-func fetch_targets(action: CombatAction = sel_actor.stats.basic_attack):
+func fetch_targets(action: CombatAction):
 	var selected = false
 	var x = 0
 	var index: Array[int]
@@ -214,6 +220,8 @@ func fetch_targets(action: CombatAction = sel_actor.stats.basic_attack):
 						targets.append(enemies[i])
 					selected = true
 				x += 1
+		"Self":
+			targets.append(sel_actor)
 	#Hides the Other sub menus so that after the action and enemy are selected, the sub menu doesn't
 	#stay up.
 	if menu_layer.is_empty() != true:

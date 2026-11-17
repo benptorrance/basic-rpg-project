@@ -1,6 +1,7 @@
 class_name Actor extends Sprite2D
 
 @export var stats: Stats
+@export var stat_modifiers: Array[StatModifier]
 @export var is_player: bool
 var living: bool = true
 
@@ -22,16 +23,25 @@ func begin_turn():
 	get_child(2).visible = true
 	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
 	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
-	apply_effects()
+	apply_and_update_effects()
 	await BattleLogManager.update_display()
 
 func end_turn():
 	get_child(2).visible = false
 
-func apply_effects():
+func apply_and_update_effects():
 	for status in stats.status_effects:
 		for effect in status.repeat_effects:
 			effect._do(self, [self])
+		status.duration -= 1
+		if status.duration == 0:
+			for effect in status.expire_effects:
+				effect._do(self, [self])
+			BattleLogManager.add_entry(stats.char_name + " is no longer " + status.name)
+	for mod in stat_modifiers:
+		mod.duration -= 1
+		if mod.duration == 0:
+			stat_modifiers.pop_at(stat_modifiers.find(mod))
 
 func take_damage(damage: int) -> void:
 	stats.attributes["Health"] -= damage
@@ -57,9 +67,13 @@ func combat_action (action: CombatAction, targets: Array[Actor]):
 			target_names += target.stats.char_name
 		else:
 			target_names += " and " + target.stats.char_name
-	BattleLogManager.add_entry(stats.char_name + " used " + action.action_name + " on " + target_names)
+	if action.action_name == "Guard":
+		BattleLogManager.add_entry(stats.char_name + " has put up their guard!")
+	else:
+		BattleLogManager.add_entry(stats.char_name + " used " + action.action_name + " on " + target_names)
 	for x in action.effects:
 		x._do(self, targets)
+	print(stat_modifiers)
 	BattleLogManager.update_display()
 
 #Handles playing a sound when the Actor uses a move/takes damage/heals
