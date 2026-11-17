@@ -9,7 +9,9 @@ class_name Stats
 @export var skill_actions: Array[CombatAction]
 @export var item_actions: Array[CombatAction]
 
-##Holds
+@export var status_effects: Array[StatusEffect]
+
+##Holds player attributes
 @export var attributes = {
 	"Str":0,
 	"Vit":0,
@@ -25,19 +27,19 @@ class_name Stats
 	}
 
 @export var s_resists = {
-	"Poisoned Resist": 0,
-	"Bleed Resist": 0,
-	"Stun Resist": 0,
-	"Slow Resist": 0,
-	"Armor Sunder Resist": 0,
-	"Ward Sunder Resist": 0,
-	"Silence Resist": 0,
-	"Disarm": 0,
-	"Paralisis Resist": 0,
-	"Petrify Resist": 0,
-	"Curse Resist": 0,
-	"Burn Resist": 0,
-	"Disease Resist": 0,
+	"Poison Resist": 0.0,
+	"Bleed Resist": 0.0,
+	"Stun Resist": 0.0,
+	"Slow Resist": 0.0,
+	"Armor Sunder Resist": 0.0,
+	"Ward Sunder Resist": 0.0,
+	"Silence Resist": 0.0,
+	"Disarm": 0.0,
+	"Paralisis Resist": 0.0,
+	"Petrify Resist": 0.0,
+	"Curse Resist": 0.0,
+	"Burn Resist": 0.0,
+	"Disease Resist": 0.0,
 }
 
 @export var e_resists = {

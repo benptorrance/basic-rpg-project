@@ -9,7 +9,7 @@ script = ExtResource("2_srck1")
 base_damage = 10
 atk_stat = "Str"
 def_stat = "Armor"
-act_type = "Skill"
+dmg_type = "Skill"
 metadata/_custom_type_script = "uid://c4awdylc41q0g"
 
 [resource]
@@ -18,7 +18,6 @@ action_name = "Basic Attack"
 description = "A basic strike with the user's weapon"
 action_type = "Basic"
 tar_type = "Enemy"
-element = "Physical"
 use_weapon_element = true
 effects = Array[ExtResource("1_tswx4")]([SubResource("Resource_f856b")])
 metadata/_custom_type_script = "uid://4ypogf2aj28t"

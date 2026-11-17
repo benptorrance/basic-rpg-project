@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://dung87kp8ynhg"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Action Effect Scripts/targeted_effect.gd" id="1_676o3"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_ghutg"]
+[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/Action Effect Scripts/deal_damage.gd" id="2_pd0be"]
+[ext_resource type="Script" uid="uid://dl73x5altg4ra" path="res://Scripts/Action Effect Scripts/inflict_status.gd" id="3_tqyiq"]
+
+[sub_resource type="Resource" id="Resource_pd0be"]
+script = ExtResource("2_pd0be")
+base_damage = 5
+atk_stat = "Str"
+def_stat = "Armor"
+dmg_type = "Physical"
+metadata/_custom_type_script = "uid://c4awdylc41q0g"
+
+[sub_resource type="Resource" id="Resource_tqyiq"]
+script = ExtResource("3_tqyiq")
+chance = 0.5
+metadata/_custom_type_script = "uid://dl73x5altg4ra"
+
+[resource]
+script = ExtResource("2_ghutg")
+action_name = "Poison Arrow"
+description = "An arrow covered in poison"
+action_type = "Skill"
+tar_type = "Enemy"
+effects = Array[ExtResource("1_676o3")]([SubResource("Resource_pd0be"), SubResource("Resource_tqyiq")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"

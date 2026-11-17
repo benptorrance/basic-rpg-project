@@ -22,10 +22,16 @@ func begin_turn():
 	get_child(2).visible = true
 	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
 	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
-	BattleLogManager.update_display()
+	apply_effects()
+	await BattleLogManager.update_display()
 
 func end_turn():
 	get_child(2).visible = false
+
+func apply_effects():
+	for status in stats.status_effects:
+		for effect in status.repeat_effects:
+			effect._do(self, [self])
 
 func take_damage(damage: int) -> void:
 	stats.attributes["Health"] -= damage
@@ -45,8 +51,16 @@ func _death():
 	living = false
 
 func combat_action (action: CombatAction, targets: Array[Actor]):
+	var target_names: String = ""
+	for target in targets:
+		if target == targets[0]:
+			target_names += target.stats.char_name
+		else:
+			target_names += " and " + target.stats.char_name
+	BattleLogManager.add_entry(stats.char_name + " used " + action.action_name + " on " + target_names)
 	for x in action.effects:
-		x._do(self, action, targets)
+		x._do(self, targets)
+	BattleLogManager.update_display()
 
 #Handles playing a sound when the Actor uses a move/takes damage/heals
 func _play_audio():

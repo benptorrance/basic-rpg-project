@@ -8,6 +8,5 @@ class_name CombatAction extends Resource
 @export var health_cost: int
 
 @export var tar_type: String
-@export var element: String
 @export var use_weapon_element: bool
 @export var effects: Array[TargetedEffect]

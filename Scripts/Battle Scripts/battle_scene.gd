@@ -234,4 +234,3 @@ func state_changer(add: bool, layer: int = 0):
 				menu_layer.push_back(ACTIVE_LAYERS.TARGETING)
 	else:
 		menu_layer.pop_back()
-	print(menu_layer)

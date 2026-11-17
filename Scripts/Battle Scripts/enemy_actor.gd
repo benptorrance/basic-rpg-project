@@ -17,6 +17,7 @@ func begin_turn():
 	get_child(3).visible = true
 	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
 	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
+	apply_effects()
 	BattleLogManager.update_display()
 
 func end_turn():

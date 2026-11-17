@@ -9,7 +9,7 @@ script = ExtResource("2_fqjdj")
 base_damage = 15
 atk_stat = "Str"
 def_stat = "Armor"
-act_type = "Skill"
+dmg_type = "Skill"
 metadata/_custom_type_script = "uid://c4awdylc41q0g"
 
 [resource]
@@ -18,6 +18,5 @@ action_name = "Fling Gel"
 description = "A portion of gelatinous mass is flung at the target."
 action_type = "Skill"
 tar_type = "Enemy"
-element = "Physical"
 effects = Array[ExtResource("1_6kwev")]([SubResource("Resource_fqjdj")])
 metadata/_custom_type_script = "uid://4ypogf2aj28t"

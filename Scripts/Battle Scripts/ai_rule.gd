@@ -70,5 +70,4 @@ func _fetch_targets(actor: EnemyActor, allies: Array[EnemyActor], enemies: Array
 			pass
 		ACT_TARGET.WITH_STATUS:
 			pass
-	print("Fetched Targets " + str(targets))
 	return targets

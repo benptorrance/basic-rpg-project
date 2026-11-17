@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://oj0c82q555eb"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Action Effect Scripts/targeted_effect.gd" id="1_o47cf"]
+[ext_resource type="Script" uid="uid://cv8qx30rv3ieu" path="res://Scripts/Battle Scripts/status_effect.gd" id="2_qoqor"]
+[ext_resource type="Script" uid="uid://c4awdylc41q0g" path="res://Scripts/Action Effect Scripts/deal_damage.gd" id="2_vj3sv"]
+
+[sub_resource type="Resource" id="Resource_vj3sv"]
+script = ExtResource("2_vj3sv")
+atk_stat = "None"
+def_stat = "None"
+dmg_type = "Poisoned"
+metadata/_custom_type_script = "uid://c4awdylc41q0g"
+
+[resource]
+script = ExtResource("2_qoqor")
+name = "Poisoned"
+duration = 3
+repeat_effects = Array[ExtResource("1_o47cf")]([SubResource("Resource_vj3sv")])
+metadata/_custom_type_script = "uid://cv8qx30rv3ieu"

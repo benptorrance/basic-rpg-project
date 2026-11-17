@@ -5,13 +5,15 @@
 [ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_re65q"]
 [ext_resource type="Resource" uid="uid://bxfs6dv01ey1e" path="res://Content/Combat Actions/Items/health_potion.tres" id="3_hq1wo"]
 [ext_resource type="Resource" uid="uid://c2yek31rtlvxc" path="res://Content/Combat Actions/Skills/Weapon Skills/Bow Skills/big_shot.tres" id="5_hq1wo"]
+[ext_resource type="Resource" uid="uid://dung87kp8ynhg" path="res://Content/Combat Actions/Skills/Weapon Skills/Bow Skills/poison_arrow.tres" id="6_he6fy"]
+[ext_resource type="Script" uid="uid://cv8qx30rv3ieu" path="res://Scripts/Battle Scripts/status_effect.gd" id="7_rox83"]
 
 [resource]
 script = ExtResource("1_yxlgj")
 char_name = "Ranger"
 is_player = true
 basic_attack = ExtResource("2_afsof")
-skill_actions = Array[ExtResource("2_re65q")]([ExtResource("5_hq1wo")])
+skill_actions = Array[ExtResource("2_re65q")]([ExtResource("5_hq1wo"), ExtResource("6_he6fy")])
 item_actions = Array[ExtResource("2_re65q")]([ExtResource("3_hq1wo")])
 attributes = {
 "Armor": 10,
