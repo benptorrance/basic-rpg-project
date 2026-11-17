@@ -54,6 +54,9 @@ func condition_met(actor: EnemyActor, allies: Array[EnemyActor], enemies: Array[
 
 func _fetch_targets(actor: EnemyActor, allies: Array[EnemyActor], enemies: Array[Actor]) -> Array:
 	var targets: Array[Actor]
+	for enemy in enemies.duplicate():
+		if enemy.living != true:
+			enemies.pop_at(enemies.find(enemy))
 	match act_target:
 		ACT_TARGET.RANDOM:
 			match action.tar_type:
@@ -62,7 +65,7 @@ func _fetch_targets(actor: EnemyActor, allies: Array[EnemyActor], enemies: Array
 				"Ally":
 					pass
 				"Enemy":
-					var index: int = randi() % 4
+					var index: int = randi() % enemies.size()
 					targets.append(enemies[index])
 		ACT_TARGET.HIGHEST_HEALTH:
 			pass

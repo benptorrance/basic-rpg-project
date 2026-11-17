@@ -38,13 +38,13 @@ func _do(agent: Actor, targets: Array[Actor]):
 				BattleLogManager.add_entry(target.stats.char_name + " is Poisoned!")
 		match def_stat:
 			"Armor":
-				defenses = target.stats.attributes["Armor"]
+				defenses = float(target.stats.attributes["Armor"])
 				for mod in target.stat_modifiers:
 					if mod.stat == STAT.ARMOR:
-						if mod.is_flat:
-							defenses += mod.flat
+						if mod.is_flat == true:
+							defenses += mod.flat * mod.intensity
 						else:
-							defenses += target.stats.attributes["Armor"] * mod.percent
+							defenses += (target.stats.attributes["Armor"] * mod.percent) * mod.intensity
 					else:
 						pass
 				total_damage -= defenses
@@ -55,9 +55,9 @@ func _do(agent: Actor, targets: Array[Actor]):
 				for mod in target.stat_modifiers:
 					if mod.stat == STAT.WARDING:
 						if mod.is_flat:
-							defenses += mod.flat
+							defenses += mod.flat * mod.intensity
 						else:
-							defenses += target.stats.attributes["Warding"] * mod.percent
+							defenses += (target.stats.attributes["Warding"] * mod.percent) * mod.intensity
 					else:
 						pass
 				total_damage -= defenses

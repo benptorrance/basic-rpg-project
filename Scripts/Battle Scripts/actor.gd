@@ -38,7 +38,8 @@ func apply_and_update_effects():
 			for effect in status.expire_effects:
 				effect._do(self, [self])
 			BattleLogManager.add_entry(stats.char_name + " is no longer " + status.name)
-	for mod in stat_modifiers:
+	##Using a duplicate of the array so that modifying it doesn't cause issues.
+	for mod in stat_modifiers.duplicate():
 		mod.duration -= 1
 		if mod.duration == 0:
 			stat_modifiers.pop_at(stat_modifiers.find(mod))
@@ -73,7 +74,8 @@ func combat_action (action: CombatAction, targets: Array[Actor]):
 		BattleLogManager.add_entry(stats.char_name + " used " + action.action_name + " on " + target_names)
 	for x in action.effects:
 		x._do(self, targets)
-	print(stat_modifiers)
+	for mod in stat_modifiers:
+		print(stats.char_name + " has " + mod.name + " at intensity " + str(mod.intensity) + " for " + str(mod.duration) + " turns")
 	BattleLogManager.update_display()
 
 #Handles playing a sound when the Actor uses a move/takes damage/heals

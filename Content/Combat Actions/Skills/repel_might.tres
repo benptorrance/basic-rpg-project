@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CombatAction" format=3 uid="uid://cja38cax7tiuo"]
+
+[ext_resource type="Script" uid="uid://bn2xmau74eukw" path="res://Scripts/Action Effect Scripts/targeted_effect.gd" id="1_ry35p"]
+[ext_resource type="Script" uid="uid://4ypogf2aj28t" path="res://Scripts/Battle Scripts/combat_action.gd" id="2_8qn23"]
+[ext_resource type="Script" uid="uid://d2up3lnj5ep5t" path="res://Scripts/Action Effect Scripts/add_stat_modifier.gd" id="2_7268j"]
+
+[sub_resource type="Resource" id="Resource_ys5i7"]
+script = ExtResource("2_7268j")
+name = &"RepelMight"
+duration = 2
+stat = 7
+is_flat = true
+flat = 10
+metadata/_custom_type_script = "uid://d2up3lnj5ep5t"
+
+[resource]
+script = ExtResource("2_8qn23")
+action_name = "Repel Might"
+description = "Boosts the target's Armor"
+action_type = "Skill"
+tar_type = "Ally"
+effects = Array[ExtResource("1_ry35p")]([SubResource("Resource_ys5i7")])
+metadata/_custom_type_script = "uid://4ypogf2aj28t"

@@ -4,7 +4,6 @@ class_name StatModifier
 var stat: STAT
 var is_flat: bool
 var flat: int
-var percent: float
 
 enum STAT {
 	STR,

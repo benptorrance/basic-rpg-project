@@ -111,7 +111,6 @@ func _next_turn() -> void:
 			#When action animations are implemented a timer here will prevent the turn from going to the
 			#next enemy when the animation is still playing.
 			await BattleLogManager.log_cleared
-			await get_tree().create_timer(1.0).timeout
 			think.stop()
 			_next_turn()
 	else:
