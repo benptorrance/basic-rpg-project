@@ -14,14 +14,14 @@ func load_stats(path: String) -> void:
 	is_player = false
 
 func begin_turn():
-	get_child(3).visible = true
+	self_modulate = Color(1.1,1.1,1.1,1)
 	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
 	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
 	apply_and_update_effects()
 	BattleLogManager.update_display()
 
 func end_turn():
-	get_child(3).visible = false
+	self_modulate = Color(1,1,1,1)
 
 func generate_loot():
 	pass

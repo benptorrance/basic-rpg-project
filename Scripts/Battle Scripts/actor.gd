@@ -21,6 +21,8 @@ func save_stats(path: String) -> void:
 
 func begin_turn():
 	get_child(2).visible = true
+	get_child(2).play()
+	self_modulate = Color(1.1,1.1,1.1,1)
 	BattleLogManager.add_entry(stats.char_name + "'s turn has begun!")
 	BattleLogManager.add_entry(stats.char_name + " has " + str(stats.attributes["Health"]) + " health")
 	apply_and_update_effects()
@@ -28,6 +30,8 @@ func begin_turn():
 
 func end_turn():
 	get_child(2).visible = false
+	get_child(2).stop()
+	self_modulate = Color(1,1,1,1)
 
 func apply_and_update_effects():
 	for status in stats.status_effects:

@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cndodgl6shdhy"]
+
+[ext_resource type="Texture2D" uid="uid://ghy7necd0h4a" path="res://Assets/UI Assets/Icons/Turn Indicator Animation/turn_indicator_1.png" id="1_pklwx"]
+[ext_resource type="Texture2D" uid="uid://g12q5atqy3rf" path="res://Assets/UI Assets/Icons/Turn Indicator Animation/turn_indicator_2.png" id="2_xr50x"]
+[ext_resource type="Texture2D" uid="uid://c5cifsdvk10o4" path="res://Assets/UI Assets/Icons/Turn Indicator Animation/turn_indicator_3.png" id="3_fb1cq"]
+[ext_resource type="Texture2D" uid="uid://b6en7wc3403fv" path="res://Assets/UI Assets/Icons/Turn Indicator Animation/turn_indicator_4.png" id="4_hnr0t"]
+[ext_resource type="Texture2D" uid="uid://brl6y012akoab" path="res://Assets/UI Assets/Icons/Turn Indicator Animation/turn_indicator_5.png" id="5_beiud"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pklwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pklwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pklwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xr50x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fb1cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hnr0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_beiud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hnr0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fb1cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xr50x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pklwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pklwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_pklwx")
+}],
+"loop": 1,
+"name": &"turn_indicator",
+"speed": 10.0
+}]

@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://ymgalg2pu3g"]
 
 [ext_resource type="FontVariation" uid="uid://8156ckby5sv5" path="res://Assets/Fonts/press_start_var.tres" id="1_fqf8d"]
+[ext_resource type="StyleBox" uid="uid://5wlbvppmc8tt" path="res://Assets/Themes/Button Styles/battle_menu_normal.tres" id="2_lcnlw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqf8d"]
 content_margin_left = 3.0
@@ -16,30 +17,21 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcnlw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqf8d"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmgk1"]
-content_margin_left = 3.0
-content_margin_top = 3.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tssyn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqci1"]
 
 [resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_focus_color = Color(0.8164544, 0.6211012, 0.20710358, 1)
+Button/colors/font_hover_color = Color(0.84375685, 0.6431131, 0.224783, 1)
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_fqf8d")
 Button/styles/disabled = SubResource("StyleBoxFlat_fqf8d")
 Button/styles/focus = SubResource("StyleBoxEmpty_lcnlw")
-Button/styles/hover = SubResource("StyleBoxEmpty_fqf8d")
-Button/styles/normal = SubResource("StyleBoxFlat_rmgk1")
+Button/styles/hover = ExtResource("2_lcnlw")
+Button/styles/normal = ExtResource("2_lcnlw")
 Button/styles/pressed = SubResource("StyleBoxEmpty_tssyn")
 GridContainer/constants/h_separation = 8
 GridContainer/constants/v_separation = 0
