@@ -2,7 +2,9 @@ extends Resource
 class_name Stats
 
 @export var char_name: String
+@export var unit_id: StringName
 @export var is_player: bool
+@export var current_job: JOB
 
 ##Holds the lists of skills the character has access to.
 @export var basic_attack: CombatAction 
@@ -64,4 +66,11 @@ class_name Stats
 	"Main Hand": null,
 	"Off Hand": null,
 	"Accessory": null,
+}
+
+enum JOB {
+	WARRIOR,
+	MAGE,
+	PRIEST,
+	RANGER
 }

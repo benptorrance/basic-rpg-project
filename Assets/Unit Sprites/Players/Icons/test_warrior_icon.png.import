@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3tj0vt6pgkmp"
-path="res://.godot/imported/test_ranger.png-fbbf8a77934aee6ff3f4a4f2129a6767.ctex"
+uid="uid://y1crgbjhwx3m"
+path="res://.godot/imported/test_warrior_icon.png-cb38df3c5172c8c8ff0e18cf45983383.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Unit Sprites/Players/test_ranger.png"
-dest_files=["res://.godot/imported/test_ranger.png-fbbf8a77934aee6ff3f4a4f2129a6767.ctex"]
+source_file="res://Assets/Unit Sprites/Players/Icons/test_warrior_icon.png"
+dest_files=["res://.godot/imported/test_warrior_icon.png-cb38df3c5172c8c8ff0e18cf45983383.ctex"]
 
 [params]
 

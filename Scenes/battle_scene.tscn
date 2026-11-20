@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://5rpw4yw3gr37" path="res://Scripts/Battle Scripts/enemy_actor.gd" id="10_778cw"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/Battle Scripts/action_list.gd" id="10_f4ggb"]
 [ext_resource type="Texture2D" uid="uid://d3tj0vt6pgkmp" path="res://Assets/Unit Sprites/Players/Sprites/test_ranger.png" id="10_tfvgr"]
-[ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/Sprites/test_wizard.png" id="10_vol83"]
+[ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/Sprites/test_mage.png" id="10_vol83"]
 [ext_resource type="Texture2D" uid="uid://7wc2pbom5o45" path="res://Assets/Unit Sprites/Players/Sprites/test_priest.png" id="11_kre2b"]
 [ext_resource type="Script" uid="uid://bpyq6va13nba1" path="res://Scripts/Battle Scripts/page.gd" id="21_5gdnp"]
 

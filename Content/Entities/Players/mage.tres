@@ -9,8 +9,10 @@
 
 [resource]
 script = ExtResource("5_qoveh")
-char_name = "Wizard"
+char_name = "Mage"
+unit_id = &"mage"
 is_player = true
+current_job = 1
 basic_attack = ExtResource("1_mkjar")
 guard = ExtResource("2_ixvyj")
 item_actions = Array[ExtResource("3_luvue")]([ExtResource("4_m8dco")])

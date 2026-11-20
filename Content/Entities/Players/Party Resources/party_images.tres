@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ImageData" format=3 uid="uid://baoqu17140oxi"]
+
+[ext_resource type="Script" uid="uid://cnw6qi65faky5" path="res://Scripts/image_data.gd" id="1_mjl5g"]
+
+[resource]
+script = ExtResource("1_mjl5g")
+metadata/_custom_type_script = "uid://cnw6qi65faky5"

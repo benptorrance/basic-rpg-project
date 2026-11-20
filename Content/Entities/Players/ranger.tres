@@ -12,7 +12,9 @@
 [resource]
 script = ExtResource("1_yxlgj")
 char_name = "Ranger"
+unit_id = &"ranger"
 is_player = true
+current_job = 3
 basic_attack = ExtResource("2_afsof")
 guard = ExtResource("2_rox83")
 skill_actions = Array[ExtResource("2_re65q")]([ExtResource("5_hq1wo"), ExtResource("6_he6fy")])

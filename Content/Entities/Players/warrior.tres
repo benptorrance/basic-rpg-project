@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("4_0cgfb")
 char_name = "Warrior"
+unit_id = &"warrior"
 is_player = true
 basic_attack = ExtResource("1_npops")
 guard = ExtResource("2_cdo1x")

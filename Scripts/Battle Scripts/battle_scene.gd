@@ -5,10 +5,14 @@ class_name BattleScene
 @onready var enemies: Array [EnemyActor]
 @onready var a_zone = $AllyZone
 @onready var e_zone = $EnemyZone
-@onready var battle_log = $BattleText
 @onready var act_menu = $BattleMenus/ActionMenu
 @export var sel_actor: Actor = null
 @export var menu_layer: Array[ACTIVE_LAYERS]
+
+var party: ActiveParty = load("res://Content/Entities/Players/Party Resources/active_party.tres")
+var turn_display = TurnOrderDisplay.new()
+var party_images = load("res://Content/Entities/Players/Party Resources/party_images.tres")
+var enemy_images = ImageData
 
 var t_order = []
 var t_index = 0
@@ -34,37 +38,40 @@ func _ready() -> void:
 	_menu_state(false)
 	load_actors()
 	act_menu._load(allies)
-	_cal_turn_order()
+	t_order = turn_display.update_order()
 	_next_turn()
 
 func load_actors() -> void:
+	party.load_active()
 	for child in a_zone.get_children():
 		match child.get_index():
 			0:
-				child.load_stats("res://Content/Entities/Players/player_1.tres")
+				child.load_stats(party.paths[0])
+				var images = party_images.load_image(child.stats.unit_id)
+				child.texture = images[0].texture
+				turn_display.add_unit(child, images[1])
 			1:
-				child.load_stats("res://Content/Entities/Players/player_2.tres")
+				child.load_stats(party.paths[1])
+				var images = party_images.load_image(child.stats.unit_id)
+				child.texture = images[0].texture
+				turn_display.add_unit(child, images[1])
 			2:
-				child.load_stats("res://Content/Entities/Players/player_3.tres")
+				child.load_stats(party.paths[2])
+				var images = party_images.load_image(child.stats.unit_id)
+				child.texture = images[0].texture
+				turn_display.add_unit(child, images[1])
 			3:
-				child.load_stats("res://Content/Entities/Players/player_4.tres")
+				child.load_stats(party.paths[3])
+				var images = party_images.load_image(child.stats.unit_id)
+				child.texture = images[0].texture
+				turn_display.add_unit(child, images[1])
 		allies.append(child)
-		t_order.append(child)
 	for child in e_zone.get_children():
+		var image:= Sprite2D.new()
+		image.texture = load("res://Assets/Unit Sprites/Basic Enemies/test_enemy.png")
 		child.load_stats("res://Content/Entities/Enemies/slime.tres")
+		turn_display.add_unit(child, image)
 		enemies.append(child)
-		t_order.append(child)
-
-func _cal_turn_order() -> void:
-	for i in range(0, 8):
-		for x in range(i+1,8):
-			if t_order[i].stats.attributes.Dex < t_order[x].stats.attributes.Dex:
-				var temp = t_order[i]
-				t_order[i] = t_order[x]
-				t_order[x] = temp
-			#If speeds are equal, swap 50% of the time.
-			if t_order[i].stats.attributes.Dex == t_order[x].stats.attributes.Dex:
-				pass
 
 func _next_turn() -> void:
 	##Highlight the image of the player whose turn it is.
@@ -78,6 +85,8 @@ func _next_turn() -> void:
 		return
 	if sel_actor != null:
 		sel_actor.end_turn()
+	if t_index == 0:
+		t_order = turn_display.update_order()
 	
 	##Save the current actor in the turn order and then increment the index to the next actor.
 	sel_actor = t_order[t_index]
@@ -91,6 +100,7 @@ func _next_turn() -> void:
 		##Determine whether the current turn is for a player or enemy then do stuff for turns.
 		if sel_actor.is_player:
 			##Enable GUI to read inputs and be navigatable
+			print(sel_actor.texture)
 			_menu_state(true)
 			##Program waits for an action to be selected, which calls fetch_action and the turn process continues
 		else:

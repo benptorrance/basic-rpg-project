@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7wc2pbom5o45"
-path="res://.godot/imported/test_priest.png-6e1c76514695a2fb4f7fec844e0159dd.ctex"
+uid="uid://rb0n5f7bufqf"
+path="res://.godot/imported/test_mage.png-844a9730750e3fd3bfc14ffa64a25089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Unit Sprites/Players/test_priest.png"
-dest_files=["res://.godot/imported/test_priest.png-6e1c76514695a2fb4f7fec844e0159dd.ctex"]
+source_file="res://Assets/Unit Sprites/Players/Sprites/test_mage.png"
+dest_files=["res://.godot/imported/test_mage.png-844a9730750e3fd3bfc14ffa64a25089.ctex"]
 
 [params]
 
