@@ -6,11 +6,12 @@
 [ext_resource type="Script" uid="uid://bxbk5modb0bss" path="res://Scripts/Battle Scripts/battle_scene.gd" id="2_ms847"]
 [ext_resource type="PackedScene" uid="uid://dfmhlfm6doep" path="res://Scenes/target_menus.tscn" id="3_3gnqe"]
 [ext_resource type="Texture2D" uid="uid://b2k0k3cu64fq0" path="res://Assets/Backgrounds/Summer Forest Background.png" id="3_5gdnp"]
+[ext_resource type="PackedScene" uid="uid://x4chq20csb3d" path="res://Scenes/turn_order_display.tscn" id="4_ys5i7"]
 [ext_resource type="Script" uid="uid://dcf6px7wkx6v3" path="res://Scripts/Battle Scripts/unit_zone.gd" id="5_f856b"]
 [ext_resource type="Script" uid="uid://m0lq617rl3di" path="res://Scripts/Battle Scripts/battle_text.gd" id="5_kre2b"]
-[ext_resource type="Texture2D" uid="uid://c6j2clpdyq7an" path="res://Assets/Unit Sprites/Players/test_warrior.png" id="6_vuvll"]
+[ext_resource type="Texture2D" uid="uid://c6j2clpdyq7an" path="res://Assets/Unit Sprites/Players/Sprites/test_warrior.png" id="6_vuvll"]
 [ext_resource type="Script" uid="uid://c4ao4qci8pupc" path="res://Scripts/Battle Scripts/actor.gd" id="6_wb0gu"]
-[ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/blue_slime.png" id="7_84vmf"]
+[ext_resource type="Texture2D" uid="uid://dtjv0vnc3bw16" path="res://Assets/Unit Sprites/Basic Enemies/Sprites/blue_slime.png" id="7_84vmf"]
 [ext_resource type="Texture2D" uid="uid://b0he6spck1suk" path="res://Assets/UI Assets/Menu Backgrounds/ninepatch_default_pale_blue.png" id="7_w4764"]
 [ext_resource type="Texture2D" uid="uid://by7w0e2jtxgoo" path="res://Assets/UI Assets/Icons/Unit Selector.png" id="8_84vmf"]
 [ext_resource type="SpriteFrames" uid="uid://cndodgl6shdhy" path="res://Assets/UI Assets/Icons/Turn Indicator Animation/turn_indicator_animation.tres" id="9_5gdnp"]
@@ -18,9 +19,9 @@
 [ext_resource type="SpriteFrames" uid="uid://cvi4n7t6qn5lm" path="res://Assets/UI Assets/Icons/Thinking Animation/thinking_frames.tres" id="9_xdap8"]
 [ext_resource type="Script" uid="uid://5rpw4yw3gr37" path="res://Scripts/Battle Scripts/enemy_actor.gd" id="10_778cw"]
 [ext_resource type="Script" uid="uid://p4vq881wxxcq" path="res://Scripts/Battle Scripts/action_list.gd" id="10_f4ggb"]
-[ext_resource type="Texture2D" uid="uid://d3tj0vt6pgkmp" path="res://Assets/Unit Sprites/Players/test_ranger.png" id="10_tfvgr"]
-[ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/test_wizard.png" id="10_vol83"]
-[ext_resource type="Texture2D" uid="uid://7wc2pbom5o45" path="res://Assets/Unit Sprites/Players/test_priest.png" id="11_kre2b"]
+[ext_resource type="Texture2D" uid="uid://d3tj0vt6pgkmp" path="res://Assets/Unit Sprites/Players/Sprites/test_ranger.png" id="10_tfvgr"]
+[ext_resource type="Texture2D" uid="uid://rb0n5f7bufqf" path="res://Assets/Unit Sprites/Players/Sprites/test_wizard.png" id="10_vol83"]
+[ext_resource type="Texture2D" uid="uid://7wc2pbom5o45" path="res://Assets/Unit Sprites/Players/Sprites/test_priest.png" id="11_kre2b"]
 [ext_resource type="Script" uid="uid://bpyq6va13nba1" path="res://Scripts/Battle Scripts/page.gd" id="21_5gdnp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ai3kb"]
@@ -72,24 +73,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_5gdnp")
 
-[node name="TurnOrderDisplay" type="HBoxContainer" parent="." unique_id=1826511701]
-custom_minimum_size = Vector2(320, 0)
+[node name="TurnOrderDisplay" parent="." unique_id=810289514 instance=ExtResource("4_ys5i7")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -80.0
-offset_right = 80.0
-offset_bottom = 32.0
-grow_horizontal = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="TurnOrderDisplay" unique_id=604104719]
-custom_maximum_size = Vector2(0, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control" type="Control" parent="." unique_id=1804341500]
+[node name="BattleTextContainer" type="Control" parent="." unique_id=1804341500]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -99,8 +86,9 @@ offset_top = 45.0
 offset_right = 90.0
 offset_bottom = 85.0
 grow_horizontal = 2
+script = ExtResource("5_kre2b")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=742829563]
+[node name="Background" type="NinePatchRect" parent="BattleTextContainer" unique_id=742829563]
 modulate = Color(0, 0.8509804, 0.22745098, 0.5294118)
 layout_mode = 1
 anchors_preset = 15
@@ -114,7 +102,7 @@ patch_margin_top = 5
 patch_margin_right = 11
 patch_margin_bottom = 5
 
-[node name="BattleText" type="RichTextLabel" parent="Control" unique_id=130278113]
+[node name="Text" type="RichTextLabel" parent="BattleTextContainer" unique_id=130278113]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,7 +111,6 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_kre2b")
 
 [node name="AllyZone" type="Control" parent="." unique_id=1719875408]
 custom_minimum_size = Vector2(320, 260)
