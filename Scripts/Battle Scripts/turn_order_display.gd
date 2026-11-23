@@ -8,7 +8,7 @@ var round: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 
 func add_unit(actor: Actor, icon: Sprite2D):
 	units.append(actor)
-	unit_icons[actor] = icon
+	unit_icons[actor] = icon.duplicate()
+
 
 ##Deletes unit from the display once turn is over.
 func next_unit():
@@ -24,7 +25,7 @@ func next_unit():
 
 ##Calculates the turn order. This is called at the start of every round.
 func update_order():
-	turn_order = units
+	turn_order = units.duplicate()
 	for i in range(0, 8):
 		for x in range(i+1,8):
 			if turn_order[i].stats.attributes.Dex < turn_order[x].stats.attributes.Dex:
@@ -37,4 +38,11 @@ func update_order():
 					var temp = turn_order[i]
 					turn_order[i] = turn_order[x]
 					turn_order[x] = temp
+	for child in $MarginContainer/Border/IconOrder.get_children():
+		var icon = child.get_child(0)
+		if unit_icons[turn_order[child.get_index()]]:
+			icon.texture = unit_icons[turn_order[child.get_index()]].texture
+			child.visible = true
+		else:
+			pass
 	return turn_order

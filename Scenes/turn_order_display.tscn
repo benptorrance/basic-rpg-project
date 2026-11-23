@@ -11,7 +11,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -160.0
 offset_right = 160.0
-offset_bottom = 32.0
+offset_bottom = 36.0
 grow_horizontal = 2
 script = ExtResource("1_abr4v")
 metadata/_edit_use_anchors_ = true
@@ -19,21 +19,21 @@ metadata/_edit_use_anchors_ = true
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1908407476]
 layout_mode = 0
 offset_right = 320.0
-offset_bottom = 32.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
 
-[node name="PanelContainer" type="Control" parent="MarginContainer" unique_id=271663918]
+[node name="BackgroundShadeContainer" type="Control" parent="MarginContainer" unique_id=271663918]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer" unique_id=292047181]
+[node name="BackgroundShade" type="Panel" parent="MarginContainer/BackgroundShadeContainer" unique_id=292047181]
 modulate = Color(1, 1, 1, 0.4862745)
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 318.0
-offset_bottom = 30.0
+offset_bottom = 34.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1877889875]
+[node name="Border" type="NinePatchRect" parent="MarginContainer" unique_id=1877889875]
 layout_mode = 2
 texture = ExtResource("1_ud5ut")
 patch_margin_left = 10
@@ -41,7 +41,7 @@ patch_margin_top = 5
 patch_margin_right = 10
 patch_margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect" unique_id=868361958]
+[node name="IconOrder" type="HBoxContainer" parent="MarginContainer/Border" unique_id=868361958]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,9 +53,81 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CharacterContainer" type="PanelContainer" parent="MarginContainer/NinePatchRect/HBoxContainer" unique_id=2054231530]
+[node name="Character1" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=2054231530]
+visible = false
 custom_minimum_size = Vector2(26, 2)
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/NinePatchRect/HBoxContainer/CharacterContainer" unique_id=238186268]
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character1" unique_id=238186268]
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 5
+
+[node name="Character2" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=335346810]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character2" unique_id=206227618]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Character3" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=1505638007]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character3" unique_id=212153013]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Character4" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=395083546]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character4" unique_id=527412247]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Character5" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=2020775899]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character5" unique_id=1961115884]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Character6" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=1632329459]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character6" unique_id=424822065]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Character7" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=1774161810]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character7" unique_id=1137068827]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Character8" type="PanelContainer" parent="MarginContainer/Border/IconOrder" unique_id=439203150]
+visible = false
+custom_minimum_size = Vector2(26, 2)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Border/IconOrder/Character8" unique_id=1024680860]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5

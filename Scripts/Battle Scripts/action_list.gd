@@ -23,7 +23,6 @@ func _on_button_pressed(btn_name: String) -> void:
 	for child in page_cont.get_children():
 		if child == page_cont.get_child(player_num):
 			child.visible = true
-			print(child.get_child(0).get_child(0))
 			child.get_child(0).get_child(0).grab_focus()
 		else:
 			child.visible = false

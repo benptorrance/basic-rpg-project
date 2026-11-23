@@ -21,9 +21,8 @@ const UNIT_ICONS:={
 func load_image(unit_id: StringName):
 	if UNIT_SPRITES.has(unit_id) && UNIT_ICONS.has(unit_id):
 		var images
-		print(UNIT_SPRITES[unit_id])
 		sprite.texture = load(UNIT_SPRITES[unit_id])
-		icon.texture = load(UNIT_SPRITES[unit_id])
+		icon.texture = load(UNIT_ICONS[unit_id])
 		images = [sprite, icon]
 		return images
 	if UNIT_SPRITES.has(unit_id) == false && UNIT_ICONS.has(unit_id):

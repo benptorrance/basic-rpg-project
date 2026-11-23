@@ -6,11 +6,11 @@ class_name BattleScene
 @onready var a_zone = $AllyZone
 @onready var e_zone = $EnemyZone
 @onready var act_menu = $BattleMenus/ActionMenu
+@onready var turn_display = $TurnOrderDisplay
 @export var sel_actor: Actor = null
 @export var menu_layer: Array[ACTIVE_LAYERS]
 
 var party: ActiveParty = load("res://Content/Entities/Players/Party Resources/active_party.tres")
-var turn_display = TurnOrderDisplay.new()
 var party_images = load("res://Content/Entities/Players/Party Resources/party_images.tres")
 var enemy_images = ImageData
 
@@ -100,7 +100,6 @@ func _next_turn() -> void:
 		##Determine whether the current turn is for a player or enemy then do stuff for turns.
 		if sel_actor.is_player:
 			##Enable GUI to read inputs and be navigatable
-			print(sel_actor.texture)
 			_menu_state(true)
 			##Program waits for an action to be selected, which calls fetch_action and the turn process continues
 		else:
