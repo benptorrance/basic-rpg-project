@@ -7,9 +7,11 @@ signal target_selected
 signal state_change
 
 func _ready() -> void:
+	##Prevents mouse input when the zone is not running unit_selection
 	for child in self.get_children():
 		units.append(child)
 		child.get_child(1).disabled = false
+		child.get_child(1).mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 ##Handles the targeting of the units within the zone.
 func unit_selection(sel_actor: Actor):
@@ -17,9 +19,14 @@ func unit_selection(sel_actor: Actor):
 	prev_button = get_viewport().gui_get_focus_owner().get_path()
 	state_change.emit(true, 2)
 	sel_actor.get_child(1).grab_focus()
+	
+	for unit in units:
+		unit.get_child(1).mouse_filter = Control.MOUSE_FILTER_STOP
+	
 	var targets = await target_selected
 	for unit in units:
 		unit.get_child(0).visible = false
+		unit.get_child(1).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return targets
 
 func _selector_pressed(btn_index: int):
@@ -46,6 +53,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		for unit in units:
 			if unit.get_child(0).visible:
 				unit.get_child(0).visible = false
+				unit.get_child(1).mouse_filter = Control.MOUSE_FILTER_IGNORE
 				get_node(prev_button).grab_focus()
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		state_change.emit(false)
 		get_viewport().set_input_as_handled()
