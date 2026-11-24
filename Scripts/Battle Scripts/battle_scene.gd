@@ -85,11 +85,14 @@ func _next_turn() -> void:
 		return
 	if sel_actor != null:
 		sel_actor.end_turn()
-	if t_index == 0:
-		t_order = turn_display.update_order()
 	
-	##Save the current actor in the turn order and then increment the index to the next actor.
+	
+	##Save the current actor in the turn order, then if the index is pointing at the end of the turn order
+	##Update the turn order and then
 	sel_actor = t_order[t_index]
+	if t_index == t_order.size()-1:
+		print("running")
+		t_order = turn_display.update_order()
 	t_index = wrapi(t_index+1, 0, t_order.size())
 	
 	
