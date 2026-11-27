@@ -38,7 +38,7 @@ func _ready() -> void:
 	_menu_state(false)
 	load_actors()
 	act_menu._load(allies)
-	t_order = turn_display.update_order()
+	turn_display.update_order()
 	_next_turn()
 
 func load_actors() -> void:
@@ -90,9 +90,6 @@ func _next_turn() -> void:
 	##Save the current actor in the turn order, then if the index is pointing at the end of the turn order
 	##Update the turn order and then
 	sel_actor = t_order[t_index]
-	if t_index == t_order.size()-1:
-		print("running")
-		t_order = turn_display.update_order()
 	t_index = wrapi(t_index+1, 0, t_order.size())
 	
 	
@@ -124,8 +121,10 @@ func _next_turn() -> void:
 			#next enemy when the animation is still playing.
 			await BattleLogManager.log_cleared
 			think.stop()
+			turn_display.next_unit(sel_actor)
 			_next_turn()
 	else:
+		turn_display.next_unit(sel_actor)
 		_next_turn()
 
 ##Checks the status of the actors if all actors on one side are dead and
@@ -187,6 +186,7 @@ func _flee_battle() -> void:
 		##showing text
 		_menu_state(false)
 		BattleLogManager.add_entry(str("The party was unable to run away!"))
+	turn_display.next_unit(sel_actor)
 	_next_turn()
 
 ##Handles player combat actions.
@@ -197,6 +197,7 @@ func _player_combat_action (action: CombatAction, targets: Array[Actor]):
 	_menu_state(false)
 	##Waits to begin next turn until the battle log displays all text
 	await BattleLogManager.log_cleared
+	turn_display.next_unit(sel_actor)
 	_next_turn()
 
 func _fight():
